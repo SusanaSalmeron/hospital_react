@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import KeywordContext from '../../context/KeywordContext';
-import { patients } from '../../data';
+import { getPatientAnyFieldBy, getPatients } from '../../services/patientService';
 import Patient from '../Patient';
 import SearchBar from '../SearchBar';
 import style from './patientList.module.css';
@@ -12,19 +12,14 @@ export default function PatientList() {
     const { keyword } = useContext(KeywordContext)
 
     useEffect(() => {
-        let filteredPatients = []
+
         if (keyword && keyword !== "") {
-            filteredPatients = patients.filter(patient => {
-                return patient.diagnostico.toLowerCase() === keyword
-                    || patient.edad.toString() === keyword
-                    || patient.nombre.toLowerCase() === keyword
-                    || patient.numeroSS.toLowerCase() === keyword
-                    || patient.diagnostico.toLowerCase() === keyword
-            })
-            console.log(filteredPatients)
+            //Asignar a algun lado los datos!!
+            const filteredPatients = getPatientAnyFieldBy(keyword)
+
             setShowPatients(filteredPatients)
         } else {
-            setShowPatients(patients)
+            setShowPatients(getPatients())
         }
     }, [keyword])
 

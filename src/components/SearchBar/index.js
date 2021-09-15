@@ -3,8 +3,6 @@ import style from './searchBar.module.css';
 import KeywordContext from '../../context/KeywordContext'
 
 
-
-
 export default function SearchBar() {
     const [search, setSearch] = useState('');
     const { setKeyword } = useContext(KeywordContext)
