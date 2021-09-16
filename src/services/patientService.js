@@ -1,4 +1,4 @@
-import { patients } from '../data';
+import { patients } from '../data/data';
 
 /*
 1) RENOMBRAR fichero del servicio: fichero para el servicio que tenga sentido: PatientService, y que contenga funciones y listo
