@@ -1,42 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './login.module.css';
-import { ValidateLogin } from '../../services/validateLoginService'
-
+import { validateLogin } from '../../services/validateLoginService'
+import {
+    useHistory
+} from 'react-router-dom'
 
 export default function Login() {
+    const history = useHistory()
+    const [error, setError] = useState()
 
 
-    const handleSubmit = (evt) => {
+    const handleSubmit = evt => {
         evt.preventDefault()
-        console.log(evt.target.email.value)
+
         const { target: { email: { value: email }, password: { value: password } } } = evt
 
         try {
-            ValidateLogin(email, password)
-        } catch (err) {
-            /* setError(message) */
-            console.log(err)
-        }
+            validateLogin(email, password)
 
+            history.push('/search')
+
+        } catch ({ message }) {
+            setError(message)
+        }
 
 
     }
 
-
     return (
         <>
             <h1 className={style.title}>Login</h1>
-            <div className={style.container}>
-                <form className={style.login} onSubmit={handleSubmit}>
-                    <div className={style.info}>
-                        <p>* Para poder acceder al sistema, inicia sesión</p>
-                    </div>
-                    <input type="text" name="email" placeholder="Introduce tu email" />
-                    <input type="password" name="password" placeholder="introduce tu contraseña" />
-                    <button>Login</button>
-                </form>
 
-            </div>
+            <form className={style.login} onSubmit={handleSubmit}>
+                {error && <p className={style.error}>{error}</p>}
+                <input type="text" name="email" placeholder="Introduce tu email" />
+                <input type="password" name="password" placeholder="introduce tu contraseña" />
+                <button>Login</button>
+            </form>
+
 
         </>
     )

@@ -1,4 +1,4 @@
-export const access = [
+export const employees = [
     {
         nombre: 'Francisco Perez',
         email: 'fran@hospital.com',
