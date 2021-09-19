@@ -3,8 +3,7 @@ import { validateEmail } from '../middleware/emailValidation'
 import { validatePassword } from '../middleware/passwordValidation'
 
 
-
-export function validateLogin(email, password) {
+function validate(email, password) {
     const foundEmployee = employees.filter(employee =>
         employee.email === email && employee.password === password
     )
@@ -18,8 +17,27 @@ export function validateLogin(email, password) {
     if (foundEmployee[0].personal !== "sanitario") {
         throw new Error('Acceso denegado')
     }
+}
 
-
+export default function login(email, password, setUserName) {
+    try {
+        validate(email, password)
+        const userName = getLoggedName(email)
+        setUserName(userName)
+        const expirationRange = 3600 * 1000
+        const token = Date.now() + expirationRange
+        localStorage.setItem("token", token)
+        return ""
+    } catch (e) {
+        return e.message
+    }
 }
 
 
+function getLoggedName(email) {
+    return employees.filter(employee =>
+        employee.email === email
+    )[0].nombre
+
+
+}

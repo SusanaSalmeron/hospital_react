@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-const KeywordContext = createContext(null)
+const KeywordContext = createContext()
 
 export function KeywordProvider({ children }) {
     const [keyword, setKeyword] = useState("")
@@ -11,7 +11,5 @@ export function KeywordProvider({ children }) {
         </KeywordContext.Provider>
     )
 }
-
-KeywordProvider.displayName = 'KeywordProvider'
 
 export default KeywordContext

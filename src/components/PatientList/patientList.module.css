@@ -21,6 +21,22 @@
     margin: 0 auto;
     flex-wrap: wrap;
     font-size: 2em;
-   
+}
 
+.welcome{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.welcome span {
+    font-style: italic;
+    color:rebeccapurple;
+    text-transform: capitalize;
+    font-size: 1.3em;
+    margin-left: 0.5em;
+}
+
+.welcome h4{
+    margin-right: 3em;  
+    background-color:cadetblue;
 }

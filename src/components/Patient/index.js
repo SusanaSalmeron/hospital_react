@@ -18,7 +18,5 @@ export default function Patient({ data }) {
             <p className={style.age}>Edad: {data.edad}</p>
             <p className={style.diagnosis}>Diagnóstico: {data.diagnostico}</p>
         </div>
-
-
     )
 }
