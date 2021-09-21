@@ -8,6 +8,7 @@ import style from './patientList.module.css';
 import NameContext from '../../context/NameContext'
 
 export default function PatientList() {
+
     const [showPatients, setShowPatients] = useState([])
 
     const { keyword } = useContext(KeywordContext)
