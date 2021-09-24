@@ -1,5 +1,4 @@
-.title {
-    
+.subtitle {
     text-align: center;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color:rgb(3, 57, 67);
@@ -12,13 +11,13 @@
     width: 30%;
     margin: 0 auto;
     margin-top: 5em;
-    padding: 4em;
+    padding: 2em 4em 3em 4em;
     border: 1px solid rgb(3, 57, 67);
     background-color: rgb(156, 204, 202);
 }
 
 .login input{
-    margin: 2em 0;
+    margin: 2em auto;
     width: 80%;
     height: 2em;
     font-size: 1em;
@@ -27,8 +26,9 @@
 
 
 
-
 .login button{
+   margin: 0 auto;
+   margin-top: 2em;
     width: 20%;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color:rgb(3, 57, 67);

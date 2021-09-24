@@ -27,8 +27,9 @@ export default function Login() {
 
     return (
         <>
-            <h1 className={style.title}>Login</h1>
+
             <form className={style.login} onSubmit={handleSubmit}>
+                <h4 className={style.subtitle}>Por favor, inicie sesión para realizar cualquier consulta</h4>
                 {error && <p className={style.error}>{error}</p>}
                 <input type="text" name="email" placeholder="Introduce tu email" />
                 <input type="password" name="password" placeholder="introduce tu contraseña" />

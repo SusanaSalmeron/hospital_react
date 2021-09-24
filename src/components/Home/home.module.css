@@ -1,0 +1,21 @@
+.container{
+    margin:-1em;
+    width: 100.9%;
+    height: 99.47vh;
+    background-color:linen
+}
+
+.title{
+    padding-top:1em;
+    text-align: center;
+    color:rebeccapurple;
+}
+
+.subtitle{
+    text-align: center;
+    margin-top: 3em;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 3em;
+    color:rebeccapurple;
+    
+}

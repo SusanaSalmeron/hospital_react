@@ -13,21 +13,30 @@ export default function PatientList() {
 
     const { keyword } = useContext(KeywordContext)
     const { name } = useContext(NameContext)
+    /* const nameSpan = useRef(name);
+    nameSpan.current = name */
 
     useEffect(() => {
-
         if (keyword && keyword !== "") {
-            //Asignar a algun lado los datos!!
-            const filteredPatients = getPatientAnyFieldBy(keyword)
-            setShowPatients(filteredPatients)
+            async function fetchPatients() {
+                let response = await getPatientAnyFieldBy(keyword)
+                setShowPatients(response)
+                console.log(response)
+            }
+            fetchPatients()
         } else {
-            setShowPatients(getPatients())
+            async function fetchPatients() {
+                let response = await getPatients() //Esto devuelve un array de pacientes
+                setShowPatients(response) //seteas un array en el estado
+            }
+            fetchPatients()
         }
     }, [keyword])
 
+
     return (
         <>
-            <div className={style.nombre}>
+            <div className={style.welcome}>
                 <h4>Hola <span>{name}!</span></h4><Logout />
             </div>
             <h1 className={style.title}
@@ -49,3 +58,4 @@ export default function PatientList() {
         </>
     )
 }
+

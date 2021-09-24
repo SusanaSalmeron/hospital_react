@@ -17,6 +17,6 @@ describe('SearchBar', () => {
         });
         expect(screen.getByDisplayValue('Hola')).toBeInTheDocument()
 
-        await userEvent.type(screen.getByRole('textbox', 'Hola'));
+        userEvent.type(screen.getByRole('textbox', 'Hola'));
     });
 });
