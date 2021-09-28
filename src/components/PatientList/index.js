@@ -5,31 +5,28 @@ import Logout from '../Logout';
 import Patient from '../Patient';
 import SearchBar from '../SearchBar';
 import style from './patientList.module.css';
-import NameContext from '../../context/NameContext'
+
 
 export default function PatientList() {
 
     const [showPatients, setShowPatients] = useState([])
 
     const { keyword } = useContext(KeywordContext)
-    const { name } = useContext(NameContext)
-    /* const nameSpan = useRef(name);
-    nameSpan.current = name */
+    const name = localStorage.getItem("username")
 
     useEffect(() => {
         if (keyword && keyword !== "") {
-            async function fetchPatients() {
-                let response = await getPatientAnyFieldBy(keyword)
-                setShowPatients(response)
-                console.log(response)
-            }
-            fetchPatients()
+            getPatientAnyFieldBy(keyword)
+                .then(response => {
+                    console.log(response)
+                    setShowPatients(response)
+                })
         } else {
-            async function fetchPatients() {
-                let response = await getPatients() //Esto devuelve un array de pacientes
-                setShowPatients(response) //seteas un array en el estado
-            }
-            fetchPatients()
+            getPatients()
+                .then(response => {
+                    console.log(response)
+                    setShowPatients(response)
+                })
         }
     }, [keyword])
 

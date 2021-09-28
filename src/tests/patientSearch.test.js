@@ -14,8 +14,8 @@ jest.mock('react-router-dom', () => ({
 
 describe('PatientSearch', () => {
     test('redirects to home when there is no valid token', () => {
-        const checkToken = require('../middleware/checktoken')
-        jest.spyOn(checkToken, "checkToken").mockReturnValue(false)
+        const checkValidToken = require('../middleware/checktoken')
+        jest.spyOn(checkValidToken, "checkToken").mockReturnValue(false)
         render(
             <NameProvider>
                 <PatientSearch />

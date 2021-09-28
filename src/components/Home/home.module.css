@@ -5,8 +5,13 @@
     background-color:linen
 }
 
+.container button{
+    float: right;
+    margin: 2em;
+    padding: 0 0.5em 0 0.5em;
+}
 .title{
-    padding-top:1em;
+    padding-top:2em;
     text-align: center;
     color:rebeccapurple;
 }

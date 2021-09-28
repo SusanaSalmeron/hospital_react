@@ -1,22 +1,22 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import style from './login.module.css';
 import {
     useHistory
 } from 'react-router-dom';
 import login from '../../services/loginService';
-import NameContext from '../../context/NameContext';
+
 
 export default function Login() {
     const history = useHistory()
     const [error, setError] = useState()
-    const { setName } = useContext(NameContext)
 
-    const handleSubmit = evt => {
+
+    const handleSubmit = async evt => {
         evt.preventDefault()
 
         const { target: { email: { value: email }, password: { value: password } } } = evt
 
-        const loginError = login(email, password, (name) => setName(name))
+        const loginError = await login(email, password)
 
         if (!loginError) {
             history.push('/search')
