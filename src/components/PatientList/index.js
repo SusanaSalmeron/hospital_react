@@ -7,12 +7,15 @@ import SearchBar from '../SearchBar';
 import style from './patientList.module.css';
 
 
+
 export default function PatientList() {
 
     const [showPatients, setShowPatients] = useState([])
 
     const { keyword } = useContext(KeywordContext)
     const name = localStorage.getItem("username")
+
+
 
     useEffect(() => {
         if (keyword && keyword !== "") {

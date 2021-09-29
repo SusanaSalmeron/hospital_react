@@ -5,7 +5,6 @@ export const checkValidToken = () => {
     const token = localStorage.getItem("token")
     if (token) {
         let decodeToken = jwt.decode(token)
-        console.log(decodeToken)
         const actualDate = dayjs().unix()
         if (decodeToken.expiration > actualDate) {
             return true

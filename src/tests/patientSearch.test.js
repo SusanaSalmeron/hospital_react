@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { NameProvider } from '../context/NameContext';
+
 import PatientSearch from '../components/PatientSearch';
 
 const mockHistoryPush = jest.fn();
@@ -15,14 +15,11 @@ jest.mock('react-router-dom', () => ({
 describe('PatientSearch', () => {
     test('redirects to home when there is no valid token', () => {
         const checkValidToken = require('../middleware/checktoken')
-        jest.spyOn(checkValidToken, "checkToken").mockReturnValue(false)
+        jest.spyOn(checkValidToken, "checkValidToken").mockReturnValue(false)
         render(
-            <NameProvider>
-                <PatientSearch />
-            </NameProvider>
+            <PatientSearch />
         )
         expect(mockHistoryPush).toHaveBeenCalledWith('/home')
         screen.debug()
-
     })
 })

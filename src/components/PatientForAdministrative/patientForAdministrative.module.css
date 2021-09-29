@@ -1,0 +1,22 @@
+.patient{
+    background-color: rgb(162, 202, 226);
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    border: 2px solid midnightblue;
+    border-radius: 20px;
+}
+
+.name{
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 800;
+    color:rebeccapurple;
+    text-align: center;
+}
+
+.ssNumber, .age, .address, .phone, .corporation {
+    margin-bottom: 2em;
+    padding-left: 1em;
+}

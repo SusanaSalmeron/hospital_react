@@ -1,26 +1,40 @@
 .container{
-    margin:-1em;
-    width: 100.9%;
-    height: 99.47vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 95vh;
     background-color:linen
 }
 
-.container button{
-    float: right;
-    margin: 2em;
-    padding: 0 0.5em 0 0.5em;
+.button{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 99%;
+    padding: 1em 1em 0 0;
+    background-color:linen
 }
+
+.button button{
+    padding: 0 1em 0 1em;
+    font-weight: 800;
+    font-size: 1.3em;
+}
+
+.img{
+    width: 100%;
+}
+
 .title{
-    padding-top:2em;
     text-align: center;
     color:rebeccapurple;
 }
 
 .subtitle{
+    margin-bottom: 0;
     text-align: center;
-    margin-top: 3em;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 3em;
     color:rebeccapurple;
-    
 }

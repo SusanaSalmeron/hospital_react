@@ -13,9 +13,7 @@ export default function Login() {
 
     const handleSubmit = async evt => {
         evt.preventDefault()
-
         const { target: { email: { value: email }, password: { value: password } } } = evt
-
         const loginError = await login(email, password)
 
         if (!loginError) {
@@ -27,7 +25,6 @@ export default function Login() {
 
     return (
         <>
-
             <form className={style.login} onSubmit={handleSubmit}>
                 <h4 className={style.subtitle}>Por favor, inicie sesión para realizar cualquier consulta</h4>
                 {error && <p className={style.error}>{error}</p>}

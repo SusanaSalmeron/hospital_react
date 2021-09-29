@@ -32,5 +32,6 @@ describe('Logout', () => {
         userEvent.click(getByRole('button'))
         expect(localStorage.getItem('token')).toBeNull()
         expect(mockHistoryPush).toHaveBeenCalledWith('/home');
+        expect(screen.getByText("Logout")).toBeInTheDocument();
     })
 })
