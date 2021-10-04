@@ -11,23 +11,18 @@ import style from './patientList.module.css';
 export default function PatientList() {
 
     const [showPatients, setShowPatients] = useState([])
-
     const { keyword } = useContext(KeywordContext)
     const name = localStorage.getItem("username")
-
-
 
     useEffect(() => {
         if (keyword && keyword !== "") {
             getPatientAnyFieldBy(keyword)
                 .then(response => {
-                    console.log(response)
                     setShowPatients(response)
                 })
         } else {
             getPatients()
                 .then(response => {
-                    console.log(response)
                     setShowPatients(response)
                 })
         }
@@ -51,6 +46,7 @@ export default function PatientList() {
                         return <Patient
                             data={patient}
                             key={i}
+                            id={patient.id}
                         />
                     }
                     )}

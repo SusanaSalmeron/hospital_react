@@ -10,7 +10,7 @@ function validate(email, password) {
     if (!validatePassword(password)) throw new Error('El password tiene que contener mínimo 8 caracteres y al menos un número')
 }
 
-export default async function login(email, password, setUserName) {
+export default async function login(email, password) {
     let result = []
     try {
         validate(email, password)

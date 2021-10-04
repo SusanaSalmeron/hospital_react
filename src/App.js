@@ -18,8 +18,9 @@ function App() {
         <Route exact path="/home" component={Home} />
         <Route exact path="/search" component={PatientSearch} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/record" component={ClinicalRecord} />
-        <Route exact path="/addrecord" component={RecordForm} />
+        <Route exact path="/:id/record" component={ClinicalRecord} />
+        <Route exact path="/:id/addrecord" component={RecordForm} />
+
       </Router>
 
     </div>

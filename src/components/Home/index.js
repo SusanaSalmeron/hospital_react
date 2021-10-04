@@ -21,11 +21,11 @@ export default function Home() {
             <div className={style.container}>
                 <div className={style.hospital}>
                     <h1 className={style.title}>
-                        Hospital Buena Esperanza
+                        NEW HOPE HOSPITAL
                     </h1>
                     <img className={style.img} src={img1} alt="hospital img" />
                     <h2 className={style.subtitle}>
-                        BIENVENIDOS
+                        WELCOME
                     </h2>
                 </div>
 
