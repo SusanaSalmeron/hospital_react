@@ -2,6 +2,7 @@ import { validateEmail } from '../middleware/emailValidation'
 import { validatePassword } from '../middleware/passwordValidation'
 import axios from 'axios';
 
+
 const baseUrl = 'http://localhost:3001/api/users/login'
 
 function validate(email, password) {

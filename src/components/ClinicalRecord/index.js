@@ -28,9 +28,19 @@ export default function ClinicalRecord() {
                 </div>
                 <hr />
                 <div className={style.clinicalData}>
+                    <h4>Diagnostic: {recordByPatient.diagnostics}</h4>
+                    <h5>Date: {recordByPatient.date}
+                    </h5>
                     <p>
-                        {recordByPatient.description}
+                        {recordByPatient.description ? recordByPatient.description : null}
                     </p>
+                    {recordByPatient.otherDiagnostics ? recordByPatient.otherDiagnostics.map(record =>
+                        <div>
+                            <h4>Diagnostic: {record.diagnostic}</h4>
+                            <h5>Date: {record.date}</h5>
+                            <p>Description: {record.description}</p>
+                        </div>
+                    ) : null}
                     <button>
                         <Link to={`/${id}/addrecord`}>
                             Add

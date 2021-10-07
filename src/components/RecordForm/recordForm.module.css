@@ -1,0 +1,43 @@
+.record{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.record h2{
+    margin: 2em 0 ;
+}
+
+.record textarea{
+    margin: 2em 0 2em 0;
+    width: 100%;
+    background-color: rgb(226, 234, 245);
+}
+
+.record button{
+    width: 10%;
+    margin: 2em 2em 0 0;
+    font-size: 1.2em;
+}
+
+.record button a{
+    text-decoration:none;
+}
+.form .select{
+    margin: 0 4em 2em 0;
+    width: 30%;
+    font-size: 1.2em;
+}
+
+small{
+    display: block;
+    color: red;
+    font-size: 1.3em;
+    margin: 1em 0 1em 0;
+}
+
+input{
+    width: 29%;
+    font-size: 1.2em;
+}
