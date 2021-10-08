@@ -4,6 +4,7 @@ import {
     useHistory
 } from 'react-router-dom';
 import login from '../../services/loginService';
+import areYouAWorker from '../../middleware/checkWorker';
 
 
 export default function Login() {
@@ -17,7 +18,7 @@ export default function Login() {
         const loginError = await login(email, password)
 
         if (!loginError) {
-            history.push('/search')
+            areYouAWorker() ? history.push('/search') : history.push('/appointment')
         } else {
             setError(loginError)
         }

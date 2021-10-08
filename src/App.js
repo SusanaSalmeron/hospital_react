@@ -14,7 +14,6 @@ import {
 function App() {
   return (
     <div className="App">
-
       <Router>
         <Route exact path="/home" component={Home} />
         <Route exact path="/search" component={PatientSearch} />
@@ -22,7 +21,6 @@ function App() {
         <Route exact path="/:id/record" component={ClinicalRecord} />
         <Route exact path="/:id/addrecord" component={RecordForm} />
         <Route exact path="/appointment" component={Appointment} />
-
       </Router>
 
     </div>

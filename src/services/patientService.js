@@ -2,17 +2,21 @@
 import axios from 'axios';
 
 const baseUrl = "http://localhost:3001/api/patients"
-const token = localStorage.getItem("token")
-const headers = {
-    headers: {
-        "Authorization": `Bearer: ${token}`
+
+
+const getHeaders = () => {
+    const token = localStorage.getItem("token")
+    return {
+        headers: {
+            "Authorization": `Bearer: ${token}`
+        }
     }
 }
 
 export async function getPatient(id) {
     let result = []
     try {
-        result = await axios.get(`${baseUrl}/${id}`, headers)
+        result = await axios.get(`${baseUrl}/${id}`, getHeaders())
     } catch (err) {
         if (err.response) {
             console.log(err.response.status)
@@ -28,7 +32,7 @@ export async function getPatient(id) {
 export async function getPatients() {
     let result = []
     try {
-        result = await axios.get(baseUrl, headers)
+        result = await axios.get(baseUrl, getHeaders())
     } catch (err) {
         if (err.response) {
             console.log(err.response.status)
@@ -45,7 +49,7 @@ export async function getPatientAnyFieldBy(keyword) {
     let result = []
     try {
         const requestParams = {
-            ...headers,
+            ...getHeaders(),
             ...{ params: { keyword: keyword } }
         }
         result = await axios.get(baseUrl, requestParams)
@@ -64,7 +68,7 @@ export async function getPatientAnyFieldBy(keyword) {
 export async function getPatientRecord(id) {
     let result = []
     try {
-        result = await axios.get(`${baseUrl}/${id}/record`, headers)
+        result = await axios.get(`${baseUrl}/${id}/record`, getHeaders())
     } catch (err) {
         if (err.response) {
             console.log(err.response.status)
