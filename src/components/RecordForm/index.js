@@ -7,7 +7,7 @@ import Select from 'react-select';
 
 const validateFields = values => {
     const errors = {}
-    if (!errors.diagnostic) {
+    if (!values.diagnostic) {
         errors.diagnostic = 'Required diagnostic'
     }
     if (!values.others) {
@@ -27,7 +27,7 @@ const initialValues = {
 }
 
 const options = [
-    { value: "bronchitis", label: 'Bronchitis', },
+    { value: "bronchitis", label: 'Bronchitis' },
     { value: "lupus", label: "Lupus" },
     { value: "others", label: "Others" }
 ]
@@ -82,7 +82,6 @@ export default function RecordForm() {
                                 error={errors}
                             >
                                 {errors ? <p>Diagnostic Required</p> : null}
-
                             </Select>
 
                             <Field
@@ -106,7 +105,7 @@ export default function RecordForm() {
                                 name='record'
                                 component="small" />
 
-                            <button disabled={!dirty || isSubmitting}>Send</button>
+                            <button disabled={isSubmitting}>Send</button>
                             <button>
                                 <Link to={`/${id}/record`}>
                                     Return

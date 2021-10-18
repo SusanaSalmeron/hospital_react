@@ -29,6 +29,22 @@ export async function getPatient(id) {
     return result.data
 }
 
+export async function getAppointment(id) {
+    let result = []
+    try {
+        result = await axios.get(`${baseUrl}/${id}/appointments`, getHeaders())
+    } catch (err) {
+        if (err.response) {
+            console.log(err.response.status)
+        } else if (err.request) {
+            console.log(err.request)
+        } else {
+            console.log('Error', err.message)
+        }
+    }
+    return result.data[0]
+}
+
 export async function getPatients() {
     let result = []
     try {

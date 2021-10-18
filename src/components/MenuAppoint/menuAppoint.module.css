@@ -1,0 +1,43 @@
+.selection{
+    width: 50%;
+    height: 55vh;
+    margin: 10em auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title{
+    text-align: center;
+    padding-top:2em;
+}
+
+
+.select {
+    width: 94%;
+    margin: 2em auto;
+    padding: 1em;
+    font-size: 1.5em;
+    text-align: center;
+    background-color: rgb(156, 204, 202);
+    border: 2px solid rgb(3, 57, 67);
+    border-radius: 10px;
+}
+
+.select:hover{
+    background-color: rgb(110, 148, 146);
+}
+
+.selection a{
+    text-decoration: none;
+    color:rgb(3, 57, 67);
+    overflow:visible
+}
+
+.selection a:hover{
+    color: white;
+}
+
+.selection hr{
+   color:rgb(3, 57, 67);;
+}

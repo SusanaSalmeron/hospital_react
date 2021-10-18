@@ -11,16 +11,15 @@ export default function Login() {
     const history = useHistory()
     const [error, setError] = useState()
 
-
     const handleSubmit = async evt => {
         evt.preventDefault()
         const { target: { email: { value: email }, password: { value: password } } } = evt
-        const loginError = await login(email, password)
+        const loginResult = await login(email, password)
 
-        if (!loginError) {
-            areYouAWorker() ? history.push('/search') : history.push('/appointment')
+        if (!loginResult.error) {
+            areYouAWorker() ? history.push('/search') : history.push(`/${loginResult.id}/menuAppoint`)
         } else {
-            setError(loginError)
+            setError(loginResult.error)
         }
     }
 

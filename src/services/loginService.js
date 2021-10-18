@@ -25,9 +25,9 @@ export default async function login(email, password) {
         result = await axios.post(baseUrl, body, { headers })
         localStorage.setItem("username", result.data.name)
         localStorage.setItem("token", result.data.token)
-        return ""
+        return { id: result.data.id }
     } catch (e) {
-        return e.message
+        return { error: e.message }
     }
 
 }

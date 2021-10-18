@@ -4,7 +4,10 @@ import Login from './components/Login';
 import PatientSearch from './components/PatientSearch';
 import ClinicalRecord from './components/ClinicalRecord';
 import RecordForm from './components/RecordForm';
-import Appointment from './components/Appointment'
+import MenuAppoint from './components/MenuAppoint';
+import Appointment from './components/Appointment';
+import ChangeAppointment from './components/ChangeAppointment';
+import CancelAppoinment from './components/CancelAppoinment';
 import {
   BrowserRouter as Router,
   Route
@@ -20,7 +23,10 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/:id/record" component={ClinicalRecord} />
         <Route exact path="/:id/addrecord" component={RecordForm} />
-        <Route exact path="/appointment" component={Appointment} />
+        <Route exact path="/:id/menuAppoint" component={MenuAppoint} />
+        <Route exact path="/:id/appointment" component={Appointment} />
+        <Route exact path="/:id/changeAppointment" component={ChangeAppointment} />
+        <Route exact path="/:id/cancelAppointment" component={CancelAppoinment} />
       </Router>
 
     </div>

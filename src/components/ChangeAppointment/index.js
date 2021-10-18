@@ -1,34 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import style from './appointment.module.css';
+import style from './changeAppointment.module.css'
 import MonthCalendar from '../Calendar';
-import Logout from '../Logout'
-import { Form, Formik, Field, ErrorMessage } from 'formik';
-import { useParams } from 'react-router-dom'
+import Logout from '../Logout';
+import { Form, Formik, ErrorMessage } from 'formik';
 import { getAppointment } from '../../services/patientService';
+import { useParams } from 'react-router-dom'
+
 
 
 const initialValues = {
-    doctor: '',
-    calendar: '',
+    date: '',
 }
 const validateFields = values => {
     const errors = {}
-    if (!values.doctor) {
-        errors.doctor = 'Select a doctor'
-    } else if (values.calendar < Date.now()) {
+    if (values.calendar < Date.now()) {
         errors.calendar = 'The date has not been less than the actual date'
     }
     return errors
 }
 
-export default function Appointment() {
-    const [appointment, setAppointment] = useState(''); const { id } = useParams();
+export default function ChangeAppointment() {
+    const [appointment, setAppointment] = useState("")
+    const { id } = useParams()
 
     useEffect(() => {
         getAppointment(id)
             .then(response => {
                 setAppointment(response)
             })
+
     }, [id])
 
     return (
@@ -38,7 +38,7 @@ export default function Appointment() {
             </div>
             <div className={style.appointment}>
                 <div>
-                    <h1>Choose your appointment</h1>
+                    <h1>Cancel your appointment</h1>
                     <Formik
                         initialValues={{ initialValues }}
                         validate={validateFields}
@@ -47,20 +47,12 @@ export default function Appointment() {
                         }}
                     >
                         {
-                            ({ errors, isSubmitting, isValid, dirty }) =>
+                            ({ isSubmitting, isValid, dirty }) =>
                                 <Form className={style.form}>
                                     <MonthCalendar
                                         name="calendar"
                                     />
                                     <ErrorMessage className="form-error" name='calendar' component='small' />
-                                    <h2>Select a doctor</h2>
-                                    <Field as="select" name="doctor" error={errors}>
-                                        <option value="">Select a doctor </option>
-                                        <option value="John Smith">John Smith - neurologist </option>
-                                        <option value="Ann Johnson">Ann Johnson - podologist </option>
-                                        {errors ? <p>You have to make a selection</p> : null}
-                                    </Field>
-                                    <ErrorMessage className="form-error" name='doctor' component='small' />
                                     <button
                                         className={style.btn}
                                         disabled={!isValid || !dirty || isSubmitting}
@@ -80,58 +72,3 @@ export default function Appointment() {
         </>
     )
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-
-
-export default function Appointment() {
-    const [doctor, setDoctor] = useState('')
-    const [appoint, setAppoint] = useState({})
-
-
-    const changeDoctor = (evt) => {
-        setDoctor(evt.value)
-    }
-    const submitAppointment = (values) => {
-        console.log(values)
-    }
-
-    return (
-        <>
-            <Formik
-                initialValues={{ initialValues }}
-
-                onSubmit={(values, { setFieldError }) => {
-                    console.log(values)
-                        .then(() => {
-                            setAppoint(values)
-                        })
-                        .catch(() => {
-                            setFieldError('error')
-                        });
-                }}
-            >
-
-            </Formik>
-        </>
-    )
-} */
