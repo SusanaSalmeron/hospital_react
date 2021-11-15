@@ -39,7 +39,6 @@ export default function RecordForm() {
 
     const submitRecord =
         (values, { setFieldError }) => {
-            console.log(values)
             let { diagnostic, record, others } = values
             if (others) {
                 diagnostic = others

@@ -1,0 +1,23 @@
+.logout{
+    display:flex;
+    justify-content:space-between ;
+    margin: 0 0 0 1em;
+}
+
+.header hr{
+    margin: -2em 0 4em 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+}
+.appointment{
+    margin-left: 4em;
+    width: 40%;
+}
+
+.list{
+    margin-left: 4em;
+    width: 100%;  
+}

@@ -17,7 +17,7 @@ export default function Login() {
         const loginResult = await login(email, password)
 
         if (!loginResult.error) {
-            areYouAWorker() ? history.push('/search') : history.push(`/${loginResult.id}/menuAppoint`)
+            areYouAWorker() ? history.push('/search') : history.push(`/${loginResult.id}/appointment`)
         } else {
             setError(loginResult.error)
         }

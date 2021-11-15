@@ -1,50 +1,27 @@
-.logout{
-    display:flex;
-    justify-content:flex-end ;
-}
-
-.appointment{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    height: 100vh;
-    margin-left: 3em;
-}
-
-.appointment h1{
-    margin: 1em 0;
-}
-
-.appointment h2{
-   margin: 1.5em 0; 
-}
-
-.appointment select{
-    width: 300px;
-}
-
-.appointment button{
-    margin-top: 2em;
-    display: block;
-}
 
 .showAppoint{
-    margin-left: 10em;
+    display:flex;
+    margin-left: 6em;
+    align-items: center;
 }
 
 .showAppoint p{
+    display: inline-block;
+    width: 800px;
     font-weight: 800;
     margin-right: 2em;
     font-size: 1.7em;
 }
 
 .showAppoint span{
-    margin:0 3em 0 4em;
+    margin:0 2em 0 2em;
     font-weight: 400;
 }
 
-.showAppoint p.noApp{
-    font-size: 1em;
-    font-weight: 400;
-    color: red;
+.showAppoint button{
+    height: 2em;
+}
+
+.change{
+    margin-right: 2em;
 }
