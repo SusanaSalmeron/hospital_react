@@ -7,8 +7,6 @@ export default function SearchBar() {
     const [search, setSearch] = useState('');
     const { setKeyword } = useContext(KeywordContext)
 
-
-
     const handleSearch = (e) => {
         e.preventDefault()
         setKeyword(search.trim().toLowerCase())

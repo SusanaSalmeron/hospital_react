@@ -18,6 +18,7 @@ export default function PatientList() {
         if (keyword && keyword !== "") {
             getPatientAnyFieldBy(keyword)
                 .then(response => {
+                    console.log(response)
                     setShowPatients(response)
                 })
         } else {

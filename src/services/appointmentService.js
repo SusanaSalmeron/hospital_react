@@ -66,3 +66,36 @@ export async function addNewAppointment(id, date, doctor) {
     console.log(result)
     return result
 }
+
+export async function deleteAppointment(id, appId) {
+    let result = []
+    try {
+        result = await axios.delete(`${baseUrl}/${id}/appointments/${appId}`, getHeaders())
+    } catch (err) {
+        if (err.response) {
+            console.log(err.response.status)
+        } else if (err.request) {
+            console.log(err.request)
+        } else {
+            console.log('Error', err.message)
+        }
+    }
+    return result
+}
+
+export async function getDoctorsForOptions() {
+    let result = []
+    try {
+        result = await axios.get(`${baseUrl}/appointments/doctors`, getHeaders())
+    } catch (err) {
+        if (err.response) {
+            console.log(err.response.status)
+        } else if (err.request) {
+            console.log(err.request)
+        } else {
+            console.log('Error', err.message)
+        }
+    }
+    console.log(result.data)
+    return result.data
+}

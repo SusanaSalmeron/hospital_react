@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getAppointment } from '../../services/appointmentService';
+import { getAppointment, getDoctorsForOptions } from '../../services/appointmentService';
 import { addNewAppointment } from '../../services/appointmentService';
 import MonthCalendar from '../Calendar';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
@@ -22,12 +22,17 @@ const validateFields = values => {
 
 export default function NewAppointment() {
     const [appointment, setAppointment] = useState({});
+    const [doctors, setDoctors] = useState([])
     const { id } = useParams();
 
     useEffect(() => {
         getAppointment(id)
             .then(response => {
                 setAppointment(response)
+            })
+        getDoctorsForOptions()
+            .then(response => {
+                setDoctors(response)
             })
     }, [id])
 
@@ -58,10 +63,9 @@ export default function NewAppointment() {
                                 <h2>Select a doctor</h2>
                                 <Field as="select" name="doctor" error={errors}>
                                     <option value="">Select a doctor </option>
-                                    <option value="John Smith">John Smith - neurologist </option>
-                                    <option value="Ann Johnson">Ann Johnson - podologist </option>
-                                    <option value="Justin Perkins">Justin Perkins - surgeon </option>
-                                    {errors ? <p>You have to make a selection</p> : null}
+                                    {doctors.map(doctor => {
+                                        return <option id={doctor.id} value={doctor.name}>{doctor.name} - {doctor.speciality} </option>
+                                    })}
                                 </Field>
                                 <ErrorMessage className="form-error" name='doctor' component='small' />
                                 <button
