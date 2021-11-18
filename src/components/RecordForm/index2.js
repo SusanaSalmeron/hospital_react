@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom'
-import { ErrorMessage, Formik, Field, Form } from 'formik';
 import style from './recordForm.module.css';
+import { ErrorMessage, Form, Formik, Field } from 'formik'
 import { addNewDiagnostic, getDiseasesForOptions } from '../../services/patientService';
 import Select from 'react-select';
 
 const validateFields = values => {
     const errors = {}
-    /*if (!values.diagnostic) {
+    if (!values.diagnostic) {
         errors.diagnostic = 'Required diagnostic'
-    
+    }
     if (!values.others) {
         errors.others = 'Required diagnostic'
-    }}*/
+    }
     if (!values.record) {
         errors.record = 'Required clinical record'
     } else if (values.record.length < 3) {
@@ -41,13 +41,13 @@ export default function RecordForm() {
 
     const submitRecord =
         (values, { setFieldError }) => {
-            let { record, others } = values
-            let diagnostic = values.diagnostic.value
+            let { diagnostic, record, others } = values
             if (others) {
                 diagnostic = others
             }
             return addNewDiagnostic(id, diagnostic, record)
                 .then(() => {
+                    console.log(values)
                     setRecord(values)
                 })
                 .catch(() => {
@@ -55,24 +55,16 @@ export default function RecordForm() {
                 });
         }
 
-    const changeOption = (e, b) => {
+    const changeOption = (e) => {
         if (e.value === "Others") {
             setShowCustomDiagnostic(true)
         } else {
             setShowCustomDiagnostic(false)
         }
-        let event = { target: { name: 'diagnostic', value: e } }
-        b(event)
     }
+
     if (record) {
-        return <>
-            <h4> The diagnostic has been added to the clinical record</h4>
-            <button>
-                <Link to={`/${id}/record`}>
-                    Return
-                </Link>
-            </button>
-        </>
+        return <h4> The diagnostic has been added to the clinical record</h4>
     }
     return (
         <div className={style.record}>
@@ -83,12 +75,11 @@ export default function RecordForm() {
                 onSubmit={submitRecord}
             >
                 {
-                    ({ handleChange, values, errors, isSubmitting, dirty }) =>
+                    ({ errors, isSubmitting, dirty }) =>
                         <Form className={style.form}>
                             <Select
-                                value={values.diagnostic}
                                 options={diseases}
-                                onChange={selectedOption => { changeOption(selectedOption, handleChange) }}
+                                onChange={changeOption}
                                 className={style.select}
                                 name='diagnostic'
                                 error={errors}

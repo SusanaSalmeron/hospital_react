@@ -96,6 +96,5 @@ export async function getDoctorsForOptions() {
             console.log('Error', err.message)
         }
     }
-    console.log(result.data)
     return result.data
 }

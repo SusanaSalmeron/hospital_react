@@ -70,6 +70,7 @@ export async function getPatientRecord(id) {
     let result = []
     try {
         result = await axios.get(`${baseUrl}/${id}/record`, getHeaders())
+        return result.data
     } catch (err) {
         if (err.response) {
             console.log(err.response.status)
@@ -79,7 +80,7 @@ export async function getPatientRecord(id) {
             console.log('Error', err.message)
         }
     }
-    return result.data
+
 }
 
 export async function addNewDiagnostic(id, diagnostics, description) {
@@ -89,10 +90,7 @@ export async function addNewDiagnostic(id, diagnostics, description) {
             diagnostics: diagnostics,
             description: description,
         }
-        const headers = {
-            'Content-Type': 'application/json'
-        }
-        result = await axios.post(`${baseUrl}/${id}/record/add`, body, { headers })
+        result = await axios.post(`${baseUrl}/${id}/record/add`, body, getHeaders())
         return result
     } catch (err) {
         if (err.response) {
@@ -103,5 +101,26 @@ export async function addNewDiagnostic(id, diagnostics, description) {
             console.log('Error', err.message)
         }
     }
+}
 
+export async function getDiseasesForOptions() {
+    let result = []
+    try {
+        const response = await axios.get(`${baseUrl}/record/diseases`, getHeaders())
+        result = response.data.map(name => {
+            return {
+                value: name,
+                label: name
+            }
+        })
+    } catch (err) {
+        if (err.response) {
+            console.log(err.response.status)
+        } else if (err.request) {
+            console.log(err.request)
+        } else {
+            console.log('Error', err.message)
+        }
+    }
+    return result
 }
