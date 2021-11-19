@@ -1,25 +1,20 @@
-import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import style from './appointment.module.css';
+import { deleteAppointment } from '../../services/appointmentService';
 
-
-export default function Appointment({ data, deleteCallback }) {
-    const [modifyApp, setModifyApp] = useState("")
-
-
-    const changeAppointment = () => {
-        setModifyApp("hola")
-    }
+export default function Appointment({ data, notifyCallback }) {
+    const { id } = useParams();
 
     const cancelAppointment = () => {
-        deleteCallback()
+        deleteAppointment(id, data.id)
+        notifyCallback()
     }
 
     return (
         <div className={style.showAppoint}>
             <p>Date: <span>{data.pickedDate}</span>  Doctor: <span >{data.doctor}</span></p>
-            <button className={style.change} onClick={changeAppointment}>Change</button>
-            <button className={style.cancel} onClick={cancelAppointment}>Cancel</button>
-            <p>{modifyApp}</p>
+            <button id={data.id} className={style.cancel} onClick={cancelAppointment} >Cancel</button>
+
         </div>
 
     )

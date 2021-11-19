@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Appointment from '../Appointment';
 import { getAppointment } from '../../services/appointmentService';
 import { useParams } from 'react-router-dom';
 import style from './appointmentList.module.css'
-
+import UpdateAppointmentContext from '../../context/UpdateAppointmentsContext';
 
 
 export default function AppointmentList() {
     const [appointments, setAppointments] = useState([]);
     const [refresh, setRefresh] = useState(true)
+    const { appointmentRefresh } = useContext(UpdateAppointmentContext)
+
     const changeState = () => {
         setRefresh(!refresh)
     }
@@ -19,12 +21,15 @@ export default function AppointmentList() {
             .then(response => {
                 setAppointments(response)
             })
-    }, [id])
+    }, [id, refresh, appointmentRefresh])
+
     return (
+
         <div className={style.showAppoint}>
             <h2>Next Appointments</h2>
-            {appointments.length !== 0 ? appointments.map(appointment => <Appointment data={appointment} deleteCallback={changeState} />) : <p className={style.noApp}>No appointments</p>}
+            {appointments.length !== 0 ? appointments.map(appointment => <Appointment data={appointment} notifyCallback={changeState} />) : <p className={style.noApp}>No appointments</p>}
         </div>
+
 
     )
 }

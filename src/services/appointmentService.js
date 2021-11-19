@@ -45,12 +45,12 @@ export async function getAppointment(id) {
 }
 
 
-export async function addNewAppointment(id, date, doctor) {
+export async function addNewAppointment(id, date, doctorId) {
     let result = []
     try {
         const body = {
             pickedDate: date,
-            doctor: doctor
+            doctor: parseInt(doctorId)
         }
         result = await axios.post(`${baseUrl}/${id}/appointments/add`, body, getHeaders())
 
@@ -63,7 +63,6 @@ export async function addNewAppointment(id, date, doctor) {
             console.log('Error', err.message)
         }
     }
-    console.log(result)
     return result
 }
 

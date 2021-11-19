@@ -7,15 +7,12 @@ import Select from 'react-select';
 
 const validateFields = values => {
     const errors = {}
-    /*if (!values.diagnostic) {
+    if (!values.diagnostic) {
         errors.diagnostic = 'Required diagnostic'
-    
-    if (!values.others) {
-        errors.others = 'Required diagnostic'
-    }}*/
+    }
     if (!values.record) {
         errors.record = 'Required clinical record'
-    } else if (values.record.length < 3) {
+    } else if (values.record.length < 80) {
         errors.record = 'You have to write almost 80 characters'
     }
     return errors
@@ -29,7 +26,6 @@ const initialValues = {
 export default function RecordForm() {
     const { id } = useParams()
     const [record, setRecord] = useState(null)
-    const [showCustomDiagnostic, setShowCustomDiagnostic] = useState(false)
     const [diseases, setDiseases] = useState([])
 
     useEffect(() => {
@@ -41,11 +37,8 @@ export default function RecordForm() {
 
     const submitRecord =
         (values, { setFieldError }) => {
-            let { record, others } = values
+            let { record } = values
             let diagnostic = values.diagnostic.value
-            if (others) {
-                diagnostic = others
-            }
             return addNewDiagnostic(id, diagnostic, record)
                 .then(() => {
                     setRecord(values)
@@ -56,23 +49,18 @@ export default function RecordForm() {
         }
 
     const changeOption = (e, b) => {
-        if (e.value === "Others") {
-            setShowCustomDiagnostic(true)
-        } else {
-            setShowCustomDiagnostic(false)
-        }
         let event = { target: { name: 'diagnostic', value: e } }
         b(event)
     }
     if (record) {
-        return <>
+        return <div className={style.recordAdded}>
             <h4> The diagnostic has been added to the clinical record</h4>
             <button>
                 <Link to={`/${id}/record`}>
                     Return
                 </Link>
             </button>
-        </>
+        </div>
     }
     return (
         <div className={style.record}>
@@ -83,7 +71,7 @@ export default function RecordForm() {
                 onSubmit={submitRecord}
             >
                 {
-                    ({ handleChange, values, errors, isSubmitting, dirty }) =>
+                    ({ handleChange, values, errors, isSubmitting, dirty, isValid }) =>
                         <Form className={style.form}>
                             <Select
                                 value={values.diagnostic}
@@ -95,16 +83,6 @@ export default function RecordForm() {
                             >
                                 {errors ? <p>Diagnostic Required</p> : null}
                             </Select>
-
-                            <Field
-                                className={errors.record ? "error" : ""}
-                                hidden={!showCustomDiagnostic}
-                                name="Others"
-                                placeholder="Write your new diagnostic" />
-                            <ErrorMessage
-                                className="form-error"
-                                name='Others'
-                                component="small" />
                             <Field
                                 className={errors.record ? "error" : ""}
                                 name='record'
@@ -116,7 +94,7 @@ export default function RecordForm() {
                                 className="form-error"
                                 name='record'
                                 component="small" />
-                            <button disabled={isSubmitting}>Send</button>
+                            <button disabled={!isValid || !dirty || isSubmitting}>Send</button>
                             <button>
                                 <Link to={`/${id}/record`}>
                                     Return

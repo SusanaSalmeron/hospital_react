@@ -41,3 +41,12 @@ input{
     width: 29%;
     font-size: 1.2em;
 }
+
+.recordAdded{
+    margin-left: 3em;
+}
+
+.recordAdded a{
+    text-decoration: none;
+    font-size: 1.4em;
+}

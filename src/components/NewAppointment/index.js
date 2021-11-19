@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { getAppointment, getDoctorsForOptions } from '../../services/appointmentService';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { addNewAppointment } from '../../services/appointmentService';
 import MonthCalendar from '../Calendar';
-import { Formik, Form, ErrorMessage, Field } from 'formik';
+import { getAppointment, getDoctorsForOptions } from '../../services/appointmentService';
 import style from './newAppointment.module.css'
+import UpdateAppointmentContext from '../../context/UpdateAppointmentsContext';
+
 
 const initialValues = {
     doctor: '',
     date: '',
 }
+
 const validateFields = values => {
     const errors = {}
     if (!values.doctor) {
@@ -20,8 +23,11 @@ const validateFields = values => {
     return errors
 }
 
+
 export default function NewAppointment() {
     const [appointment, setAppointment] = useState({});
+    const { appointmentRefresh, setAppointmentRefresh } = useContext(UpdateAppointmentContext)
+
     const [doctors, setDoctors] = useState([])
     const { id } = useParams();
 
@@ -36,21 +42,26 @@ export default function NewAppointment() {
             })
     }, [id])
 
+
+    const submitAppointment = async (values, { setFieldError }) => {
+        let { date, doctor } = values
+        let newDate = date.toLocaleDateString()
+        addNewAppointment(id, newDate, doctor)
+            .then(() => {
+                setAppointment(values)
+                const a = appointmentRefresh
+                setAppointmentRefresh(!a)
+            })
+            .catch(() => {
+                setFieldError("calendar", 'The date can not been empty')
+            })
+    }
     return (
         <>
             <Formik
-                initialValues={{ initialValues }}
+                initialValues={initialValues}
                 validate={validateFields}
-                onSubmit={async (values, { setFieldError }) => {
-                    let { date, doctor } = values
-                    addNewAppointment(id, date, doctor)
-                        .then(() => {
-                            setAppointment(values)
-                        })
-                        .catch(() => {
-                            setFieldError("calendar", 'The date can not been empty')
-                        })
-                }}
+                onSubmit={submitAppointment}
             >
                 {
                     ({ errors, isSubmitting, isValid, dirty }) =>
@@ -64,7 +75,7 @@ export default function NewAppointment() {
                                 <Field as="select" name="doctor" error={errors}>
                                     <option value="">Select a doctor </option>
                                     {doctors.map(doctor => {
-                                        return <option id={doctor.id} value={doctor.name}>{doctor.name} - {doctor.speciality} </option>
+                                        return <option id={doctor.id} value={doctor.id}>{doctor.name} - {doctor.speciality} </option>
                                     })}
                                 </Field>
                                 <ErrorMessage className="form-error" name='doctor' component='small' />
@@ -82,4 +93,4 @@ export default function NewAppointment() {
 
         </>
     )
-};
+}

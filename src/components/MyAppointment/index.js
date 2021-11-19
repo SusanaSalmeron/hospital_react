@@ -5,6 +5,7 @@ import Logout from '../Logout';
 import style from './myAppointment.module.css'
 import { getUser } from '../../services/appointmentService';
 import { useParams } from 'react-router-dom';
+import { UpdateAppointmentProvider } from '../../context/UpdateAppointmentsContext';
 
 
 export default function MyAppointment() {
@@ -23,19 +24,21 @@ export default function MyAppointment() {
             <div className={style.header}>
                 <div className={style.logout}>
                     <h1>Welcome, {user.name} </h1>
-                    <h3>You can choose, change or cancel your appointments</h3>
+                    <h3>You can choose or cancel your appointments</h3>
                     <Logout />
                 </div>
                 <hr />
             </div>
-            <div className={style.container}>
-                <div className={style.appointment}>
-                    <NewAppointment />
+            <UpdateAppointmentProvider>
+                <div className={style.container}>
+                    <div className={style.appointment}>
+                        <NewAppointment />
+                    </div>
+                    <div className={style.list}>
+                        <AppointmentList />
+                    </div>
                 </div>
-                <div className={style.list}>
-                    <AppointmentList />
-                </div>
-            </div>
+            </UpdateAppointmentProvider>
         </>
     )
 }
