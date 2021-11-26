@@ -11,11 +11,18 @@ export default function Home() {
         history.push('/login')
     }
 
+    const handleSignUp = () => {
+        history.push('/register')
+    }
+
     return (
         <>
             <div className={style.button}>
                 <button onClick={handleLogin}>
                     LOGIN
+                </button>
+                <button onClick={handleSignUp}>
+                    SIGN UP
                 </button>
             </div>
             <div className={style.container}>

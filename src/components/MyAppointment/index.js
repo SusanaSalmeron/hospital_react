@@ -15,7 +15,12 @@ export default function MyAppointment() {
     useEffect(() => {
         getUser(id)
             .then(response => {
-                setUser(response)
+                try {
+                    setUser(response)
+                } catch (err) {
+                    console.log(err)
+                }
+
             })
     }, [id])
 

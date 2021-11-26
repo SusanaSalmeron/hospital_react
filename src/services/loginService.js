@@ -6,9 +6,9 @@ import axios from 'axios';
 const baseUrl = 'http://localhost:3001/api/users/login'
 
 function validate(email, password) {
-    if (!email || !password) throw new Error('introduce email y contraseña')
-    if (!validateEmail(email)) throw new Error(`${email} no es un email válido`)
-    if (!validatePassword(password)) throw new Error('El password tiene que contener mínimo 8 caracteres y al menos un número')
+    if (!email || !password) throw new Error('Write your email and password to log in')
+    if (!validateEmail(email)) throw new Error(`${email} is not a valid email`)
+    if (!validatePassword(password)) throw new Error('Password must contain 8 caracters and a number at least')
 }
 
 export default async function login(email, password) {

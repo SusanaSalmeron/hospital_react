@@ -18,6 +18,7 @@
 
 .button button{
     padding: 0 1em 0 1em;
+    margin-right: 1em;
     font-weight: 800;
     font-size: 1.3em;
 }
