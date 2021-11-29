@@ -14,7 +14,6 @@ export default function Appointment({ data, notifyCallback }) {
         <div className={style.showAppoint}>
             <p>Date: <span>{data.pickedDate}</span>  Doctor: <span >{data.doctor}</span></p>
             <button id={data.id} className={style.cancel} onClick={cancelAppointment} >Cancel</button>
-
         </div>
 
     )

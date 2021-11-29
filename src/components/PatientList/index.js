@@ -22,8 +22,10 @@ export default function PatientList() {
                     setShowPatients(response)
                 })
         } else {
+            console.log('UUUUUUUUUUUUUUUUUUUU')
             getPatients()
                 .then(response => {
+                    console.log('JJJJJJJJJJJJJJJJJJ')
                     setShowPatients(response)
                 })
         }

@@ -9,10 +9,10 @@ describe('Home', () => {
         render(
             <Home />
         );
-        expect(screen.getByText("BIENVENIDOS")).toBeInTheDocument()
-        expect(screen.getByText("Hospital Buena Esperanza")).toBeVisible()
+        expect(screen.getByText("WELCOME")).toBeInTheDocument()
+        expect(screen.getByText("NEW HOPE HOSPITAL")).toBeVisible()
         expect(screen.queryByText("Por favor, inicie sesión para realizar cualquier consulta")).not.toBeInTheDocument()
-        expect(screen.getByRole("button")).not.toBeNull()
         expect(screen.queryByPlaceholderText("Introduce tu email")).toBeNull()
+        expect(screen.getAllByRole("button")).not.toBeNull()
     })
 })

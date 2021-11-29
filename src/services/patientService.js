@@ -32,6 +32,7 @@ export async function getPatient(id) {
 
 export async function getPatients() {
     let result = []
+    console.log('ZZZZZZZZZZZZZZZ')
     try {
         result = await axios.get(baseUrl, getHeaders())
     } catch (err) {

@@ -1,23 +1,24 @@
-import { validateEmail } from "../middleware/emailValidation";
-import { validatePassword } from "../middleware/passwordValidation";
 import axios from "axios";
 
 const baseUrl = 'http://localhost:3001/api/users/register'
 
-function validate(email, password, name) {
-    if (!email || !password || name) throw new Error('Write your name, email and password to sign up')
-    if (!validateEmail(email)) throw new Error(`${email} is not a valid email`)
-    if (!validatePassword(password)) throw new Error('Password must contain 8 caracters and a number at least ')
-}
 
-export default async function register(email, password, name) {
+
+export default async function register(email, password, name, address, postalZip, region, country, phone, dob, ssnumber, company) {
     let result = []
     try {
-        validate(email, password)
         const body = {
-            name: name,
-            email: email,
-            password: password
+            name,
+            email,
+            password,
+            address,
+            postalZip,
+            region,
+            country,
+            phone,
+            dob,
+            ssnumber,
+            company
         }
         const headers = {
             'Content-Type': 'application/json'
