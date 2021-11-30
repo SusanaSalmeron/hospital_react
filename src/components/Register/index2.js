@@ -1,10 +1,53 @@
 import React, { useState } from 'react';
-import validationForm from '../../middleware/validationForm'
 import { useHistory } from 'react-router-dom';
 import { ErrorMessage, Formik, Field, Form } from 'formik';
 import style from './register.module.css';
 import register from '../../services/registerService'
+import { validateEmail } from '../../middleware/emailValidation'
+import { validatePassword } from '../../middleware/passwordValidation'
+import { validateDob } from '../../middleware/dobValidation';
 
+
+const errorMessages = {
+    name: 'Required name',
+    address: 'Required address',
+    postalZip: 'Required postalZip',
+    region: 'Required region',
+    country: 'Required country',
+    phone: 'Required phone',
+    ssnumber: 'Required ss number',
+    company: 'Required company'
+}
+
+const validateFields = values => {
+    const errors = {}
+    for (let key in errorMessages) {
+        if (!values[key]) {
+            errors[key] = errorMessages[key]
+        }
+    }
+    const { email, password, dob } = values
+    if (!email) {
+        errors.email = 'Required email'
+    }
+    else if (!validateEmail(email)) {
+        errors.email = 'Email not valid'
+    }
+    if (!password) {
+        errors.password = 'Required password'
+    }
+    else if (!validatePassword(password)) {
+        errors.password = 'Password must contain 8 caracters and a number at least'
+    }
+    if (!dob) {
+        errors.dob = 'Required Date of Birth'
+    }
+    else if (!validateDob(dob)) {
+        errors.dob = 'The date of birth must be DD/MM/YYYY'
+    }
+
+    return errors
+}
 
 const initiaValues = {
     name: "",
@@ -38,10 +81,10 @@ export default function Register() {
             <h4 className={style.subtitle}>Sign Up</h4>
             <Formik initialValues={initiaValues}
                 onSubmit={handleSubmit}
-                validationSchema={validationForm}
+                validate={validateFields}
             >
                 {
-                    ({ isSubmitting, dirty, isValid, handleChange }) =>
+                    ({ isSubmitting, dirty, isValid, touched }) =>
                         <Form>
                             <label htmlFor="Name">Name:</label>
                             <Field
