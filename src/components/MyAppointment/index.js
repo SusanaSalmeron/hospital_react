@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NewAppointment from '../NewAppointment';
 import AppointmentList from '../AppointmentList';
 import Logout from '../Logout';
+import MyAccount from '../MyAccount';
 import style from './myAppointment.module.css'
 import { getUser } from '../../services/appointmentService';
 import { useParams } from 'react-router-dom';
@@ -20,7 +21,6 @@ export default function MyAppointment() {
                 } catch (err) {
                     console.log(err)
                 }
-
             })
     }, [id])
 
@@ -30,6 +30,7 @@ export default function MyAppointment() {
                 <div className={style.logout}>
                     <h1>Welcome, {user.name} </h1>
                     <h3>You can choose or cancel your appointments</h3>
+                    <MyAccount />
                     <Logout />
                 </div>
                 <hr />

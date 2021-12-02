@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import style from './logout.module.css'
+import style from './logout.module.css';
 
 
 export default function Logout() {

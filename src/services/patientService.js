@@ -26,13 +26,12 @@ export async function getPatient(id) {
             console.log('Error', err.message)
         }
     }
-    console.log(result.data)
     return result.data
 }
 
 export async function getPatients() {
     let result = []
-    console.log('ZZZZZZZZZZZZZZZ')
+
     try {
         result = await axios.get(baseUrl, getHeaders())
     } catch (err) {
@@ -123,5 +122,34 @@ export async function getDiseasesForOptions() {
             console.log('Error', err.message)
         }
     }
+    return result
+}
+
+
+export async function modifyPatientData(id, name, email, address, postalZip, region, country, phone, ssnumber, company) {
+    let result = []
+    try {
+        const body = {
+            name,
+            email,
+            address,
+            postalZip,
+            region,
+            country,
+            phone,
+            ssnumber,
+            company
+        }
+        result = await axios.put(`${baseUrl}/${id}/`, body, getHeaders())
+    } catch (err) {
+        if (err.response) {
+            console.log(err.response.status)
+        } else if (err.request) {
+            console.log(err.request)
+        } else {
+            console.log('Error', err.message)
+        }
+    }
+
     return result
 }

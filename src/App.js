@@ -6,6 +6,8 @@ import ClinicalRecord from './components/ClinicalRecord';
 import RecordForm from './components/RecordForm';
 import MyAppointment from './components/MyAppointment';
 import Register from './components/Register'
+import Account from './components/Account'
+import ModificationData from './components/ModificationData'
 import {
   BrowserRouter as Router,
   Route
@@ -24,6 +26,8 @@ function App() {
         <Route exact path="/:id/record" component={ClinicalRecord} />
         <Route exact path="/:id/addrecord" component={RecordForm} />
         <Route exact path="/:id/appointment" component={MyAppointment} />
+        <Route exact path="/:id/account" component={Account} />
+        <Route exact path="/:id/modifyData" component={ModificationData} />
       </Router>
 
     </div>
