@@ -25,9 +25,8 @@ export default function Login() {
         evt.preventDefault()
         const { target: { email: { value: email }, password: { value: password } } } = evt
         const loginResult = await login(email, password)
-
         if (!loginResult.error) {
-            areYouAWorker() ? history.push('/search') : history.push(`/${loginResult.id}/appointment`)
+            areYouAWorker() ? history.push(`${loginResult.id}/search`) : history.push(`/${loginResult.id}/appointment`)
         } else {
             setError(loginResult.error)
         }
@@ -51,5 +50,6 @@ export default function Login() {
                 <button disabled={!email || !password}>Login</button>
             </form>
         </>
+
     )
 }

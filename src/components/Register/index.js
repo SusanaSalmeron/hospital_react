@@ -18,6 +18,7 @@ export default function Register() {
             setError(registerResult.error)
         }
     }
+
     return (
         <div className={style.register}>
             <h4 className={style.subtitle}>Sign Up</h4>

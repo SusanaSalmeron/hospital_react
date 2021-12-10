@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useParams, useHistory } from 'react-router-dom'
 import KeywordContext from '../../context/KeywordContext';
 import { getPatientAnyFieldBy, getPatients } from '../../services/patientService';
 import Logout from '../Logout';
@@ -9,10 +10,16 @@ import style from './patientList.module.css';
 
 
 export default function PatientList() {
-
     const [showPatients, setShowPatients] = useState([])
     const { keyword } = useContext(KeywordContext)
     const name = localStorage.getItem("username")
+    const { id } = useParams()
+    const history = useHistory()
+
+    const handleAppoint = () => {
+        history.push(`/${id}/appointListForDoctors`)
+    }
+
 
     useEffect(() => {
         if (keyword && keyword !== "") {
@@ -22,7 +29,6 @@ export default function PatientList() {
                     setShowPatients(response)
                 })
         } else {
-
             getPatients()
                 .then(response => {
 
@@ -35,7 +41,11 @@ export default function PatientList() {
     return (
         <>
             <div className={style.welcome}>
-                <h4>Hola <span>{name}!</span></h4><Logout />
+                <h4>Hola <span>{name}!</span></h4>
+                <button type="text" onClick={handleAppoint} className={style.appointments}>Appointments</button>
+
+                <Logout />
+
             </div>
             <h1 className={style.title}
             >Lista de Pacientes</h1>

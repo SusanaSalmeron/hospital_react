@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import validationFormForModification from '../../middleware/validationFormForModification';
 import validationFormForRegister from '../../middleware/validationFormForRegister'
 import { ErrorMessage, Formik, Field, Form } from 'formik';
+import Select from 'react-select';
+import { getRegionsForSelect } from '../../services/registerService';
+import style from './dataForm.module.css'
 
 
 
-export default function DataForm({ userData, isRegistering, submit }) {
+export default function DataForm({ userData, isRegistering, submit, changeOptions }) {
+    const [regions, setRegions] = useState([])
+
     const initialValues = {
         name: userData?.name ?? "",
         email: userData?.email ?? "",
@@ -17,6 +22,20 @@ export default function DataForm({ userData, isRegistering, submit }) {
         ssnumber: userData?.ssnumber ?? "",
         company: userData?.company ?? ""
     }
+
+    useEffect(() => {
+        getRegionsForSelect()
+            .then(response => {
+                setRegions(response)
+                console.log(response)
+            })
+    }, [])
+
+    const handleOptions = (e, b) => {
+        let event = { target: { name: 'region', value: e } }
+        b(event)
+    }
+
     return (
         <Formik
             enableReinitialize={true}
@@ -25,15 +44,13 @@ export default function DataForm({ userData, isRegistering, submit }) {
             validationSchema={isRegistering ? validationFormForRegister : validationFormForModification}
         >
             {
-                ({ isSubmitting, dirty, isValid, handleChange }) =>
-                    <Form>
+                ({ isSubmitting, dirty, isValid, handleChange, errors, values, handleBlur }) =>
+                    <Form className={style.form}>
                         <label htmlFor="Name">Name:</label>
                         <Field
                             id="name"
                             name="name"
                             placeholder="Write your name"
-                            onChange={handleChange}
-
                         />
                         <ErrorMessage
                             className="form-error"
@@ -46,7 +63,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             id="email"
                             name="email"
                             placeholder="Write your email"
-                            onChange={handleChange}
                         />
                         <ErrorMessage
                             className="form-error"
@@ -60,7 +76,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                                     type="password"
                                     name="password"
                                     placeholder="Write your password"
-                                    onChange={handleChange}
                                 />
                                 <ErrorMessage
                                     className="form-error"
@@ -73,51 +88,48 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             id="address"
                             name="address"
                             placeholder="Write your address"
-                            onChange={handleChange}
                         />
                         <ErrorMessage
                             className="form-error"
                             name='address'
-                            component="small" />
-                        <label htmlFor="postalZip">Postal Zip:</label>
-                        <Field
-                            id="postalZip"
-                            name="postalZip"
-                            placeholder="Write your postalZip"
-                            onChange={handleChange}
-                        />
-                        <ErrorMessage
-                            className="form-error"
-                            name='postalZip'
-                            component="small" />
-                        <label htmlFor="region">Region:</label>
-                        <Field
-                            id="region"
-                            name="region"
-                            placeholder="Write your region"
-                            onChange={handleChange}
-                        />
-                        <ErrorMessage
-                            className="form-error"
-                            name='region'
                             component="small" />
                         <label htmlFor="country">Country:</label>
                         <Field
                             id="country"
                             name="country"
                             placeholder="Write your country"
-                            onChange={handleChange}
                         />
                         <ErrorMessage
                             className="form-error"
                             name='country'
+                            component="small" />
+                        <label htmlFor="region">Region:</label>
+                        <Select
+                            value={values.region}
+                            options={regions}
+                            onChange={selectedOption => { handleOptions(selectedOption, handleChange) }}
+                            name="region"
+                            error={errors}
+                            className={style.select}
+                        >
+                            {errors ? <p>Region Required </p> : null}
+                        </Select>
+
+                        <label htmlFor="postalZip">Postal Zip:</label>
+                        <Field
+                            id="postalZip"
+                            name="postalZip"
+                            placeholder="Write your postalZip"
+                        />
+                        <ErrorMessage
+                            className="form-error"
+                            name='postalZip'
                             component="small" />
                         <label htmlFor="phone">Phone:</label>
                         <Field
                             id="phone"
                             name="phone"
                             placeholder="Write your phone"
-                            onChange={handleChange}
                         />
                         <ErrorMessage
                             className="form-error"
@@ -131,7 +143,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                                     id="dob"
                                     name="dob"
                                     placeholder="Write your date of birth"
-                                    onChange={handleChange}
                                 />
                                 <ErrorMessage
                                     className="form-error"
@@ -145,7 +156,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             id="ssnumber"
                             name="ssnumber"
                             placeholder="Write your ss number"
-                            onChange={handleChange}
                         />
                         <ErrorMessage
                             className="form-error"
@@ -156,7 +166,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             id="company"
                             name="company"
                             placeholder="Write your company"
-                            onChange={handleChange}
                         />
                         <ErrorMessage
                             className="form-error"

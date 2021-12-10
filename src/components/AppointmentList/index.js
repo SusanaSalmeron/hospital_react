@@ -10,11 +10,12 @@ export default function AppointmentList() {
     const [appointments, setAppointments] = useState([]);
     const [refresh, setRefresh] = useState(true)
     const { appointmentRefresh } = useContext(UpdateAppointmentContext)
+    const { id } = useParams();
 
     const changeState = () => {
         setRefresh(!refresh)
     }
-    const { id } = useParams();
+
 
     useEffect(() => {
         getAppointment(id)

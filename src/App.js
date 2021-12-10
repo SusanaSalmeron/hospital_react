@@ -12,6 +12,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
+import AppointListForDoctors from './components/AppointListForDoctors';
 
 
 
@@ -20,7 +21,7 @@ function App() {
     <div className="App">
       <Router>
         <Route exact path="/home" component={Home} />
-        <Route exact path="/search" component={PatientSearch} />
+        <Route exact path="/:id/search" component={PatientSearch} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/:id/record" component={ClinicalRecord} />
@@ -28,6 +29,7 @@ function App() {
         <Route exact path="/:id/appointment" component={MyAppointment} />
         <Route exact path="/:id/account" component={Account} />
         <Route exact path="/:id/modifyData" component={ModificationData} />
+        <Route exact path="/:id/appointListForDoctors" component={AppointListForDoctors} />
       </Router>
 
     </div>

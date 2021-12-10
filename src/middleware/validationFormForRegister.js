@@ -15,12 +15,11 @@ export default function ValidationFormForRegister() {
             .matches(/[a - zA - Z]/, 'Password can only contain latin letters'),
         address: yup.string()
             .required('Required address'),
-        postalZip: yup.string()
-            .required('Required postalZip'),
-        region: yup.string()
-            .required('Required region'),
         country: yup.string()
             .required('Required country'),
+        postalZip: yup.string()
+            .required('Required postalZip'),
+        region: yup.object({ value: yup.string().required('Please select a country'), label: yup.string().required('Please select a country') }),
         phone: yup.string()
             .required('Required phone'),
         dob: yup.string()
