@@ -7,9 +7,9 @@ import { getRegionsForSelect } from '../../services/registerService';
 import style from './dataForm.module.css'
 
 
-
-export default function DataForm({ userData, isRegistering, submit, changeOptions }) {
+export default function DataForm({ userData, isRegistering, submit, error }) {
     const [regions, setRegions] = useState([])
+    const [regionCode, setRegionCode] = useState("")
 
     const initialValues = {
         name: userData?.name ?? "",
@@ -27,13 +27,13 @@ export default function DataForm({ userData, isRegistering, submit, changeOption
         getRegionsForSelect()
             .then(response => {
                 setRegions(response)
-                console.log(response)
             })
     }, [])
 
     const handleOptions = (e, b) => {
         let event = { target: { name: 'region', value: e } }
         b(event)
+        setRegionCode(e.value)
     }
 
     return (
@@ -42,9 +42,10 @@ export default function DataForm({ userData, isRegistering, submit, changeOption
             initialValues={initialValues}
             onSubmit={submit}
             validationSchema={isRegistering ? validationFormForRegister : validationFormForModification}
+
         >
             {
-                ({ isSubmitting, dirty, isValid, handleChange, errors, values, handleBlur }) =>
+                ({ isSubmitting, dirty, isValid, handleChange, errors, status, values }) =>
                     <Form className={style.form}>
                         <label htmlFor="Name">Name:</label>
                         <Field
@@ -57,7 +58,6 @@ export default function DataForm({ userData, isRegistering, submit, changeOption
                             name='name'
                             component="small"
                         />
-
                         <label htmlFor="Email">Email:</label>
                         <Field
                             id="email"
@@ -95,6 +95,7 @@ export default function DataForm({ userData, isRegistering, submit, changeOption
                             component="small" />
                         <label htmlFor="country">Country:</label>
                         <Field
+                            value="Spain"
                             id="country"
                             name="country"
                             placeholder="Write your country"
@@ -110,17 +111,23 @@ export default function DataForm({ userData, isRegistering, submit, changeOption
                             onChange={selectedOption => { handleOptions(selectedOption, handleChange) }}
                             name="region"
                             error={errors}
+                            placeholder="Select your region"
+                            id={regionCode}
                             className={style.select}
                         >
                             {errors ? <p>Region Required </p> : null}
                         </Select>
-
                         <label htmlFor="postalZip">Postal Zip:</label>
-                        <Field
-                            id="postalZip"
+                        <Select
+                            value={values.postalZip}
+                            options="1"
                             name="postalZip"
-                            placeholder="Write your postalZip"
-                        />
+                            error={errors}
+                            placeholder="Select your postalZip"
+                            className={style.select}
+                        >
+                            {errors ? <p>Postal zip Required </p> : null}
+                        </Select>
                         <ErrorMessage
                             className="form-error"
                             name='postalZip'
@@ -171,12 +178,14 @@ export default function DataForm({ userData, isRegistering, submit, changeOption
                             className="form-error"
                             name='company'
                             component="small" />
+
                         <button
                             disabled={!isValid || !dirty || isSubmitting}
                             type="submit"
                         >
                             Send
                         </button>
+                        {status && status.email ? <p> {status.email} </p> : null}
                     </Form>
             }
         </Formik>
