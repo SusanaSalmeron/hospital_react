@@ -14,7 +14,6 @@ export default function Register() {
         if (registerResult.id) {
             history.push(`/${registerResult.id}/appointment`)
         } else {
-            console.log(registerResult)
             setStatus(registerResult)
         }
     }

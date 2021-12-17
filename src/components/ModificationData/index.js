@@ -8,7 +8,7 @@ import DataForm from '../DataForm';
 export default function AccountModificationData() {
     const history = useHistory()
     const { id } = useParams()
-    const [error, setError] = useState()
+    const [setError] = useState()
     const [patient, setPatient] = useState({})
 
 

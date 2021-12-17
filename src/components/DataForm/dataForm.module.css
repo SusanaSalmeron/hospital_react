@@ -1,7 +1,6 @@
 .form{
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;   
 }
 
 .form .select {
@@ -16,7 +15,7 @@
     color:black;
 }
 
-p{
+.patient p{
     color:red;
     font-size: 2em;
 }

@@ -20,8 +20,8 @@ export default async function register(email, password, name, address, postalZip
             email,
             password,
             address,
-            postalZip,
-            region,
+            postalZip: postalZip.value,
+            region: region.value,
             country,
             phone,
             dob,
@@ -68,8 +68,7 @@ export async function getRegionsForSelect() {
 export async function getPostalZipsForSelect(provCode) {
     let result = {}
     try {
-        const response = await axios.get(`https://public.opendatasoft.com/api/records/1.0/search/?dataset=georef-spain-municipio&q=&facet=acom_code&facet=acom_name&facet=prov_code&facet=prov_name&refine.prov_code=${provCode}`, getHeaders())
-        console.log(response)
+        const response = await axios.get(`https://public.opendatasoft.com/api/records/1.0/search/?dataset=georef-spain-municipio&q=&rows=1000&facet=acom_code&facet=acom_name&facet=prov_code&facet=prov_name&refine.prov_code=${provCode}`, getHeaders())
         result = response.data.records.map(record => {
             const newLabel = `${record.fields.mun_code} - ${record.fields.mun_name}`
             return { value: record.fields.mun_code, label: newLabel }

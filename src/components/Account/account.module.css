@@ -8,24 +8,20 @@
     margin: -2em 0 0 0;
 }
 
-
 .container{
     width: 100%;
     display:flex;
     flex-direction: row;
     justify-content:space-around ;
     align-items: center;
-     height: 80vh;
-    
+    height: 80vh;
 }
-
 
 .personal, .appoint{
     height: 10em;
     width: 50%;
     text-align: center;
     padding: 1% 0 6% 0; 
-   
 }
 
 .personal{
@@ -37,5 +33,4 @@
     padding: 11% 11%;
     background-color: lightblue;
     box-shadow: 10px 10px 5px darkslateblue;
-    
 }

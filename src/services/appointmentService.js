@@ -63,6 +63,7 @@ export async function addNewAppointment(id, date, doctorId) {
             console.log('Error', err.message)
         }
     }
+    console.log(result)
     return result
 }
 

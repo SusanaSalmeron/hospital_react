@@ -57,16 +57,19 @@ const mockData = {
     }
 }
 
-
 /*
 [
     {
-        value: "28800", 
-        label: "28800 - Majadahonda"
+        value: "28080", 
+        label: "28080 - Majadahonda"
     },
     {
-        value: "28892",
-        label: "28892 - Navalcarnero"
+        value: "28092",
+        label: "28092 - Móstoles"
+    },
+    {
+        value: "28096",
+        label: "29092 - Navalcarnero"
     }
 ]
 */
@@ -75,12 +78,19 @@ describe('getPostalZipsForSelect', () => {
         axios.get.mockResolvedValueOnce(mockData)
         const result = await getPostalZipsForSelect()
 
-
-        expect(result).toBe(
+        expect(result).toEqual(
             [
                 {
                     value: "28080",
                     label: "28080 - Majadahonda"
+                },
+                {
+                    value: "28092",
+                    label: "28092 - Móstoles"
+                },
+                {
+                    value: "28096",
+                    label: "28096 - Navalcarnero"
                 }
             ]
         )

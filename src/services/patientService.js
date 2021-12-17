@@ -26,12 +26,12 @@ export async function getPatient(id) {
             console.log('Error', err.message)
         }
     }
+
     return result.data
 }
 
 export async function getPatients() {
     let result = []
-
     try {
         result = await axios.get(baseUrl, getHeaders())
     } catch (err) {
@@ -70,6 +70,7 @@ export async function getPatientRecord(id) {
     let result = []
     try {
         result = await axios.get(`${baseUrl}/${id}/record`, getHeaders())
+        console.log(result.data)
         return result.data
     } catch (err) {
         if (err.response) {

@@ -3,25 +3,28 @@ import validationFormForModification from '../../middleware/validationFormForMod
 import validationFormForRegister from '../../middleware/validationFormForRegister'
 import { ErrorMessage, Formik, Field, Form } from 'formik';
 import Select from 'react-select';
-import { getRegionsForSelect } from '../../services/registerService';
+import { getPostalZipsForSelect, getRegionsForSelect } from '../../services/registerService';
 import style from './dataForm.module.css'
 
 
-export default function DataForm({ userData, isRegistering, submit, error }) {
+export default function DataForm({ userData, isRegistering, submit }) {
     const [regions, setRegions] = useState([])
-    const [regionCode, setRegionCode] = useState("")
+
 
     const initialValues = {
         name: userData?.name ?? "",
         email: userData?.email ?? "",
         address: userData?.address ?? "",
         postalZip: userData?.postalZip ?? "",
+        postalZips: [],
         region: userData?.region ?? "",
-        country: userData?.country ?? "",
+        country: "Spain",
         phone: userData?.phone ?? "",
         ssnumber: userData?.ssnumber ?? "",
         company: userData?.company ?? ""
     }
+
+    console.log(initialValues)
 
     useEffect(() => {
         getRegionsForSelect()
@@ -30,11 +33,6 @@ export default function DataForm({ userData, isRegistering, submit, error }) {
             })
     }, [])
 
-    const handleOptions = (e, b) => {
-        let event = { target: { name: 'region', value: e } }
-        b(event)
-        setRegionCode(e.value)
-    }
 
     return (
         <Formik
@@ -45,7 +43,7 @@ export default function DataForm({ userData, isRegistering, submit, error }) {
 
         >
             {
-                ({ isSubmitting, dirty, isValid, handleChange, errors, status, values }) =>
+                ({ isSubmitting, dirty, isValid, handleChange, errors, status, values, setFieldValue }) =>
                     <Form className={style.form}>
                         <label htmlFor="Name">Name:</label>
                         <Field
@@ -95,7 +93,7 @@ export default function DataForm({ userData, isRegistering, submit, error }) {
                             component="small" />
                         <label htmlFor="country">Country:</label>
                         <Field
-                            value="Spain"
+                            value={initialValues.country}
                             id="country"
                             name="country"
                             placeholder="Write your country"
@@ -108,25 +106,36 @@ export default function DataForm({ userData, isRegistering, submit, error }) {
                         <Select
                             value={values.region}
                             options={regions}
-                            onChange={selectedOption => { handleOptions(selectedOption, handleChange) }}
+                            onChange={async e => {
+                                const { value } = e
+                                const zcs = await getPostalZipsForSelect(value)
+                                handleChange({ target: { name: 'region', value: e } })
+                                setFieldValue("postalZips", zcs)
+                                setFieldValue("postalZip", "")
+                            }}
                             name="region"
-                            error={errors}
                             placeholder="Select your region"
-                            id={regionCode}
+                            id="region"
                             className={style.select}
+                            errors={errors}
                         >
-                            {errors ? <p>Region Required </p> : null}
+                            {
+                                errors ?
+                                    <p>Region Required</p> :
+                                    null
+                            }
                         </Select>
                         <label htmlFor="postalZip">Postal Zip:</label>
                         <Select
                             value={values.postalZip}
-                            options="1"
+                            options={values.postalZips}
+                            onChange={async e => handleChange({ target: { name: "postalZip", value: e } })}
                             name="postalZip"
                             error={errors}
                             placeholder="Select your postalZip"
                             className={style.select}
                         >
-                            {errors ? <p>Postal zip Required </p> : null}
+                            {errors.postalZip ? <p>Postal zip Required </p> : null}
                         </Select>
                         <ErrorMessage
                             className="form-error"

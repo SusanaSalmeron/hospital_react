@@ -41,7 +41,7 @@ export default function ClinicalRecord() {
                         </Link>
                     </button>
                     <button>
-                        <Link to="/search">
+                        <Link to={`/${id}/search`}>
                             Return
                         </Link>
                     </button>

@@ -41,20 +41,20 @@ export default function PatientList() {
     return (
         <>
             <div className={style.welcome}>
-                <h4>Hola <span>{name}!</span></h4>
+                <h4>Hi <span>{name}!</span></h4>
                 <button type="text" onClick={handleAppoint} className={style.appointments}>Appointments</button>
 
                 <Logout />
 
             </div>
             <h1 className={style.title}
-            >Lista de Pacientes</h1>
+            >Patient List</h1>
             <SearchBar />
             <hr className={style.line} />
             <div className={style.container}>
                 {!showPatients.length ?
                     <div className={style.noData}>
-                        <p>No hay pacientes que cumplan la búsqueda</p>
+                        <p>No patients</p>
                     </div> : showPatients.map((patient, i) => {
                         return <Patient
                             data={patient}
