@@ -24,7 +24,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
         company: userData?.company ?? ""
     }
 
-    console.log(initialValues)
 
     useEffect(() => {
         getRegionsForSelect()
@@ -194,7 +193,7 @@ export default function DataForm({ userData, isRegistering, submit }) {
                         >
                             Send
                         </button>
-                        {status && status.email ? <p> {status.email} </p> : null}
+                        {status && status.email ? <p className={style.error}> {status.email} </p> : null}
                     </Form>
             }
         </Formik>

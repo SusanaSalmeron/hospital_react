@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom'
 import KeywordContext from '../../context/KeywordContext';
-import { getPatientAnyFieldBy, getPatients } from '../../services/patientService';
+import { getAllPatientsBy } from '../../services/patientService';
 import Logout from '../Logout';
 import Patient from '../Patient';
 import SearchBar from '../SearchBar';
@@ -20,22 +20,16 @@ export default function PatientList() {
         history.push(`/${id}/appointListForDoctors`)
     }
 
-
     useEffect(() => {
-        if (keyword && keyword !== "") {
-            getPatientAnyFieldBy(keyword)
-                .then(response => {
-                    console.log(response)
+        getAllPatientsBy(keyword)
+            .then(response => {
+                if (response.redirect) {
+                    history.push('/error403')
+                } else {
                     setShowPatients(response)
-                })
-        } else {
-            getPatients()
-                .then(response => {
-
-                    setShowPatients(response)
-                })
-        }
-    }, [keyword])
+                }
+            })
+    }, [keyword, history])
 
 
     return (

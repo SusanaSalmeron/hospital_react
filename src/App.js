@@ -6,14 +6,16 @@ import PatientSearch from './components/PatientSearch';
 import ClinicalRecord from './components/ClinicalRecord';
 import RecordForm from './components/RecordForm';
 import MyAppointment from './components/MyAppointment';
-import Register from './components/Register'
-import Account from './components/Account'
-import ModificationData from './components/ModificationData'
+import Register from './components/Register';
+import Account from './components/Account';
+import ModificationData from './components/ModificationData';
+import AppointListForDoctors from './components/AppointListForDoctors';
+import Error403 from './components/Error403';
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import AppointListForDoctors from './components/AppointListForDoctors';
+
 
 
 
@@ -31,6 +33,7 @@ function App() {
         <Route exact path="/:id/account" component={Account} />
         <Route exact path="/:id/modifyData" component={ModificationData} />
         <Route exact path="/:id/appointListForDoctors" component={AppointListForDoctors} />
+        <Route exact path="/error403" component={Error403} />
       </Router>
 
     </div>

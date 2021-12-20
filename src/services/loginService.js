@@ -25,10 +25,22 @@ export default async function login(email, password) {
         result = await axios.post(baseUrl, body, { headers })
         localStorage.setItem("username", result.data.name)
         localStorage.setItem("token", result.data.token)
-        console.log(result.data)
         return { id: result.data.id }
-    } catch (e) {
-        return { error: e.message }
+    } catch (err) {
+        if (err.response) {
+            const { status, data } = err.response
+            if (status === 404 || status === 401) {
+                return data
+            }
+            else {
+                return {
+                    error: "Unexpected error, try again later"
+                }
+            }
+        }
+        else {
+            console.log('Error', err.message)
+            return { error: err.message }
+        }
     }
-
 }

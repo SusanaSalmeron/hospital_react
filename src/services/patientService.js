@@ -17,36 +17,63 @@ export async function getPatient(id) {
     let result = []
     try {
         result = await axios.get(`${baseUrl}/${id}`, getHeaders())
+        return result.data
     } catch (err) {
-        if (err.response) {
+        if (err.response && (err.response.status === 403 || err.response.status === 401)) {
             console.log(err.response.status)
-        } else if (err.request) {
-            console.log(err.request)
+            result = err.response.data
+            result.redirect = true
         } else {
             console.log('Error', err.message)
+            result = err.response.data
         }
     }
-
-    return result.data
+    return result
 }
 
-export async function getPatients() {
+/* export async function getPatients() {
     let result = []
     try {
         result = await axios.get(baseUrl, getHeaders())
+        return result.data
     } catch (err) {
-        if (err.response) {
+        if (err.response && (err.response.status === 403 || err.response && err.response.status === 401)) {
             console.log(err.response.status)
-        } else if (err.request) {
-            console.log(err.request)
+            result = err.response.data
+            result.redirect = true
         } else {
             console.log('Error', err.message)
+            result = err.response.data
         }
     }
-    return result.data
+    return result
+} */
+
+// EQUIVALE A getPatients y getPatientsAnyFieldBy, por lo que estos ya no serían necesarios
+export async function getAllPatientsBy(keyword) {
+    let result = []
+    try {
+
+        const requestParams = keyword ?
+            { ...getHeaders(), ...{ params: { keyword: keyword } } }
+            :
+            getHeaders()
+        const response = await axios.get(baseUrl, requestParams)
+        result = response.data
+    } catch (err) {
+        if (err.response && (err.response.status === 403 || err.response.status === 401)) {
+            console.log(err.response.status)
+            result = err.response.data
+            result.redirect = true
+        } else {
+            console.log('Error', err.message)
+            result = err.response.data
+        }
+    }
+    return result
 }
 
-export async function getPatientAnyFieldBy(keyword) {
+/* export async function getPatientAnyFieldBy(keyword) {
     let result = []
     try {
         const requestParams = {
@@ -54,17 +81,20 @@ export async function getPatientAnyFieldBy(keyword) {
             ...{ params: { keyword: keyword } }
         }
         result = await axios.get(baseUrl, requestParams)
+        return result.data
     } catch (err) {
-        if (err.response) {
+        if (err.response && (err.response.status === 403 || err.response && err.response.status === 401)) {
             console.log(err.response.status)
-        } else if (err.request) {
-            console.log(err.request)
+            result = err.response.data
+            result.redirect = true
         } else {
             console.log('Error', err.message)
+            result = err.response.data
         }
     }
-    return result.data
-}
+    return result
+
+} */
 
 export async function getPatientRecord(id) {
     let result = []
