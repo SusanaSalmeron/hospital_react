@@ -28,6 +28,7 @@ export async function getPatient(id) {
             result = err.response.data
         }
     }
+    console.log(result)
     return result
 }
 

@@ -1,0 +1,14 @@
+.showAppoint{
+    display: inline-block;
+    width: 50%;
+}
+
+.showAppoint p{
+    font-size: 1.8em;
+    font-weight: 800;
+}
+
+.showAppoint span{
+   font-weight: 400;
+}
+

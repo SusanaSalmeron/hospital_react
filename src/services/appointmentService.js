@@ -35,13 +35,29 @@ export async function getAppointment(id) {
     } catch (err) {
         if (err.response) {
             console.log(err.response.status)
-        } else if (err.request) {
-            console.log(err.request)
         } else {
             console.log('Error', err.message)
         }
     }
     return result.data
+}
+
+export async function getAppointmentsForDoctors(id) {
+    let result = []
+    try {
+        result = await axios.get(`http://localhost:3001/api/doctors/${id}/appointments`, getHeaders())
+        return result.data
+    } catch (err) {
+        if (err.response && (err.response.status === 403 || err.response.status === 401)) {
+            console.log(err.response.status)
+            result = err.response.data
+            result.redirect = true
+        } else {
+            console.log('Error', err.message)
+            result = err.response.data
+        }
+    }
+    return result
 }
 
 
