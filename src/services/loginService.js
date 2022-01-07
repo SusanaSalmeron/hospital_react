@@ -3,7 +3,7 @@ import { validatePassword } from '../middleware/passwordValidation'
 import axios from 'axios';
 
 
-const baseUrl = 'http://localhost:3001/api/users/login'
+const baseUrl = 'http://localhost:3001/v1/users/login'
 
 function validate(email, password) {
     if (!email || !password) throw new Error('Write your email and password to log in')

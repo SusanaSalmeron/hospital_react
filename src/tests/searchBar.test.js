@@ -2,8 +2,6 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import SearchBar from '../components/SearchBar';
 import { KeywordProvider } from '../context/KeywordContext';
-import userEvent from '@testing-library/user-event';
-
 
 describe('SearchBar', () => {
     test('render SearchBar component', async () => {
@@ -16,7 +14,5 @@ describe('SearchBar', () => {
             target: { value: 'Hola' },
         });
         expect(screen.getByDisplayValue('Hola')).toBeInTheDocument()
-
-        userEvent.type(screen.getByRole('textbox', 'Hola'));
     });
 });

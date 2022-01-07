@@ -24,7 +24,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
         company: userData?.company ?? ""
     }
 
-
     useEffect(() => {
         getRegionsForSelect()
             .then(response => {
@@ -32,14 +31,12 @@ export default function DataForm({ userData, isRegistering, submit }) {
             })
     }, [])
 
-
     return (
         <Formik
             enableReinitialize={true}
             initialValues={initialValues}
             onSubmit={submit}
             validationSchema={isRegistering ? validationFormForRegister : validationFormForModification}
-
         >
             {
                 ({ isSubmitting, dirty, isValid, handleChange, errors, status, values, setFieldValue }) =>

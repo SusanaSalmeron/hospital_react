@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory, Link } from 'react-router-dom';
-import { getAppointmentsForDoctors } from '../../services/appointmentService';
+import { getAppointmentsForDoctors } from '../../services/doctorsService';
 import AppointmentForDoctors from '../AppointmentForDoctors';
 import style from './AppointListForDoctors.module.css';
 

@@ -34,7 +34,7 @@ export default function Login() {
     return (
         <>
             <form className={style.login} onSubmit={handleSubmit}>
-                <h4 className={style.subtitle}>Por favor, inicie sesión para realizar cualquier consulta</h4>
+                <h4 className={style.subtitle}>Log in to make inquiries </h4>
                 {error && <p className={style.error}>{error}</p>}
                 <input
                     type="text"

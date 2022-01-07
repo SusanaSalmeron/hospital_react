@@ -19,7 +19,7 @@ export default function SearchBar() {
         <div className={style.search}>
             <div>
                 <input type="text" value={search} onChange={handleKeyword} placeholder="Realiza una búsqueda" />
-                <button onClick={handleSearch}>Buscar</button>
+                <button onClick={handleSearch}>Search</button>
             </div>
         </div >
 

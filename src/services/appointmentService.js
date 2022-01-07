@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = "http://localhost:3001/api/patients"
+const baseUrl = "http://localhost:3001/v1/patients"
 
 
 const getHeaders = () => {
@@ -19,8 +19,6 @@ export async function getUser(id) {
     } catch (err) {
         if (err.response) {
             console.log(err.response.status)
-        } else if (err.request) {
-            console.log(err.request)
         } else {
             console.log('Error', err.message)
         }
@@ -42,25 +40,6 @@ export async function getAppointment(id) {
     return result.data
 }
 
-export async function getAppointmentsForDoctors(id) {
-    let result = []
-    try {
-        result = await axios.get(`http://localhost:3001/api/doctors/${id}/appointments`, getHeaders())
-        return result.data
-    } catch (err) {
-        if (err.response && (err.response.status === 403 || err.response.status === 401)) {
-            console.log(err.response.status)
-            result = err.response.data
-            result.redirect = true
-        } else {
-            console.log('Error', err.message)
-            result = err.response.data
-        }
-    }
-    return result
-}
-
-
 export async function addNewAppointment(id, date, doctorId) {
     let result = []
     try {
@@ -68,7 +47,7 @@ export async function addNewAppointment(id, date, doctorId) {
             pickedDate: date,
             doctor: parseInt(doctorId)
         }
-        result = await axios.post(`${baseUrl}/${id}/appointments/add`, body, getHeaders())
+        result = await axios.post(`${baseUrl}/${id}/appointments/`, body, getHeaders())
 
     } catch (err) {
         if (err.response) {
@@ -99,18 +78,3 @@ export async function deleteAppointment(id, appId) {
     return result
 }
 
-export async function getDoctorsForOptions() {
-    let result = []
-    try {
-        result = await axios.get(`${baseUrl}/appointments/doctors`, getHeaders())
-    } catch (err) {
-        if (err.response) {
-            console.log(err.response.status)
-        } else if (err.request) {
-            console.log(err.request)
-        } else {
-            console.log('Error', err.message)
-        }
-    }
-    return result.data
-}

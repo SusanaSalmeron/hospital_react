@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { addNewAppointment } from '../../services/appointmentService';
 import MonthCalendar from '../Calendar';
-import { getAppointment, getDoctorsForOptions } from '../../services/appointmentService';
-import style from './newAppointment.module.css'
+import { getAppointment } from '../../services/appointmentService';
+import { getDoctorsForOptions } from '../../services/catalogService';
+import style from './newAppointment.module.css';
 import UpdateAppointmentContext from '../../context/UpdateAppointmentsContext';
 
 

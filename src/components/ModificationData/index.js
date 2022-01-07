@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import style from './modificationData.module.css';
 import { getPatient, modifyPatientData } from '../../services/patientService';
 import DataForm from '../DataForm';
@@ -36,13 +36,20 @@ export default function AccountModificationData() {
 
 
     return (
-        <div className={style.modify}>
-            <h4 className={style.subtitle}>Modify your personal data</h4>
-            <DataForm
-                userData={patient}
-                isRegistering={false}
-                submit={handleSubmit}
-            />
-        </div>
+        <>
+            <div className={style.return}>
+                <Link to={`/${id}/account`}>
+                    <button>Return</button>
+                </Link>
+            </div>
+            <div className={style.modify}>
+                <h4 className={style.subtitle}>Modify your personal data</h4>
+                <DataForm
+                    userData={patient}
+                    isRegistering={false}
+                    submit={handleSubmit}
+                />
+            </div>
+        </>
     )
 }

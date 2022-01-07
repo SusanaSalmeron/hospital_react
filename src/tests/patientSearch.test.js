@@ -20,6 +20,6 @@ describe('PatientSearch', () => {
             <PatientSearch />
         )
         expect(mockHistoryPush).toHaveBeenCalledWith('/home')
-        screen.debug()
+        /* screen.debug() */
     })
 })

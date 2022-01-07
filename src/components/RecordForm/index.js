@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom'
 import { ErrorMessage, Formik, Field, Form } from 'formik';
 import style from './recordForm.module.css';
-import { addNewDiagnostic, getDiseasesForOptions } from '../../services/patientService';
+import { addNewDiagnostic } from '../../services/patientService';
+import { getDiseasesForOptions } from '../../services/catalogService'
 import Select from 'react-select';
 
 const validateFields = values => {

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = 'http://localhost:3001/api/users/register'
+const baseUrl = 'http://localhost:3001/v1/users/register'
 
 const getHeaders = () => {
     return {
@@ -9,7 +9,6 @@ const getHeaders = () => {
         }
     }
 }
-
 
 
 export default async function register(email, password, name, address, postalZip, region, country, phone, dob, ssnumber, company) {
