@@ -21,7 +21,6 @@ export default function AppointListForDoctors() {
             })
     }, [id, history])
 
-
     return (
         <>
             <div className={style.return}>

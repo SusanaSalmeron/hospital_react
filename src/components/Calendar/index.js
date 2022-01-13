@@ -16,7 +16,6 @@ export default function MonthCalendar({ ...props }) {
                 onChange={val => {
                     setFieldValue(field.name, val)
                 }}
-
             />
         </div>
     )

@@ -50,6 +50,5 @@ export default function Login() {
                 <button disabled={!email || !password}>Login</button>
             </form>
         </>
-
     )
 }

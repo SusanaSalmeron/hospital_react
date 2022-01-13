@@ -91,7 +91,6 @@ export default function NewAppointment() {
                         </Form>
                 }
             </Formik>
-
         </>
     )
 }

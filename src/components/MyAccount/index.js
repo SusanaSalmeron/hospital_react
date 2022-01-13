@@ -11,7 +11,6 @@ export default function MyAccount() {
         history.push(`/${id}/account`)
     }
 
-
     return (
         <button className={style.myAccount} onClick={handleAccount}>My Account</button>
     )

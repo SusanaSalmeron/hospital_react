@@ -52,13 +52,10 @@ export async function addNewAppointment(id, date, doctorId) {
     } catch (err) {
         if (err.response) {
             console.log(err.response.status)
-        } else if (err.request) {
-            console.log(err.request)
         } else {
             console.log('Error', err.message)
         }
     }
-    console.log(result)
     return result
 }
 
@@ -69,8 +66,6 @@ export async function deleteAppointment(id, appId) {
     } catch (err) {
         if (err.response) {
             console.log(err.response.status)
-        } else if (err.request) {
-            console.log(err.request)
         } else {
             console.log('Error', err.message)
         }

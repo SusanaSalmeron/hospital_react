@@ -37,9 +37,7 @@ export default function PatientList() {
             <div className={style.welcome}>
                 <h4>Hi <span>{name}!</span></h4>
                 <button type="text" onClick={handleAppoint} className={style.appointments}>Appointments</button>
-
                 <Logout />
-
             </div>
             <h1 className={style.title}
             >Patient List</h1>

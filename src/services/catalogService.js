@@ -24,8 +24,6 @@ export async function getDiseasesForOptions() {
     } catch (err) {
         if (err.response) {
             console.log(err.response.status)
-        } else if (err.request) {
-            console.log(err.request)
         } else {
             console.log('Error', err.message)
         }
@@ -40,8 +38,6 @@ export async function getDoctorsForOptions() {
     } catch (err) {
         if (err.response) {
             console.log(err.response.status)
-        } else if (err.request) {
-            console.log(err.request)
         } else {
             console.log('Error', err.message)
         }

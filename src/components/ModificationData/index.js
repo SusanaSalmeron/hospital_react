@@ -16,7 +16,6 @@ export default function AccountModificationData() {
         const { name, email, address, postalZip, region, country, phone, ssnumber, company } = values
         const newData = await modifyPatientData(id, name, email, address, postalZip, region, country, phone, ssnumber, company)
         if (!newData.error) {
-            console.log(id)
             history.push(`/${id}/appointment`)
         } else {
             setError(newData.error)

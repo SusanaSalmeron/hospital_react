@@ -53,6 +53,5 @@ export default function ClinicalRecord() {
                 </div>
             </div>
         </>
-
     )
 }

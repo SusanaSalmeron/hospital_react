@@ -109,7 +109,6 @@ export async function getPatientRecord(id) {
             result = err.response.data
         }
     }
-    console.log(result)
     return result
 }
 
@@ -125,8 +124,6 @@ export async function addNewDiagnostic(id, diagnostics, description) {
     } catch (err) {
         if (err.response) {
             console.log(err.response.status)
-        } else if (err.request) {
-            console.log(err.request)
         } else {
             console.log('Error', err.message)
         }
@@ -151,8 +148,6 @@ export async function modifyPatientData(id, name, email, address, postalZip, reg
     } catch (err) {
         if (err.response) {
             console.log(err.response.status)
-        } else if (err.request) {
-            console.log(err.request)
         } else {
             console.log('Error', err.message)
         }

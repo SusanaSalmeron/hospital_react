@@ -25,7 +25,6 @@ export default function Register() {
                 userData={{}}
                 isRegistering={true}
                 submit={handleSubmit}
-
             />
         </div>
     )
