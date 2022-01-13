@@ -1,0 +1,16 @@
+
+ div h1{
+    margin-bottom: 2em;
+}
+
+.doctor{
+    margin: 4em 0
+}
+
+.doctor h2{
+    margin-bottom: 2em;
+}
+
+.doctor .btn{
+   margin-left: 3em;
+}

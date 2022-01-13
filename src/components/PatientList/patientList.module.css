@@ -1,0 +1,55 @@
+.container{
+    display:flex;
+    flex-wrap: wrap;
+    margin-top:4em;
+   
+}
+
+.title{
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+
+}
+
+.line{
+    color:rebeccapurple;
+}
+
+.noData{
+    display:flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    font-size: 2em;
+    color: red;
+}
+
+.welcome{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.welcome span {
+    font-style: italic;
+    color:rebeccapurple;
+    text-transform: capitalize;
+    font-size: 1.3em;
+    margin-left: 0.5em;
+}
+
+.welcome h4{
+    margin-right: 10em;  
+   
+}
+
+
+.appointments{
+    height: 50%;
+    width: 7%;
+    font-family: Tahoma,'Segoe UI', Geneva, Verdana, sans-serif;
+    font-size: 1em;
+    margin-right: 1em;
+    margin-top: 1.3em; 
+}
+
+

@@ -1,0 +1,10 @@
+.showAppoint h2{
+   margin: 1.2em 0 3em 0;
+   text-align:  center; 
+}
+
+.noApp{
+   color:red;
+   font-size: 2em;
+   margin-left: 2em;
+}

@@ -1,0 +1,18 @@
+.search{
+    display:flex;
+    flex-direction: column;
+    margin: 2em;
+}
+
+.search input{
+    width: 80%;
+    height: 1.5em;
+    font-size: 1.5em;;
+}
+
+.search button{
+    float: right;
+    padding: .5em 1em;
+    font-size: 1em;
+
+}

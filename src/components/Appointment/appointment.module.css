@@ -1,0 +1,27 @@
+
+.showAppoint{
+    display:flex;
+    margin-left: 6em;
+    align-items: center;
+}
+
+.showAppoint p{
+    display: inline-block;
+    width: 800px;
+    font-weight: 800;
+    margin-right: 2em;
+    font-size: 1.7em;
+}
+
+.showAppoint span{
+    margin:0 2em 0 2em;
+    font-weight: 400;
+}
+
+.showAppoint button{
+    height: 2em;
+}
+
+.change{
+    margin-right: 2em;
+}

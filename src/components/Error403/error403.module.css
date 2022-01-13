@@ -1,0 +1,19 @@
+.forbidden h1{
+    text-align: center;
+    margin-top:5em;
+}
+
+.button{
+    width: 5em;
+    margin: 0 auto;
+}
+
+.button button{
+    width: 6em;
+    height: 3em;
+}
+
+.button a{
+    font-size: 1.5em;
+    text-decoration: none;
+}
