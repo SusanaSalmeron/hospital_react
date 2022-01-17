@@ -12,6 +12,9 @@ jobs:
       - checkout
       - node/install:
           node-version: '14.17'
+      - run: npm --version
+      - run: sudo npm install -g npm@latest
+      - run: npm --version
       - run: node --version
       - run: npm install
       - run: npm test
