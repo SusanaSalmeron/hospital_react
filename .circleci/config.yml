@@ -1,0 +1,25 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.0
+
+jobs:
+  test:
+    docker:
+      - image: 'cimg/node:14.18.3'
+    resource_class: small
+    steps:
+      - checkout
+      - node/install:
+          node-version: '14.17'
+      - run: npm --version
+      - run: npm install -g npm@8.3.0
+      - run: npm --version
+      - run: node --version
+      - run: npm install
+      - run: npm test
+  
+workflows:
+  pipeline: 
+    jobs:
+      - test
