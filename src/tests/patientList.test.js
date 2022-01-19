@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitFor, unmountComponentAtNode } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import PatientList from '../components/PatientList';
 /* import { NameProvider } from '../context/NameContext' */
@@ -12,17 +12,16 @@ jest.mock('react-router-dom', () => ({
     }),
 }))
 
-const mockHistoryPush = jest.fn();
+const mockedNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
-    useHistory: () => ({
-        push: mockHistoryPush,
-    }),
+    useNavigate: () => mockedNavigate
 }));
 
 
 describe('PatientList', () => {
+    //TODO improve and fix testing
     /* test('renders ok when there is no patients', async () => {
         const patientService = require('../services/patientService')
         jest.spyOn(patientService, 'getPatients').mockReturnValue([]);
@@ -71,19 +70,16 @@ describe('PatientList', () => {
                 })
             });
 
-        //TODO improve and fix testing
-
         await act(async () => {
             render(<KeywordProvider>
                 <PatientList />
             </KeywordProvider>);
         });
 
-        // const x = await screen.findByText('Diagnostics: covid-19')
 
-        // await waitFor(() => {
-        //     expect(screen.findByText('Diagnostics: covid-19')).toBeInTheDocument()
-        // })
+        await waitFor(() => {
+            expect(screen.getByText('Diagnostics: covid-19')).toBeInTheDocument()
+        })
 
     })
 })
