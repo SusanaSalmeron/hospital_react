@@ -1,15 +1,13 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import PatientSearch from '../components/PatientSearch';
 
-const mockHistoryPush = jest.fn();
+const mockedNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
-    useHistory: () => ({
-        push: mockHistoryPush,
-    }),
+    useNavigate: () => mockedNavigate
 }));
 
 describe('PatientSearch', () => {
@@ -19,7 +17,7 @@ describe('PatientSearch', () => {
         render(
             <PatientSearch />
         )
-        expect(mockHistoryPush).toHaveBeenCalledWith('/home')
+        expect(mockedNavigate).toHaveBeenCalledWith('/home')
         /* screen.debug() */
     })
 })

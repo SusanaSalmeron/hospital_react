@@ -73,11 +73,11 @@ describe('PatientList', () => {
 
         //TODO improve and fix testing
 
-        /*  await act(async () => {
-             render(<KeywordProvider>
-                 <PatientList />
-             </KeywordProvider>, container);
-         }); */
+        await act(async () => {
+            render(<KeywordProvider>
+                <PatientList />
+            </KeywordProvider>);
+        });
 
         // const x = await screen.findByText('Diagnostics: covid-19')
 
