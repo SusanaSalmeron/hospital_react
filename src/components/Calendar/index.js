@@ -16,6 +16,7 @@ export default function MonthCalendar({ ...props }) {
                 onChange={val => {
                     setFieldValue(field.name, val)
                 }}
+                minDate={new Date()}
             />
         </div>
     )

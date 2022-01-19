@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { addNewAppointment } from '../../services/appointmentService';
 import MonthCalendar from '../Calendar';
-import { getAppointment } from '../../services/appointmentService';
 import { getDoctorsForOptions } from '../../services/catalogService';
 import style from './newAppointment.module.css';
 import UpdateAppointmentContext from '../../context/UpdateAppointmentsContext';
@@ -26,17 +25,12 @@ const validateFields = values => {
 
 
 export default function NewAppointment() {
-    const [appointment, setAppointment] = useState({});
     const { appointmentRefresh, setAppointmentRefresh } = useContext(UpdateAppointmentContext)
 
     const [doctors, setDoctors] = useState([])
     const { id } = useParams();
 
     useEffect(() => {
-        getAppointment(id)
-            .then(response => {
-                setAppointment(response)
-            })
         getDoctorsForOptions()
             .then(response => {
                 setDoctors(response)
@@ -49,7 +43,6 @@ export default function NewAppointment() {
         let newDate = date.toLocaleDateString()
         addNewAppointment(id, newDate, doctor)
             .then(() => {
-                setAppointment(values)
                 const a = appointmentRefresh
                 setAppointmentRefresh(!a)
             })
