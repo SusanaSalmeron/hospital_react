@@ -1,12 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Home from '../components/Home'; const mockHistoryPush = jest.fn();
+import Home from '../components/Home';
+
+const mockedNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
-    useHistory: () => ({
-        push: mockHistoryPush,
-    }),
+    useNavigate: () => mockedNavigate
 }));
 
 

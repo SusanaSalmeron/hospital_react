@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import style from './login.module.css';
 import {
-    useHistory
+    useNavigate
 } from 'react-router-dom';
 import login from '../../services/loginService';
 import areYouAWorker from '../../middleware/checkWorker';
 
 
 export default function Login() {
-    const history = useHistory()
+    const navigate = useNavigate()
     const [error, setError] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
@@ -26,7 +26,7 @@ export default function Login() {
         const { target: { email: { value: email }, password: { value: password } } } = evt
         const loginResult = await login(email, password)
         if (!loginResult.error) {
-            areYouAWorker() ? history.push(`${loginResult.id}/search`) : history.push(`/${loginResult.id}/appointment`)
+            areYouAWorker() ? navigate(`/${loginResult.id}/search`) : navigate(`/${loginResult.id}/appointment`)
         } else {
             setError(loginResult.error)
         }

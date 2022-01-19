@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import ReturnButton from '../ReturnButton';
 import style from './modificationData.module.css';
 import { getPatient, modifyPatientData } from '../../services/patientService';
 import DataForm from '../DataForm';
 
 
 export default function AccountModificationData() {
-    const history = useHistory()
+    const navigate = useNavigate()
     const { id } = useParams()
     const [setError] = useState()
     const [patient, setPatient] = useState({})
@@ -16,7 +17,7 @@ export default function AccountModificationData() {
         const { name, email, address, postalZip, region, country, phone, ssnumber, company } = values
         const newData = await modifyPatientData(id, name, email, address, postalZip, region, country, phone, ssnumber, company)
         if (!newData.error) {
-            history.push(`/${id}/appointment`)
+            navigate(`/${id}/appointment`)
         } else {
             setError(newData.error)
         }
@@ -30,16 +31,12 @@ export default function AccountModificationData() {
                     console.log(err)
                 }
             })
-
     }, [id])
-
 
     return (
         <>
             <div className={style.return}>
-                <Link to={`/${id}/account`}>
-                    <button>Return</button>
-                </Link>
+                <ReturnButton />
             </div>
             <div className={style.modify}>
                 <h4 className={style.subtitle}>Modify your personal data</h4>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import ReturnButton from '../ReturnButton';
 import { getAppointmentsForDoctors } from '../../services/doctorsService';
 import AppointmentForDoctors from '../AppointmentForDoctors';
 import style from './AppointListForDoctors.module.css';
@@ -8,25 +9,23 @@ import style from './AppointListForDoctors.module.css';
 export default function AppointListForDoctors() {
     const [appointments, setAppointments] = useState([])
     const { id } = useParams()
-    const history = useHistory()
+    const navigate = useNavigate()
 
     useEffect(() => {
         getAppointmentsForDoctors(id)
             .then(response => {
                 if (response.redirect) {
-                    history.push('/error403')
+                    navigate('/error403')
                 } else {
                     setAppointments(response)
                 }
             })
-    }, [id, history])
+    }, [id, navigate])
 
     return (
         <>
             <div className={style.return}>
-                <Link to={`/${id}/search`}>
-                    <button>Return</button>
-                </Link>
+                <ReturnButton />
             </div>
             <div className={style.showAppoint}>
                 <div className={style.container}>

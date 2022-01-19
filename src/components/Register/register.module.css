@@ -52,3 +52,10 @@
     text-transform: uppercase;
 }
 
+.return{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 1em 1em 0 0;
+}
+

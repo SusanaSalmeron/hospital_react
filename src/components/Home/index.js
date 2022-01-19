@@ -1,27 +1,25 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import style from './home.module.css';
 import img1 from './img1.jpg'
 
-
-
 export default function Home() {
-    const history = useHistory()
+    const navigate = useNavigate()
     const handleLogin = () => {
-        history.push('/login')
+        navigate('/login')
     }
 
     const handleSignUp = () => {
-        history.push('/register')
+        navigate('/register')
     }
 
     return (
         <>
             <div className={style.button}>
-                <button onClick={handleLogin}>
+                <button onClick={handleLogin} type="button">
                     LOGIN
                 </button>
-                <button onClick={handleSignUp}>
+                <button onClick={handleSignUp} type="button">
                     SIGN UP
                 </button>
             </div>
