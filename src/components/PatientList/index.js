@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import KeywordContext from '../../context/KeywordContext';
 import { getAllPatientsBy } from '../../services/patientService';
 import Logout from '../Logout';
@@ -14,22 +14,22 @@ export default function PatientList() {
     const { keyword } = useContext(KeywordContext)
     const name = localStorage.getItem("username")
     const { id } = useParams()
-    const history = useHistory()
+    const navigate = useNavigate()
 
     const handleAppoint = () => {
-        history.push(`/${id}/appointListForDoctors`)
+        navigate(`/${id}/appointListForDoctors`)
     }
 
     useEffect(() => {
         getAllPatientsBy(keyword)
             .then(response => {
                 if (response.redirect) {
-                    history.push('/error403')
+                    navigate('/error403')
                 } else {
                     setShowPatients(response)
                 }
             })
-    }, [keyword, history])
+    }, [keyword, navigate])
 
 
     return (

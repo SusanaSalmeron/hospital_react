@@ -4,13 +4,11 @@ import userEvent from '@testing-library/user-event';
 import Logout from '../components/Logout';
 import { MemoryRouter } from 'react-router-dom'
 
-const mockHistoryPush = jest.fn();
+const mockedNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
-    useHistory: () => ({
-        push: mockHistoryPush,
-    }),
+    useNavigate: () => mockedNavigate
 }));
 
 describe('Logout', () => {
@@ -31,7 +29,7 @@ describe('Logout', () => {
         /*fireEvent.click(getByRole('button')); */
         userEvent.click(getByRole('button'))
         expect(localStorage.getItem('token')).toBeNull()
-        expect(mockHistoryPush).toHaveBeenCalledWith('/home');
+        expect(mockedNavigate).toHaveBeenCalledWith('/home');
         expect(screen.getByText("Logout")).toBeInTheDocument();
     })
 })

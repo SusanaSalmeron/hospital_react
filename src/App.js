@@ -13,7 +13,9 @@ import AppointListForDoctors from './components/AppointListForDoctors';
 import Error403 from './components/Error403';
 import {
   BrowserRouter as Router,
-  Route
+  Navigate,
+  Route,
+  Routes,
 } from 'react-router-dom';
 
 
@@ -23,17 +25,20 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/:id/search" component={PatientSearch} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/:id/record" component={ClinicalRecord} />
-        <Route exact path="/:id/addrecord" component={RecordForm} />
-        <Route exact path="/:id/appointment" component={MyAppointment} />
-        <Route exact path="/:id/account" component={Account} />
-        <Route exact path="/:id/modifyData" component={ModificationData} />
-        <Route exact path="/:id/appointListForDoctors" component={AppointListForDoctors} />
-        <Route exact path="/error403" component={Error403} />
+        <Routes>
+          <Route exact path="/home" element={<Home />} />
+          <Route exact path="/:id/search" element={<PatientSearch />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/:id/record" element={<ClinicalRecord />} />
+          <Route exact path="/:id/addrecord" element={<RecordForm />} />
+          <Route exact path="/:id/appointment" element={<MyAppointment />} />
+          <Route exact path="/:id/account" element={<Account />} />
+          <Route exact path="/:id/modifyData" element={<ModificationData />} />
+          <Route exact path="/:id/appointListForDoctors" element={<AppointListForDoctors />} />
+          <Route exact path="/error403" element={<Error403 />} />
+          <Route exact path="/" element={<Navigate to="/home" />} />
+        </Routes>
       </Router>
 
     </div>

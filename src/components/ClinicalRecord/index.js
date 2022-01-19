@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import style from './clinicalRecord.module.css';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { getPatientRecord } from '../../services/patientService';
 
 
@@ -8,18 +8,18 @@ import { getPatientRecord } from '../../services/patientService';
 export default function ClinicalRecord() {
     const [recordByPatient, setRecordByPatient] = useState({})
     const { id } = useParams()
-    const history = useHistory()
+    const navigate = useNavigate()
 
     useEffect(() => {
         getPatientRecord(id)
             .then(response => {
                 if (response.redirect) {
-                    history.push('/error403')
+                    navigate('/error403')
                 } else {
                     setRecordByPatient(response)
                 }
             })
-    }, [id, history])
+    }, [id, navigate])
     return (
         <>
             <div className={style.container}>
