@@ -15,10 +15,9 @@ describe('Home', () => {
         render(
             <Home />
         );
-        expect(screen.getByText("WELCOME")).toBeInTheDocument()
-        expect(screen.getByText("NEW HOPE HOSPITAL")).toBeVisible()
-        expect(screen.queryByText("Por favor, inicie sesión para realizar cualquier consulta")).not.toBeInTheDocument()
-        expect(screen.queryByPlaceholderText("Introduce tu email")).toBeNull()
+        expect(screen.getByText("OUR MEDICAL TEAM")).toBeInTheDocument()
         expect(screen.getAllByRole("button")).not.toBeNull()
+        expect(screen.getByRole("img")).toBeInTheDocument()
+
     })
 })
