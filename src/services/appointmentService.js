@@ -1,4 +1,8 @@
 import axios from 'axios';
+import dayjs from 'dayjs';
+
+const customParseFormat = require('dayjs/plugin/customParseFormat')
+dayjs.extend(customParseFormat)
 
 const baseUrl = "http://localhost:3001/v1/patients"
 
@@ -43,8 +47,9 @@ export async function getAppointment(id) {
 export async function addNewAppointment(id, date, doctorId) {
     let result = []
     try {
+        const formattedDate = dayjs(date, "D/M/YYYY").format("DD-MM-YYYY")
         const body = {
-            pickedDate: date,
+            pickedDate: formattedDate,
             doctor: parseInt(doctorId)
         }
         result = await axios.post(`${baseUrl}/${id}/appointments/`, body, getHeaders())
