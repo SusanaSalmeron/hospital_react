@@ -17,6 +17,9 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
+import LegalNotice from './components/LegalNotice';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import ContactUs from './components/ContactUs';
 
 
 
@@ -37,6 +40,9 @@ function App() {
           <Route exact path="/:id/appointListForDoctors" element={<AppointListForDoctors />} />
           <Route exact path="/error403" element={<Error403 />} />
           <Route exact path="/" element={<Navigate to="/home" />} />
+          <Route exact path="/legalNotice" element={<LegalNotice />} />
+          <Route exact path="/privacyPolicy" element={<PrivacyPolicy />} />
+          <Route exact path="/contactUs" element={<ContactUs />} />
         </Routes>
       </Router>
 

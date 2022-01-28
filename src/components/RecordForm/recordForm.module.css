@@ -50,3 +50,9 @@ input{
     text-decoration: none;
     font-size: 1.4em;
 }
+
+.footer{
+    position: fixed;
+    width: 100%;
+    bottom:0;
+}

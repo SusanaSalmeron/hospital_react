@@ -1,0 +1,57 @@
+.ul{
+    display:flex;
+    justify-content: flex-end;
+    width: 98%;
+    
+}
+
+.ul li{
+    list-style: none;
+    margin-right:8em;
+}
+
+.ul li:last-child{
+   margin-right:1em; 
+}
+
+.ul li a{
+    text-decoration: none;
+}
+
+
+.menu{
+    display:flex;
+    position: relative;
+}
+
+.menu .logo{
+    width: 70px;
+    height: 70px;
+    font-size: 3em;
+    font-weight: 800;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 5%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%);
+    left:1em;
+    margin: 0 auto;
+}
+
+.menu span{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:rgb(7, 145, 69)
+}
+
+.copyright{
+    display: inline-block;
+    width: 99%;
+    text-align: right;
+}
+
+.container{
+    padding: 0 1em;
+    background-color:rgb(145, 189, 201);
+    border-top: 0.1em solid black;
+    width: 98%;
+}

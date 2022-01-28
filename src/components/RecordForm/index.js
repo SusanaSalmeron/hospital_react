@@ -5,6 +5,7 @@ import style from './recordForm.module.css';
 import { addNewDiagnostic } from '../../services/patientService';
 import { getDiseasesForOptions } from '../../services/catalogService'
 import Select from 'react-select';
+import Footer from '../Footer';
 
 const validateFields = values => {
     const errors = {}
@@ -64,46 +65,51 @@ export default function RecordForm() {
         </div>
     }
     return (
-        <div className={style.record}>
-            <h2>Add a new record: </h2>
-            <Formik
-                initialValues={initialValues}
-                validate={validateFields}
-                onSubmit={submitRecord}
-            >
-                {
-                    ({ handleChange, values, errors, isSubmitting, dirty, isValid }) =>
-                        <Form className={style.form}>
-                            <Select
-                                value={values.diagnostic}
-                                options={diseases}
-                                onChange={selectedOption => { changeOption(selectedOption, handleChange) }}
-                                className={style.select}
-                                name='diagnostic'
-                                error={errors}
-                            >
-                                {errors ? <p>Diagnostic Required</p> : null}
-                            </Select>
-                            <Field
-                                className={errors.record ? "error" : ""}
-                                name='record'
-                                placeholder="Write here"
-                                as="textarea"
-                                rows="20"
-                            />
-                            <ErrorMessage
-                                className="form-error"
-                                name='record'
-                                component="small" />
-                            <button disabled={!isValid || !dirty || isSubmitting}>Send</button>
-                            <button>
-                                <Link to={`/${id}/record`}>
-                                    Return
-                                </Link>
-                            </button>
-                        </Form>
-                }
-            </Formik>
-        </div>
+        <>
+            <div className={style.record}>
+                <h2>Add a new record: </h2>
+                <Formik
+                    initialValues={initialValues}
+                    validate={validateFields}
+                    onSubmit={submitRecord}
+                >
+                    {
+                        ({ handleChange, values, errors, isSubmitting, dirty, isValid }) =>
+                            <Form className={style.form}>
+                                <Select
+                                    value={values.diagnostic}
+                                    options={diseases}
+                                    onChange={selectedOption => { changeOption(selectedOption, handleChange) }}
+                                    className={style.select}
+                                    name='diagnostic'
+                                    error={errors}
+                                >
+                                    {errors ? <p>Diagnostic Required</p> : null}
+                                </Select>
+                                <Field
+                                    className={errors.record ? "error" : ""}
+                                    name='record'
+                                    placeholder="Write here"
+                                    as="textarea"
+                                    rows="20"
+                                />
+                                <ErrorMessage
+                                    className="form-error"
+                                    name='record'
+                                    component="small" />
+                                <button disabled={!isValid || !dirty || isSubmitting}>Send</button>
+                                <button>
+                                    <Link to={`/${id}/record`}>
+                                        Return
+                                    </Link>
+                                </button>
+                            </Form>
+                    }
+                </Formik>
+            </div>
+            <div className={style.footer}>
+                <Footer />
+            </div>
+        </>
     )
 }

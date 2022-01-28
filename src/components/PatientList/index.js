@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom';
 import KeywordContext from '../../context/KeywordContext';
 import { getAllPatientsBy } from '../../services/patientService';
 import Logout from '../Logout';
 import Patient from '../Patient';
 import SearchBar from '../SearchBar';
 import style from './patientList.module.css';
+import Footer from '../Footer';
 
 
 
@@ -55,6 +56,9 @@ export default function PatientList() {
                         />
                     }
                     )}
+            </div>
+            <div className={style.footer}>
+                <Footer />
             </div>
         </>
     )

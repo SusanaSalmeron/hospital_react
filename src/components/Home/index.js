@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import DoctorPictureList from '../DoctorPictureList';
+import Footer from '../Footer';
 import style from './home.module.css';
 import img1 from './img1.jpg'
 
@@ -33,7 +34,7 @@ export default function Home() {
                 </h2>
             </div>
             <DoctorPictureList />
-
+            <Footer />
         </div>
     )
 }

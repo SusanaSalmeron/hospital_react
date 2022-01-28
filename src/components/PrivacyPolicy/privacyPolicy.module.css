@@ -1,0 +1,21 @@
+.container{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.container p{
+    text-align: justify;
+}
+
+.italic{
+    font-style: italic;
+}
+.container span{
+    color: darkgreen;
+}
+
+.button{
+    display:flex;
+    justify-content: flex-end;
+    margin:1em 1em 0 0;
+}

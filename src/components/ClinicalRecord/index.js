@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import style from './clinicalRecord.module.css';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { getPatientRecord } from '../../services/patientService';
+import Footer from '../Footer'
 
 
 
@@ -51,6 +52,9 @@ export default function ClinicalRecord() {
                         </Link>
                     </button>
                 </div>
+            </div>
+            <div className={style.footer}>
+                <Footer />
             </div>
         </>
     )

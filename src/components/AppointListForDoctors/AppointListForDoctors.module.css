@@ -20,6 +20,10 @@
 }
 
 .return button{
-font-size: 1.2em;
-width: 5em;
+    font-size: 1.2em;
+    width: 5em;
+}
+
+.footer{
+    margin-top:2em;
 }

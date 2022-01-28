@@ -4,6 +4,7 @@ import ReturnButton from '../ReturnButton';
 import { getAppointmentsForDoctors } from '../../services/doctorsService';
 import AppointmentForDoctors from '../AppointmentForDoctors';
 import style from './AppointListForDoctors.module.css';
+import Footer from '../Footer';
 
 
 export default function AppointListForDoctors() {
@@ -32,6 +33,9 @@ export default function AppointListForDoctors() {
                     <h2>Next Appointments</h2>
                     {appointments.length !== 0 ? appointments.map(appointment => <AppointmentForDoctors data={appointment} />) : <p className={style.noApp}>No appointments</p>}
                 </div>
+            </div>
+            <div className={style.footer}>
+                <Footer />
             </div>
         </>
     )

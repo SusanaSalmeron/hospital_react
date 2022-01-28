@@ -3,6 +3,7 @@ import { getUser } from '../../services/appointmentService'
 import Logout from '../Logout';
 import { useParams, Link } from 'react-router-dom';
 import style from './account.module.css'
+import Footer from '../Footer'
 
 export default function Account() {
     const [user, setUser] = useState({})
@@ -40,6 +41,9 @@ export default function Account() {
                         <p>ACCESS TO YOUR APPOINTMENTS</p>
                     </Link>
                 </div>
+            </div>
+            <div className={style.footer}>
+                <Footer />
             </div>
         </>
 
