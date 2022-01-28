@@ -1,5 +1,4 @@
 import React from 'react'
-import Footer from '../Footer'
 import ReturnButton from '../ReturnButton'
 import style from './legalNotice.module.css'
 
@@ -129,7 +128,6 @@ export default function LegalNotice() {
 
                 <p><span>www.hopehospital.com</span> directs its services to users over 18 years old. Minors under this age are not allowed to use our services and must not therefore send us their personal data. We inform that if such circumstance occurs, THE OWNER is not responsible for the possible consequences that may arise from the breach of this clause.</p>
             </div>
-            <Footer />
         </>
     )
 }

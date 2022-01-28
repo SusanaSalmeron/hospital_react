@@ -9,9 +9,15 @@ export default function Footer() {
             <div className={style.menu}>
                 <div className={style.logo}>H <span>H</span></div>
                 <ul className={style.ul}>
-                    <li><Link to={"/legalNotice"}>Legal Notice </Link></li>
-                    <li><Link to={"/privacyPolicy"}>Privacy Policy</Link></li>
-                    <li><Link to={"/contactUs"}>Contact Us</Link></li>
+                    <Link to={"/legalNotice"}>
+                        <li>Legal Notice</li>
+                    </Link>
+                    <Link to={"/privacyPolicy"}>
+                        <li>Privacy Policy</li>
+                    </Link>
+                    <Link to={"/contactUs"}>
+                        <li>Contact Us</li>
+                    </Link>
                 </ul>
             </div>
             <div className={style.copyright}>

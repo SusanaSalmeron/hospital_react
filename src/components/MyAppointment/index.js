@@ -7,7 +7,6 @@ import style from './myAppointment.module.css'
 import { getUser } from '../../services/appointmentService';
 import { useParams } from 'react-router-dom';
 import { UpdateAppointmentProvider } from '../../context/UpdateAppointmentsContext';
-import Footer from '../Footer'
 
 
 export default function MyAppointment() {
@@ -46,9 +45,7 @@ export default function MyAppointment() {
                     </div>
                 </div>
             </UpdateAppointmentProvider>
-            <div className={style.footer}>
-                <Footer />
-            </div>
+
         </div>
     )
 }

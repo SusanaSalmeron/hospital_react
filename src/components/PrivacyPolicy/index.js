@@ -1,7 +1,6 @@
 import React from 'react'
 import style from './privacyPolicy.module.css'
 import ReturnButton from '../ReturnButton'
-import Footer from '../Footer'
 
 
 export default function PrivacyPolicy() {
@@ -101,7 +100,6 @@ export default function PrivacyPolicy() {
 
                 <p>If you have any questions about this policy, you can contact the following email: <span>info@hopehospital.com</span></p>
             </div>
-            <Footer />
         </>
     )
 }

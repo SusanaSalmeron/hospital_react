@@ -4,7 +4,6 @@ import ReturnButton from '../ReturnButton';
 import style from './modificationData.module.css';
 import { getPatient, modifyPatientData } from '../../services/patientService';
 import DataForm from '../DataForm';
-import Footer from '../Footer';
 
 
 export default function AccountModificationData() {
@@ -46,9 +45,6 @@ export default function AccountModificationData() {
                     isRegistering={false}
                     submit={handleSubmit}
                 />
-            </div>
-            <div className={style.footer}>
-                <Footer />
             </div>
         </>
     )

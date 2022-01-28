@@ -5,7 +5,6 @@ import style from './recordForm.module.css';
 import { addNewDiagnostic } from '../../services/patientService';
 import { getDiseasesForOptions } from '../../services/catalogService'
 import Select from 'react-select';
-import Footer from '../Footer';
 
 const validateFields = values => {
     const errors = {}
@@ -106,9 +105,6 @@ export default function RecordForm() {
                             </Form>
                     }
                 </Formik>
-            </div>
-            <div className={style.footer}>
-                <Footer />
             </div>
         </>
     )

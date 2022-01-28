@@ -6,7 +6,6 @@ import Logout from '../Logout';
 import Patient from '../Patient';
 import SearchBar from '../SearchBar';
 import style from './patientList.module.css';
-import Footer from '../Footer';
 
 
 
@@ -56,9 +55,6 @@ export default function PatientList() {
                         />
                     }
                     )}
-            </div>
-            <div className={style.footer}>
-                <Footer />
             </div>
         </>
     )

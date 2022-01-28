@@ -22,6 +22,7 @@ width: 5em;
     width: 30%;
     margin: 0 auto;
     margin-top: 5em;
+    margin-bottom:8em;
     padding: 2em 4em 3em 4em;
     border: 1px solid rgb(3, 57, 67);
     background-color: rgb(156, 204, 202);
@@ -62,8 +63,4 @@ width: 5em;
     color: red;
     font-weight: 800;
     text-transform: uppercase;
-}
-
-.footer{
-    margin-top:2em;
 }
