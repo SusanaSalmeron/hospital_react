@@ -23,7 +23,7 @@ export default function AppointListForDoctors() {
     }, [id, navigate])
 
     return (
-        <>
+        <div className={style.body}>
             <div className={style.return}>
                 <ReturnButton />
             </div>
@@ -33,6 +33,6 @@ export default function AppointListForDoctors() {
                     {appointments.length !== 0 ? appointments.map(appointment => <AppointmentForDoctors data={appointment} />) : <p className={style.noApp}>No appointments</p>}
                 </div>
             </div>
-        </>
+        </div>
     )
 }

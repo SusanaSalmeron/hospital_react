@@ -32,7 +32,7 @@ export default function Login() {
         }
     }
     return (
-        <>
+        <div className={style.container}>
             <form className={style.login} onSubmit={handleSubmit}>
                 <h4 className={style.subtitle}>Log in to make inquiries </h4>
                 {error && <p className={style.error}>{error}</p>}
@@ -49,6 +49,6 @@ export default function Login() {
                 />
                 <button disabled={!email || !password}>Login</button>
             </form>
-        </>
+        </div>
     )
 }

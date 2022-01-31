@@ -1,5 +1,5 @@
 .body{
-    height: 100vh;
+    min-height: 89.2vh;
 }
 .logout{
     display:flex;
