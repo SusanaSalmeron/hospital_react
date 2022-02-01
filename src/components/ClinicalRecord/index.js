@@ -21,7 +21,7 @@ export default function ClinicalRecord() {
             })
     }, [id, navigate])
     return (
-        <>
+        <div className={style.form}>
             <div className={style.container}>
                 <h1>Clinical Record</h1>
                 <hr />
@@ -52,6 +52,6 @@ export default function ClinicalRecord() {
                     </button>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

@@ -5,7 +5,7 @@ import style from './error403.module.css'
 
 export default function Error403() {
     return (
-        <>
+        <div className={style.container}>
             <div className={style.forbidden}>
                 <h1>403 FORBIDDEN - YOU ARE NOT AUTHORIZED TO ACCESS THIS PAGE </h1>
             </div>
@@ -16,6 +16,6 @@ export default function Error403() {
                     </Link>
                 </button>
             </div>
-        </>
+        </div>
     )
 }

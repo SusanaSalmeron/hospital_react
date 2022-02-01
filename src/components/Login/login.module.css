@@ -4,6 +4,10 @@
     color:rgb(3, 57, 67);
 }   
 
+.container{
+    min-height: 81vh;
+}
+
 
 .login{
     display: flex;
@@ -24,8 +28,6 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-
-
 .login button{
     margin: 0 auto;
     margin-top: 2em;
@@ -35,12 +37,6 @@
     font-size: 1.5em;
     cursor: pointer;
 }
-
-
-.info{
-    width: 100%;
-}
-
 
 .error{
     color: red;

@@ -1,3 +1,7 @@
+.form{
+    min-height:87vh;
+}
+
 .container{
     width: 80%;
     margin: 0 auto;

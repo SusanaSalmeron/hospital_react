@@ -21,7 +21,7 @@ export default function Account() {
     }, [id])
 
     return (
-        <>
+        <div className={style.body}>
             <div className={style.header}>
                 <div className={style.logout}>
                     <h1>Welcome to your account, {user.name} </h1>
@@ -41,7 +41,7 @@ export default function Account() {
                     </Link>
                 </div>
             </div>
-        </>
+        </div>
 
 
     )

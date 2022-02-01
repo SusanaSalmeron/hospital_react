@@ -1,0 +1,43 @@
+.container{
+    min-height: calc(87.6vh - 5em);
+   
+}
+
+.form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 70%;
+    justify-content: flex-start;
+    margin: 0 auto;
+    margin-top:3em;
+    
+}
+
+ .contact{
+    text-align: center;
+    margin-top: 3em;
+}
+
+.form input{
+    width: 100%;
+    background-color: rgb(234, 234, 234);
+    height: 2em;
+}
+
+.form textarea{
+    width: 100%;
+    background-color: rgb(234, 234, 234);
+
+}
+
+.form button{
+    margin: 2em auto 1.5em auto;
+    padding: 0.5em 1.5em;
+    font-size: 1.1em;
+}
+
+
+
+
+

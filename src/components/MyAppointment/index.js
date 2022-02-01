@@ -25,7 +25,7 @@ export default function MyAppointment() {
     }, [id])
 
     return (
-        <>
+        <div className={style.body}>
             <div className={style.header}>
                 <div className={style.logout}>
                     <h1>Welcome, {user.name} </h1>
@@ -45,6 +45,7 @@ export default function MyAppointment() {
                     </div>
                 </div>
             </UpdateAppointmentProvider>
-        </>
+
+        </div>
     )
 }

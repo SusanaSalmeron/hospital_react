@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom';
 import KeywordContext from '../../context/KeywordContext';
 import { getAllPatientsBy } from '../../services/patientService';
 import Logout from '../Logout';

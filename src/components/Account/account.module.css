@@ -14,7 +14,7 @@
     flex-direction: row;
     justify-content:space-around ;
     align-items: center;
-    height: 80vh;
+    min-height: 79.5vh;
 }
 
 .personal, .appoint{

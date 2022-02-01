@@ -1,3 +1,7 @@
+.body{
+    min-height: 89.2vh;
+}
+
 .showAppoint{
     display:flex;
     flex-direction: column;
@@ -8,7 +12,7 @@
 .container{
     width: 70%;
     border: 1px solid black;
-    height: 90vh;
+    height: 75vh;
     text-align: center;
 }
 
@@ -20,6 +24,7 @@
 }
 
 .return button{
-font-size: 1.2em;
-width: 5em;
+    font-size: 1.2em;
+    width: 5em;
 }
+
