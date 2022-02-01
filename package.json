@@ -22,13 +22,13 @@
     "yup": "0.32.11"
   },
   "resolutions": {
-    "react-error-overlay": "6.0.9"
+    "react-error-overlay": "6.0.10"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "13.5.0",
-    "react-error-overlay": "6.0.9"
+    "react-error-overlay": "6.0.10"
   },
   "scripts": {
     "start": "react-scripts start",
