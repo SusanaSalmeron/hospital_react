@@ -6,7 +6,7 @@ import MonthCalendar from '../Calendar';
 import { getDoctorsForOptions } from '../../services/catalogService';
 import style from './newAppointment.module.css';
 import UpdateAppointmentContext from '../../context/UpdateAppointmentsContext';
-
+import Swal from 'sweetalert2'
 
 const initialValues = {
     doctor: '',
@@ -42,6 +42,13 @@ export default function NewAppointment() {
         let { date, doctor } = values
         let newDate = date.toLocaleDateString()
         addNewAppointment(id, newDate, doctor)
+        await Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your appointment has been created successfully',
+            showConfirmButton: false,
+            timer: 1500
+        })
             .then(() => {
                 const a = appointmentRefresh
                 setAppointmentRefresh(!a)

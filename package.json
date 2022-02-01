@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "0.24.0",
+    "buffer": "6.0.3",
+    "crypto-js": "4.1.1",
     "dayjs": "1.10.7",
     "formik": "2.2.9",
     "jsonwebtoken": "8.5.1",
@@ -14,11 +16,10 @@
     "react-router-dom": "6.2.1",
     "react-scripts": "4.0.3",
     "react-select": "5.2.2",
-    "web-vitals": "1.1.2",
-    "yup": "0.32.11",
-    "buffer": "6.0.3",
     "stream-browserify": "3.0.0",
-    "crypto-js": "4.1.1"
+    "sweetalert2": "11.3.10",
+    "web-vitals": "1.1.2",
+    "yup": "0.32.11"
   },
   "resolutions": {
     "react-error-overlay": "6.0.9"
