@@ -4,6 +4,7 @@ import ReturnButton from '../ReturnButton';
 import style from './modificationData.module.css';
 import { getPatient, modifyPatientData } from '../../services/patientService';
 import DataForm from '../DataForm';
+import Swal from 'sweetalert2'
 
 
 export default function AccountModificationData() {
@@ -17,8 +18,22 @@ export default function AccountModificationData() {
         const { name, email, address, postalZip, region, country, phone, ssnumber, company } = values
         const newData = await modifyPatientData(id, name, email, address, postalZip, region, country, phone, ssnumber, company)
         if (!newData.error) {
+            await Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your data has been changed',
+                showConfirmButton: false,
+                timer: 2000
+            })
             navigate(`/${id}/appointment`)
         } else {
+            await Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'There is something wrong...',
+                showConfirmButton: false,
+                timer: 2000
+            })
             setError(newData.error)
         }
     }

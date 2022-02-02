@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { ErrorMessage, Formik, Field, Form } from 'formik';
 import style from './recordForm.module.css';
 import { addNewDiagnostic } from '../../services/patientService';
 import { getDiseasesForOptions } from '../../services/catalogService'
 import Select from 'react-select';
+import Swal from 'sweetalert2'
 
 const validateFields = values => {
     const errors = {}
@@ -26,8 +27,8 @@ const initialValues = {
 
 export default function RecordForm() {
     const { id } = useParams()
-    const [record, setRecord] = useState(null)
     const [diseases, setDiseases] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         getDiseasesForOptions()
@@ -36,13 +37,23 @@ export default function RecordForm() {
             })
     }, [])
 
+
     const submitRecord =
         (values, { setFieldError }) => {
             let { record } = values
             let diagnostic = values.diagnostic.value
             return addNewDiagnostic(id, diagnostic, record)
                 .then(() => {
-                    setRecord(values)
+                    return Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Record added succesfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                })
+                .then(() => {
+                    navigate(`/${id}/record`)
                 })
                 .catch(() => {
                     setFieldError('diagnostic', 'This field has not been empty')
@@ -53,16 +64,9 @@ export default function RecordForm() {
         let event = { target: { name: 'diagnostic', value: e } }
         b(event)
     }
-    if (record) {
-        return <div className={style.recordAdded}>
-            <h4> The diagnostic has been added to the clinical record</h4>
-            <button>
-                <Link to={`/${id}/record`}>
-                    Return
-                </Link>
-            </button>
-        </div>
-    }
+
+
+
     return (
         <>
             <div className={style.record}>
