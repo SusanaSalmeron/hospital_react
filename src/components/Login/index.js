@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import style from './login.module.css';
 import {
+    Link,
     useNavigate
 } from 'react-router-dom';
 import login from '../../services/loginService';
@@ -50,20 +51,23 @@ export default function Login() {
     return (
         <div className={style.container}>
             <form className={style.login} onSubmit={handleSubmit}>
-                <h4 className={style.subtitle}>Log in to make inquiries </h4>
+                <h1 className={style.subtitle}>Welcome </h1>
                 {error && <p className={style.error}>{error}</p>}
                 <input
                     type="text"
-                    name="email" placeholder="Introduce tu email"
+                    name="email" placeholder="Write your email"
                     onChange={handleEmailChange}
                     value={email}
                 />
                 <input
-                    type="password" name="password" placeholder="introduce tu contraseña"
+                    type="password" name="password" placeholder="Write your password"
                     onChange={handlePasswordChange}
                     value={password}
                 />
                 <button disabled={!email || !password}>Login</button>
+                <div className={style.signup}>
+                    <p>Not a member? <Link to={('/register')}><span>Sign up now</span></Link></p>
+                </div>
             </form>
         </div>
     )
