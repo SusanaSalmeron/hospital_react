@@ -54,7 +54,7 @@ export default function AccountModificationData() {
                 <ReturnButton />
             </div>
             <div className={style.modify}>
-                <h4 className={style.subtitle}>Modify your personal data</h4>
+                <h1 className={style.subtitle}>Modify your personal data</h1>
                 <DataForm
                     userData={patient}
                     isRegistering={false}
