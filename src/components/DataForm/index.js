@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import validationFormForModification from '../../middleware/validationFormForModification';
 import validationFormForRegister from '../../middleware/validationFormForRegister'
+import { Link } from 'react-router-dom'
 import { ErrorMessage, Formik, Field, Form } from 'formik';
 import Select from 'react-select';
 import { getPostalZipsForSelect, getRegionsForSelect } from '../../services/registerService';
@@ -41,7 +42,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
             {
                 ({ isSubmitting, dirty, isValid, handleChange, errors, status, values, setFieldValue }) =>
                     <Form className={style.form}>
-                        <label htmlFor="Name">Name:</label>
                         <Field
                             id="name"
                             name="name"
@@ -52,7 +52,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             name='name'
                             component="small"
                         />
-                        <label htmlFor="Email">Email:</label>
                         <Field
                             id="email"
                             name="email"
@@ -64,7 +63,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             component="small" />
                         {
                             isRegistering ? <>
-                                <label htmlFor="Password">Password:</label>
                                 <Field
                                     id="password"
                                     type="password"
@@ -77,7 +75,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                                     component="small" />
                             </> : null
                         }
-                        <label htmlFor="address">Address:</label>
                         <Field
                             id="address"
                             name="address"
@@ -87,7 +84,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             className="form-error"
                             name='address'
                             component="small" />
-                        <label htmlFor="country">Country:</label>
                         <Field
                             value={initialValues.country}
                             id="country"
@@ -98,7 +94,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             className="form-error"
                             name='country'
                             component="small" />
-                        <label htmlFor="region">Region:</label>
                         <Select
                             value={values.region}
                             options={regions}
@@ -121,7 +116,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                                     null
                             }
                         </Select>
-                        <label htmlFor="postalZip">Postal Zip:</label>
                         <Select
                             value={values.postalZip}
                             options={values.postalZips}
@@ -137,7 +131,7 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             className="form-error"
                             name='postalZip'
                             component="small" />
-                        <label htmlFor="phone">Phone:</label>
+
                         <Field
                             id="phone"
                             name="phone"
@@ -147,10 +141,8 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             className="form-error"
                             name='phone'
                             component="small" />
-
                         {
                             isRegistering ? <>
-                                <label htmlFor="DoB">Date of Birth:</label>
                                 <Field
                                     id="dob"
                                     name="dob"
@@ -162,8 +154,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                                     component="small" />
                             </> : null
                         }
-
-                        <label htmlFor="ssNumber">SS Number:</label>
                         <Field
                             id="ssnumber"
                             name="ssnumber"
@@ -173,7 +163,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             className="form-error"
                             name='ssnumber'
                             component="small" />
-                        <label htmlFor="company">Company:</label>
                         <Field
                             id="company"
                             name="company"
@@ -183,7 +172,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             className="form-error"
                             name='company'
                             component="small" />
-
                         <button
                             disabled={!isValid || !dirty || isSubmitting}
                             type="submit"
@@ -191,6 +179,12 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             Send
                         </button>
                         {status && status.email ? <p className={style.error}> {status.email} </p> : null}
+                        {isRegistering ? <div className={style.login}>
+                            <p>Already have an account? <Link to={('/login')}>
+                                <span>Log in</span></Link></p>
+                        </div> : null}
+
+
                     </Form>
             }
         </Formik>

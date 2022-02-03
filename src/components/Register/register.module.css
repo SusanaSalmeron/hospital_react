@@ -5,52 +5,17 @@
 }   
 
 .register{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    margin: 0 auto;
-    margin-top: 5em;
-    margin-bottom:1em;
-    padding: 2em 4em 3em 4em;
-    border: 1px solid rgb(3, 57, 67);
-    background-color: rgb(156, 204, 202);
+    width: 70%;
+    margin: 4em auto;
+    margin-bottom:2em;
+    padding: 1em 4em 2em 4em;
+    border-radius: 10px;
+    background: rgb(242,239,232);
+    background: linear-gradient(288deg, rgba(242,239,232,1) 0%, rgba(156,204,202,0.710504270067402) 18%, rgba(96,175,168,1) 50%); 
 }
 
-.register label{
-    display: inline-block;
-    width: 5em;
-    margin-right: 1em;
-}
 .register .form{
     width: 90%;
-}
-
-.register input{
-    margin: 1.7em auto;
-    width: 77%;
-    height: 2em;
-    font-size: 1em;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.register button{
-    margin: 0 auto;
-    margin-top: 2em;
-    width: 20%;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color:rgb(3, 57, 67);
-    font-size: 1.5em;
-    cursor:pointer;
-}
-
-.info{
-    width: 100%;
-}
-
-.error{
-    color: red;
-    font-weight: 800;
-    text-transform: uppercase;
 }
 
 .return{
