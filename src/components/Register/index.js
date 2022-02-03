@@ -33,7 +33,7 @@ export default function Register() {
                 <ReturnButton />
             </div>
             <div className={style.register}>
-                <h4 className={style.subtitle}>Sign Up</h4>
+                <h1 className={style.subtitle}>Sign Up</h1>
                 <DataForm
                     userData={{}}
                     isRegistering={true}
