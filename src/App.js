@@ -7,7 +7,6 @@ import ClinicalRecord from './components/ClinicalRecord';
 import RecordForm from './components/RecordForm';
 import MyAppointment from './components/MyAppointment';
 import Register from './components/Register';
-import Account from './components/Account';
 import ModificationData from './components/ModificationData';
 import AppointListForDoctors from './components/AppointListForDoctors';
 import Error403 from './components/Error403';
@@ -36,7 +35,6 @@ function App() {
           <Route path="/:id/record" element={<ClinicalRecord />} />
           <Route path="/:id/addrecord" element={<RecordForm />} />
           <Route path="/:id/appointment" element={<MyAppointment />} />
-          <Route path="/:id/account" element={<Account />} />
           <Route path="/:id/modifyData" element={<ModificationData />} />
           <Route path="/:id/appointListForDoctors" element={<AppointListForDoctors />} />
           <Route path="/error403" element={<Error403 />} />
