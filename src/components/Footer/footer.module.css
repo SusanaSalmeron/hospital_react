@@ -25,23 +25,15 @@
 }
 
 .menu .logo{
-    width: 70px;
-    height: 70px;
-    font-size: 3em;
-    font-weight: 800;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     width: 5%;
     position: absolute;
-    top: 50%;
-    transform: translateX(-50%);
-    left:1em;
-    margin: 0 auto;
+    top: 2%;
+    transform: translateX(-10%);
 }
 
-.menu span{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #662d7d;
 
+.menu .log a:active{
+    color: none;
 }
 
 .copyright{
