@@ -39,52 +39,55 @@ export default function ContactUs() {
                 validationSchema={validationFormForContactUs}
                 onSubmit={submitContact}
             >
-                <Form className={style.form}>
+                {
+                    ({ isSubmitting, dirty, isValid }) =>
+                        <Form className={style.form}>
 
-                    <Field
-                        id="name"
-                        name="name"
-                        placeholder="Name"
-                    />
-                    <ErrorMessage
-                        className="form-error"
-                        name="name"
-                        component="small"
-                    />
-                    <Field
-                        id="email"
-                        name="email"
-                        placeholder="Email"
-                    />
-                    <ErrorMessage
-                        className="form-error"
-                        name="email"
-                        component="small"
-                    />
-                    <Field
-                        id="subject"
-                        name="subject"
-                        placeholder="Subject"
-                    />
-                    <ErrorMessage
-                        className="form-error"
-                        name="subject"
-                        component="small"
-                    />
-                    <Field
-                        id="message"
-                        name="message"
-                        as="textarea"
-                        rows="20"
-                        placeholder="Message"
-                    />
-                    <ErrorMessage
-                        className="form-error"
-                        name="message"
-                        component="small"
-                    />
-                    <button type="submit">Send</button>
-                </Form>
+                            <Field
+                                id="name"
+                                name="name"
+                                placeholder="Name"
+                            />
+                            <ErrorMessage
+                                className="form-error"
+                                name="name"
+                                component="small"
+                            />
+                            <Field
+                                id="email"
+                                name="email"
+                                placeholder="Email"
+                            />
+                            <ErrorMessage
+                                className="form-error"
+                                name="email"
+                                component="small"
+                            />
+                            <Field
+                                id="subject"
+                                name="subject"
+                                placeholder="Subject"
+                            />
+                            <ErrorMessage
+                                className="form-error"
+                                name="subject"
+                                component="small"
+                            />
+                            <Field
+                                id="message"
+                                name="message"
+                                as="textarea"
+                                rows="20"
+                                placeholder="Message"
+                            />
+                            <ErrorMessage
+                                className="form-error"
+                                name="message"
+                                component="small"
+                            />
+                            <button disabled={!isValid || !dirty || isSubmitting} type="submit">Send</button>
+                        </Form>
+                }
             </Formik>
         </div>
     )

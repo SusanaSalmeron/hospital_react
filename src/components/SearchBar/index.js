@@ -17,7 +17,7 @@ export default function SearchBar() {
 
     return (
         <div className={style.search}>
-            <div>
+            <div className={style.container}>
                 <input type="text" value={search} onChange={handleKeyword} placeholder="Realiza una búsqueda" />
                 <button onClick={handleSearch}>Search</button>
             </div>

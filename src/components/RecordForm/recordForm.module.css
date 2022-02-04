@@ -17,9 +17,52 @@
 }
 
 .record button{
-    width: 10%;
-    margin: 2em 2em 0 0;
+    align-items: center;
+    background: rgb(242,239,232);
+    background: linear-gradient(288deg, rgba(242,239,232,1) 0%, rgba(156,204,202,0.710504270067402) 18%, rgba(96,175,168,1) 50%); 
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    color: #000;
+    cursor: pointer;
+    font-family: "JetBrains Mono",monospace;
+    height: 3em;
+    margin: -0.5em 2em 1em 0;
+    padding: 0 1em;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
     font-size: 1.2em;
+}
+
+.record button:focus {
+    box-shadow: #3ca7e0 0 0 0 1.5px inset, rgba(97, 192, 222, 0.4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3ca7e0 0 -3px 0 inset;
+}
+
+.record button:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #6086af 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.record button:active {
+    box-shadow: #6086af 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+.record button:disabled{
+    background: rgb(242,239,232);
+    background: linear-gradient(288deg, rgb(0, 0, 0) 0%, rgba(168, 172, 172, 0.711) 18%, rgb(206, 206, 206) 50%);
+    box-shadow: none;
+}
+
+.record button:disabled:hover{
+     cursor:not-allowed;
+     transform:none;
+     box-shadow: none;
+     transition:none;
+}
+
+.record button:disabled:focus{
+    transform:none;
 }
 
 .record button a{

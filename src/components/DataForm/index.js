@@ -45,7 +45,7 @@ export default function DataForm({ userData, isRegistering, submit }) {
                         <Field
                             id="name"
                             name="name"
-                            placeholder="Write your name"
+                            placeholder="Name"
                         />
                         <ErrorMessage
                             className="form-error"
@@ -55,7 +55,7 @@ export default function DataForm({ userData, isRegistering, submit }) {
                         <Field
                             id="email"
                             name="email"
-                            placeholder="Write your email"
+                            placeholder="Email"
                         />
                         <ErrorMessage
                             className="form-error"
@@ -67,7 +67,7 @@ export default function DataForm({ userData, isRegistering, submit }) {
                                     id="password"
                                     type="password"
                                     name="password"
-                                    placeholder="Write your password"
+                                    placeholder="Password"
                                 />
                                 <ErrorMessage
                                     className="form-error"
@@ -78,7 +78,7 @@ export default function DataForm({ userData, isRegistering, submit }) {
                         <Field
                             id="address"
                             name="address"
-                            placeholder="Write your address"
+                            placeholder="Address"
                         />
                         <ErrorMessage
                             className="form-error"
@@ -88,7 +88,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             value={initialValues.country}
                             id="country"
                             name="country"
-                            placeholder="Write your country"
                         />
                         <ErrorMessage
                             className="form-error"
@@ -135,7 +134,7 @@ export default function DataForm({ userData, isRegistering, submit }) {
                         <Field
                             id="phone"
                             name="phone"
-                            placeholder="Write your phone"
+                            placeholder="Phone"
                         />
                         <ErrorMessage
                             className="form-error"
@@ -146,7 +145,7 @@ export default function DataForm({ userData, isRegistering, submit }) {
                                 <Field
                                     id="dob"
                                     name="dob"
-                                    placeholder="Write your date of birth"
+                                    placeholder="Date of Birth"
                                 />
                                 <ErrorMessage
                                     className="form-error"
@@ -157,7 +156,7 @@ export default function DataForm({ userData, isRegistering, submit }) {
                         <Field
                             id="ssnumber"
                             name="ssnumber"
-                            placeholder="Write your ss number"
+                            placeholder="SS Number"
                         />
                         <ErrorMessage
                             className="form-error"
@@ -166,7 +165,7 @@ export default function DataForm({ userData, isRegistering, submit }) {
                         <Field
                             id="company"
                             name="company"
-                            placeholder="Write your company"
+                            placeholder="Insurance Company"
                         />
                         <ErrorMessage
                             className="form-error"
