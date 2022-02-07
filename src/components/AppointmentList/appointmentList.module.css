@@ -1,6 +1,19 @@
+.showAppoint{
+   border: 1px solid black;
+   border-radius: 10px;
+   width: 98%;
+   height: 60vh;
+   overflow: auto;
+   scroll-behavior: smooth;
+}
+
 .showAppoint h2{
-   margin: 1.2em 0 3em 0;
-   text-align:  center; 
+   text-align: center;
+} 
+
+
+.showAppoint h3{
+   margin-left: 2em;
 }
 
 .noApp{

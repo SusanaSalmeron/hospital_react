@@ -49,7 +49,7 @@ export default function AccountModificationData() {
     }, [id])
 
     return (
-        <>
+        <div className={style.container}>
             <div className={style.return}>
                 <ReturnButton />
             </div>
@@ -61,6 +61,6 @@ export default function AccountModificationData() {
                     submit={handleSubmit}
                 />
             </div>
-        </>
+        </div>
     )
 }

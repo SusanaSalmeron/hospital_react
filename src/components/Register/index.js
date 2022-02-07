@@ -28,7 +28,7 @@ export default function Register() {
     }
 
     return (
-        <>
+        <div className={style.container}>
             <div className={style.return}>
                 <ReturnButton />
             </div>
@@ -40,6 +40,6 @@ export default function Register() {
                     submit={handleSubmit}
                 />
             </div>
-        </>
+        </div>
     )
 }

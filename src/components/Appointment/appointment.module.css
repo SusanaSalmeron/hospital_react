@@ -20,6 +20,9 @@
 
 .showAppoint button{
     height: 2em;
+    color: red;
+    width:6em;
+    font-size: 1.1em;
 }
 
 .change{

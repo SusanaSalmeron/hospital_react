@@ -1,23 +1,34 @@
-import React from 'react'
-import style from './footer.module.css'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import style from './footer.module.css';
+import { Link } from 'react-router-dom';
+import logo from './logo.png'
 
 
 export default function Footer() {
     return (
         <div className={style.container}>
             <div className={style.menu}>
-                <div className={style.logo}>H <span>H</span></div>
+                <div className={style.logo}>
+                    <Link to={"/home"}>
+                        <img src={logo} alt="logo" />
+                    </Link>
+                </div>
                 <ul className={style.ul}>
-                    <Link to={"/legalNotice"}>
-                        <li>Legal Notice</li>
-                    </Link>
-                    <Link to={"/privacyPolicy"}>
-                        <li>Privacy Policy</li>
-                    </Link>
-                    <Link to={"/contactUs"}>
-                        <li>Contact Us</li>
-                    </Link>
+                    <li>
+                        <Link to={"/legalNotice"}>
+                            Legal Notice
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={"/privacyPolicy"}>
+                            Privacy Policy
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={"/contactUs"}>
+                            Contact Us
+                        </Link>
+                    </li>
                 </ul>
             </div>
             <div className={style.copyright}>
