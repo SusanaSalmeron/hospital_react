@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import DoctorPictureList from '../DoctorPictureList';
 import style from './home.module.css';
 import logo from './logo.png';
-import picture1 from '../../Img/picture1.jpg';
+import picture1 from '../../Images/picture1.jpg';
 import picture2 from '../../Images/picture2.jpg'
 import picture3 from '../../Images/picture3.jpg'
 import picture4 from '../../Images/picture4.jpg'
