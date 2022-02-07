@@ -11,19 +11,16 @@
 }
 
 .form input{
-    margin: 1.7em auto;
+    margin-bottom:1em;
+    border:none;
     width:98%;
     height: 2em;
     font-size: 1em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.form label{
-     background-color: cadetblue;
-}
-
 .form .select {
-    margin: 1.7em auto;
+    border:none;
     width: 99%;
     font-size: 1em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -38,11 +35,15 @@
 }
 
 .form button{
-    margin: 1em auto;    
+    height:1.5em;  
     width: 100%;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1.5em;
     cursor:pointer;
+}
+
+.form button:disabled{
+    cursor: not-allowed;
 }
 
 .login p{

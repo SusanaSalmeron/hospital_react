@@ -17,7 +17,7 @@ describe('Home', () => {
         );
         expect(screen.getByText("OUR MEDICAL TEAM")).toBeInTheDocument()
         expect(screen.getAllByRole("button")).not.toBeNull()
-        expect(screen.getByRole("img")).toBeInTheDocument()
+        expect(screen.getAllByRole('img')).toBeDefined()
 
     })
 })
