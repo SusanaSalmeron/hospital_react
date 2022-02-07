@@ -2,7 +2,16 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import DoctorPictureList from '../DoctorPictureList';
 import style from './home.module.css';
-import logo from './logo.png'
+import logo from './logo.png';
+import picture1 from '../../Img/picture1.jpg';
+import picture2 from '../../Images/picture2.jpg'
+import picture3 from '../../Images/picture3.jpg'
+import picture4 from '../../Images/picture4.jpg'
+import picture5 from '../../Images/picture5.jpg'
+
+
+
+
 
 export default function Home() {
     const navigate = useNavigate()
@@ -33,21 +42,20 @@ export default function Home() {
             </div>
             <div className={style.gallery}>
                 <figure className={style.picture1}>
-                    <img src="https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?cs=srgb&dl=pexels-pixabay-263402.jpg&fm=jpg" alt="hospital" />
+                    <img src={picture1} alt="picture1" />
                 </figure>
                 <figure className={style.picture2}>
-                    <img src="https://images.pexels.com/photos/127873/pexels-photo-127873.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="hospital" />
+                    <img src={picture2} alt="picture2" />
                 </figure>
                 <figure className={style.picture3}>
-                    <img src="https://images.pexels.com/photos/247786/pexels-photo-247786.jpeg?cs=srgb&dl=pexels-pixabay-247786.jpg&fm=jpg" alt="hospital" />
+                    <img src={picture3} alt="picture3" />
                 </figure>
                 <figure className={style.picture4}>
-                    <img src="https://images.pexels.com/photos/236380/pexels-photo-236380.jpeg?cs=srgb&dl=pexels-pixabay-236380.jpg&fm=jpg" alt="hospital" />
+                    <img src={picture4} alt="picture4" />
                 </figure>
                 <figure className={style.picture5}>
-                    <img src="https://images.pexels.com/photos/1250655/pexels-photo-1250655.jpeg?cs=srgb&dl=pexels-vidal-balielo-jr-1250655.jpg&fm=jpg" alt="hospital" />
+                    <img src={picture5} alt="picture5" />
                 </figure>
-
             </div>
             <div className={style.hospital}>
                 <h2 className={style.subtitle}>

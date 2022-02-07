@@ -12,9 +12,7 @@
 }
 
 .search button{
-    align-items: center;
-    background: rgb(242,239,232);
-    background: linear-gradient(288deg, rgba(242,239,232,1) 0%, rgba(156,204,202,0.710504270067402) 18%, rgba(96,175,168,1) 50%); 
+    background: rgb(130,145,16, 100);
     border: 0;
     border-radius: 6px;
     box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
@@ -30,11 +28,11 @@
 }
 
 .search button:focus {
-    box-shadow: #3ca7e0 0 0 0 1.5px inset, rgba(97, 192, 222, 0.4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3ca7e0 0 -3px 0 inset;
+    box-shadow:  0 0 0#a188b3 1.5px inset, rgba(148, 123, 236, 0.4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #a188b3 0 -3px 0 inset;
 }
 
 .search button:hover {
-    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #6086af 0 -3px 0 inset;
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #a188b3 0 -3px 0 inset;
     transform: translateY(-2px);
 }
 
