@@ -26,7 +26,6 @@ const validateFields = values => {
 
 export default function NewAppointment() {
     const { appointmentRefresh, setAppointmentRefresh } = useContext(UpdateAppointmentContext)
-
     const [doctors, setDoctors] = useState([])
     const { id } = useParams();
 
@@ -38,7 +37,7 @@ export default function NewAppointment() {
     }, [id])
 
 
-    const submitAppointment = async (values, { setFieldError }) => {
+    const submitAppointment = async (values, { setFieldError, resetForm }) => {
         let { date, doctor } = values
         let newDate = date.toLocaleDateString()
         addNewAppointment(id, newDate, doctor)
@@ -52,6 +51,7 @@ export default function NewAppointment() {
             .then(() => {
                 const a = appointmentRefresh
                 setAppointmentRefresh(!a)
+                resetForm()
             })
             .catch(() => {
                 setFieldError("calendar", 'The date can not been empty')
@@ -72,9 +72,9 @@ export default function NewAppointment() {
                             />
                             <ErrorMessage className="form-error" name='calendar' component='small' />
                             <div className={style.doctor}>
-                                <h2>Select a doctor</h2>
+                                <h3>Select a doctor:</h3>
                                 <Field as="select" name="doctor" error={errors}>
-                                    <option value="">Select a doctor </option>
+                                    <option value="default">Select a doctor  </option>
                                     {doctors.map(doctor => {
                                         return <option id={doctor.id} value={doctor.id}>{doctor.name} - {doctor.speciality} </option>
                                     })}

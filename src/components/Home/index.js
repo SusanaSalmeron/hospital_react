@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import DoctorPictureList from '../DoctorPictureList';
 import style from './home.module.css';
-import logo from './logo.png';
+import logo from '../../Images/logo.png';
 import picture1 from '../../Images/picture1.jpg';
 import picture2 from '../../Images/picture2.jpg'
 import picture3 from '../../Images/picture3.jpg'

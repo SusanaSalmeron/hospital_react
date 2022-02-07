@@ -7,6 +7,7 @@ import style from './myAppointment.module.css'
 import { getUser } from '../../services/appointmentService';
 import { useParams } from 'react-router-dom';
 import { UpdateAppointmentProvider } from '../../context/UpdateAppointmentsContext';
+import logo from '../../Images/logo.png'
 
 
 export default function MyAppointment() {
@@ -28,12 +29,13 @@ export default function MyAppointment() {
         <div className={style.body}>
             <div className={style.header}>
                 <div className={style.logout}>
-                    <h1>Welcome, {user.name} </h1>
-                    <h3>You can choose or cancel your appointments</h3>
+                    <figure className={style.logo}>
+                        <img src={logo} alt="logo" />
+                    </figure>
+                    <h2>Welcome, <span>{user.name}</span> </h2>
                     <ModifyDataButton />
                     <Logout />
                 </div>
-                <hr />
             </div>
             <UpdateAppointmentProvider>
                 <div className={style.container}>
