@@ -2,18 +2,22 @@
     min-height: 89.2vh;
 }
 
+.header{
+    margin-bottom:2em;
+}
+
 .logout{
     display:flex;
     justify-content:space-between ;
     margin: 0 0 0 1em;
 }
 
-.header{
-    margin-bottom:2em;
-}
-
 .header span{
- color:#502b69;
+    font-style: italic;
+    color:#502b69;
+    text-transform: capitalize;
+    font-size: 1.3em;
+    margin-left: 0.5em;
 }
 
 .container{

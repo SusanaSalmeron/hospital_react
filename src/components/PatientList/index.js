@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import KeywordContext from '../../context/KeywordContext';
 import { getAllPatientsBy } from '../../services/patientService';
+import KeywordContext from '../../context/KeywordContext';
 import Logout from '../Logout';
 import Patient from '../Patient';
 import SearchBar from '../SearchBar';
+import logo from '../../Images/logo.png'
 import style from './patientList.module.css';
 
 
@@ -35,14 +36,18 @@ export default function PatientList() {
     return (
         <>
             <div className={style.welcome}>
-                <h4>Hi <span>{name}!</span></h4>
-                <button type="text" onClick={handleAppoint} className={style.appointments}>Appointments</button>
-                <Logout />
+                <div className={style.header}>
+                    <figure className={style.logo}>
+                        <img src={logo} alt="logo" />
+                    </figure>
+                    <h4>Welcome <span>{name}!</span></h4>
+                    <button type="text" onClick={handleAppoint} className={style.appointments}>Appointments</button>
+                    <Logout />
+                </div>
             </div>
             <h1 className={style.title}
             >Patient List</h1>
             <SearchBar />
-            <hr className={style.line} />
             <div className={style.container}>
                 {!showPatients.length ?
                     <div className={style.noData}>

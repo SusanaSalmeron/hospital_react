@@ -1,38 +1,10 @@
-.container{
-    display:flex;
-    flex-wrap: wrap;
-    margin:4em 0 8em 0;
-
-   
-}
-
-.title{
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 800;
-
-}
-
-.line{
-    color:rebeccapurple;
-}
-
-.noData{
-    display:flex;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    font-size: 2em;
-    color: red;
-}
-
 .welcome{
-    display:flex;
-    justify-content: flex-end;
+    margin-bottom:3em;
 }
 
 .welcome span {
     font-style: italic;
-    color:rebeccapurple;
+    color:#502b69;
     text-transform: capitalize;
     font-size: 1.3em;
     margin-left: 0.5em;
@@ -40,7 +12,12 @@
 
 .welcome h4{
     margin-right: 10em;  
-   
+}
+
+.header{
+    display:flex;
+    justify-content:space-between ;
+    margin: 0 0 0 1em;
 }
 
 .appointments{
@@ -73,4 +50,23 @@
     transform: translateY(2px);
 }
 
+.title{
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+}
 
+.container{
+    display:flex;
+    flex-wrap: wrap;
+    margin:6em 0 8em 0;   
+}
+
+.noData{
+    display:flex;
+    height:46.2vh;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    font-size: 2em;
+    color: red;
+}

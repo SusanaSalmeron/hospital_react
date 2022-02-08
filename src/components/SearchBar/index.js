@@ -1,6 +1,9 @@
 import React, { useContext, useState } from 'react';
+import KeywordContext from '../../context/KeywordContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import style from './searchBar.module.css';
-import KeywordContext from '../../context/KeywordContext'
+
 
 
 export default function SearchBar() {
@@ -16,11 +19,13 @@ export default function SearchBar() {
     }
 
     return (
-        <div className={style.search}>
-            <div className={style.container}>
-                <input type="text" value={search} onChange={handleKeyword} placeholder="Realiza una búsqueda" />
-                <button onClick={handleSearch}>Search</button>
-            </div>
+        <div className={style.container}>
+            <form onClick={handleSearch} className={style.search}>
+                <input type="text" className={style.input} value={search} onChange={handleKeyword} placeholder="Search" />
+                <button type="text">
+                    <FontAwesomeIcon icon={faSearch} />
+                </button>
+            </form>
         </div >
 
     )
