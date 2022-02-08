@@ -1,11 +1,17 @@
 
 .patient{
-    background-color: rgb(162, 202, 226);
-    width: 30%;
+    box-sizing: border-box;
+    background-color: rgb(239, 232, 242);
+    border: 2px solid transparent;
+    width: 31%;
+    height: 23em;
     margin: 0 auto;
     margin-bottom: 2em;
-    border: 2px solid midnightblue;
     border-radius: 20px;
+}
+
+.patient:hover{
+    border: 2px solid rebeccapurple;
 }
 
 .name{
@@ -13,7 +19,6 @@
     font-size: 1.5em;
     font-family:'Times New Roman', Times, serif;
     font-weight: 800;
-    color:rebeccapurple;
     text-align: center;
 }
 
@@ -22,7 +27,18 @@
     padding-left: 1em;
 }
 
-.record a{
+.record button {
     float:right;
-    margin: 0 2em 1em 0;
+    margin: 0 1em 1em 0;
+    border-radius: 6px;
+    background: rgb(130,145,16, 100);
+    border: 0;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    cursor: pointer;
+    font-family: "JetBrains Mono",monospace;
+    height: 3em;
+    margin: 1em 2em 0 0;
+    padding: 0 1em;
 }
+
+    

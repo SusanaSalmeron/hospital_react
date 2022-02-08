@@ -2,6 +2,14 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Patient from '../components/Patient'
 
+const mockedNavigate = jest.fn();
+
+
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => mockedNavigate
+}));
+
 
 describe('Patient', () => {
     const patientMockData = {
