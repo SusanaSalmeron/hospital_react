@@ -14,7 +14,7 @@ export default function ValidationFormForContactUs() {
             .min(5, 'min 5 characters'),
         message: yup.string()
             .required('Message required')
-            .min(20, 'min 20 characters')
+            .min(20, 'Message require min 20 characters')
     })
     return formSchema
 }
