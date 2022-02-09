@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { ErrorMessage, Formik, Field, Form } from 'formik';
-import style from './recordForm.module.css';
+import Select from 'react-select';
 import { addNewDiagnostic } from '../../services/patientService';
 import { getDiseasesForOptions } from '../../services/catalogService'
-import Select from 'react-select';
+import logo from '../../Images/logo.png'
 import Swal from 'sweetalert2'
+import style from './recordForm.module.css';
 
 const validateFields = values => {
     const errors = {}
@@ -36,6 +37,17 @@ export default function RecordForm() {
                 setDiseases(response)
             })
     }, [])
+
+    const customStyles = {
+        option: (styles, { isFocused, isSelected }) => {
+            return {
+                ...styles,
+                backgroundColor: isFocused ? "rgb(239, 232, 242)" : null,
+                color: "#333333",
+                background: isSelected ? "#a188b3" : null,
+            };
+        }
+    };
 
 
     const submitRecord =
@@ -68,7 +80,12 @@ export default function RecordForm() {
 
 
     return (
-        <>
+        <div className={style.container}>
+            <div className={style.logo} >
+                <figure>
+                    <img src={logo} alt="logo" />
+                </figure>
+            </div>
             <div className={style.record}>
                 <h2>Add a new record: </h2>
                 <Formik
@@ -82,6 +99,7 @@ export default function RecordForm() {
                                 <Select
                                     value={values.diagnostic}
                                     options={diseases}
+                                    styles={customStyles}
                                     onChange={selectedOption => { changeOption(selectedOption, handleChange) }}
                                     className={style.select}
                                     name='diagnostic'
@@ -89,17 +107,17 @@ export default function RecordForm() {
                                 >
                                     {errors ? <p>Diagnostic Required</p> : null}
                                 </Select>
+                                <ErrorMessage
+                                    className="form-error"
+                                    name='record'
+                                    component="small" />
                                 <Field
                                     className={errors.record ? "error" : ""}
                                     name='record'
                                     placeholder="Write here"
                                     as="textarea"
-                                    rows="20"
+                                    rows="15"
                                 />
-                                <ErrorMessage
-                                    className="form-error"
-                                    name='record'
-                                    component="small" />
                                 <button disabled={!isValid || !dirty || isSubmitting}>Send</button>
                                 <button>
                                     <Link to={`/${id}/record`}>
@@ -110,6 +128,6 @@ export default function RecordForm() {
                     }
                 </Formik>
             </div>
-        </>
+        </div>
     )
 }

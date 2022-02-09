@@ -11,20 +11,34 @@
     text-align: center;
 }
 
+
+.basic_Data p:first-child{
+    font-weight: 800;
+    font-size: 1.3em;
+    text-transform: uppercase;
+}
+
+.clinical_Data{
+    border: 1px solid rebeccapurple;
+    padding:1em;
+    margin-bottom: 1em;;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 7px 7px 7px -3px,rgba(58, 65, 111, .5) 0 -2px 0 inset;
+
+}
+
 .container button{
     background: rgb(130,145,16, 100);
     border: 0;
     border-radius: 6px;
-    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(241, 12, 12, 0.3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
     color: #000;
     cursor: pointer;
     font-family: "JetBrains Mono",monospace;
     height: 3em;
-    margin: 1em 2em 0 0;
+    margin: 1em 2em 1.5em 0;
     padding: 0 1em;
     text-decoration: none;
     transition: box-shadow .15s,transform .15s;
-    font-size: 1.2em;
 }
 
 .container button:focus {
@@ -44,4 +58,6 @@
 .container a{
     text-decoration: none;
     font-size: 1.3em;
+    color: #000;
+    font-size: 1.2em;
 }

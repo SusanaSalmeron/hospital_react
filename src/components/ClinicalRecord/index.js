@@ -24,33 +24,34 @@ export default function ClinicalRecord() {
         <div className={style.form}>
             <div className={style.container}>
                 <h1>Clinical Record</h1>
-                <hr />
-                <div className={style.basicData}>
+                {/* <hr /> */}
+                <div className={style.basic_Data}>
                     <p>{recordByPatient.name}</p>
                     <p>Address: {recordByPatient.address}</p>
                     <p>Company: {recordByPatient.company}</p>
                     <p>Date of Birth: {recordByPatient.dob}</p>
                 </div>
-                <hr />
-                <div className={style.clinicalData}>
+
+                <div className={style.clinical_Data}>
                     {recordByPatient.records ? recordByPatient.records.map(record => {
                         return <>
-                            <h4>Diagnostic: {record.diagnostics}</h4>
-                            <h5>Date: {record.date}</h5>
+                            <h4>Date: {record.date}</h4>
+                            <p>Diagnostic: {record.diagnostics}</p>
                             <p>Description: {record.description}</p>
+                            {/* <hr /> */}
                         </>
                     }) : null}
-                    <button>
-                        <Link to={`/${id}/addrecord`}>
-                            Add
-                        </Link>
-                    </button>
-                    <button>
-                        <Link to={`/${id}/search`}>
-                            Return
-                        </Link>
-                    </button>
                 </div>
+                <button>
+                    <Link to={`/${id}/addrecord`}>
+                        Add
+                    </Link>
+                </button>
+                <button>
+                    <Link to={`/${id}/search`}>
+                        Return
+                    </Link>
+                </button>
             </div>
         </div>
     )
