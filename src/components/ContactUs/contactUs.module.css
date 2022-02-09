@@ -1,6 +1,15 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
 .container{
-    min-height: calc(87.6vh - 5em);
-   
+    min-height: calc(100vh - 14.25em);  
+}
+
+.contact{
+    text-align: center;
+    margin-top: 1em;
 }
 
 .form{
@@ -11,31 +20,26 @@
     justify-content: flex-start;
     margin: 0 auto;
     margin-top:3em;
-    
 }
 
- .contact{
-    text-align: center;
-    margin-top: 3em;
+.error{
+    margin-right: 5em;
 }
 
 .form input{
     width: 100%;
-    background-color: rgb(234, 234, 234);
     height: 2em;
+    background: rgb(239, 232, 242);
 }
 
 .form textarea{
     width: 100%;
-    background-color: rgb(234, 234, 234);
+    background: rgb(239, 232, 242);
 
 }
 
-
 .form button{
-    align-items: center;
-    background: rgb(242,239,232);
-    background: linear-gradient(288deg, rgba(242,239,232,1) 0%, rgba(156,204,202,0.710504270067402) 18%, rgba(96,175,168,1) 50%); 
+    background: rgb(130, 145, 16,100);
     border: 0;
     border-radius: 6px;
     box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
@@ -43,9 +47,8 @@
     cursor: pointer;
     font-family: "JetBrains Mono",monospace;
     height: 3em;
-    margin: 1em 2em 1em 0;
+    margin: 3em 2em 1em 0;
     padding: 0 1em;
-    text-decoration: none;
     transition: box-shadow .15s,transform .15s;
     font-size: 1.2em;
 }
@@ -71,16 +74,12 @@
 }
 
 .form button:disabled:hover{
-     cursor:not-allowed;
-     transform:none;
-     box-shadow: none;
-     transition:none;
+    cursor:not-allowed;
+    transform:none;
+    box-shadow: none;
+    transition:none;
 }
 
 .form button:disabled:focus{
     transform:none;
 }
-
-
-
-
