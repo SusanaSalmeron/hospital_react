@@ -1,12 +1,13 @@
-import React from 'react'
-import ReturnButton from '../ReturnButton'
-import style from './legalNotice.module.css'
+import React from 'react';
+import ReturnButton from '../ReturnButton';
+import ScrollToTopButton from '../ScrollToTopButton';
+import style from './legalNotice.module.css';
 
 
 export default function LegalNotice() {
     return (
         <>
-            <div className={style.button}>
+            <div id="legal" className={style.button}>
                 <ReturnButton />
             </div>
             <div className={style.container}>
@@ -128,6 +129,7 @@ export default function LegalNotice() {
 
                 <p><span>www.hopehospital.com</span> directs its services to users over 18 years old. Minors under this age are not allowed to use our services and must not therefore send us their personal data. We inform that if such circumstance occurs, THE OWNER is not responsible for the possible consequences that may arise from the breach of this clause.</p>
             </div>
+            <ScrollToTopButton />
         </>
     )
 }

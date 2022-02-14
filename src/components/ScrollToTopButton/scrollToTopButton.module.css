@@ -1,0 +1,31 @@
+.top{
+    display:flex;
+    justify-content: center;
+    margin-bottom:1em;
+}
+
+
+.top button{
+    background: rgb(130,145,16, 100); 
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  color: #000;
+  cursor: pointer;
+  font-family: "JetBrains Mono",monospace;
+  height: 3em;
+  margin: 1em 2em 0 0;
+  padding: 0 1em;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  font-size: 1.2em;
+}
+
+.top button:focus{
+    box-shadow: #a188b3 0 0 0 1.5px inset, rgba(148, 123, 236, 0.4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #a188b3 0 -3px 0 inset;
+}
+
+.top button:hover{
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #a188b3 0 -3px 0 inset;
+  transform: translateY(-2px);
+}

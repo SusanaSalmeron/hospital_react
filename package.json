@@ -21,6 +21,7 @@
     "react-select": "5.2.2",
     "stream-browserify": "3.0.0",
     "sweetalert2": "11.3.10",
+    "react-scroll": "1.8.4",
     "web-vitals": "1.1.2",
     "yup": "0.32.11"
   },

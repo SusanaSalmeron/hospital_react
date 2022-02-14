@@ -21,7 +21,12 @@
 }
 
 .showAppoint span{
-   font-weight: 400; 
+   font-weight: 400;
+   padding-left: 1em; 
+}
+
+.showAppoint:last-child span{
+    padding-right: 1.5em;
 }
 
 .complete{

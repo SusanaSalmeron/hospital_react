@@ -1,12 +1,13 @@
-import React from 'react'
-import style from './privacyPolicy.module.css'
-import ReturnButton from '../ReturnButton'
+import React from 'react';
+import style from './privacyPolicy.module.css';
+import ReturnButton from '../ReturnButton';
+import ScrollToTopButton from '../ScrollToTopButton';
 
 
 export default function PrivacyPolicy() {
     return (
         <>
-            <div className={style.button}>
+            <div id="privacy" className={style.button}>
                 <ReturnButton />
             </div>
             <div className={style.container}>
@@ -100,6 +101,7 @@ export default function PrivacyPolicy() {
 
                 <p>If you have any questions about this policy, you can contact the following email: <span>info@hopehospital.com</span></p>
             </div>
+            <ScrollToTopButton />
         </>
     )
 }
