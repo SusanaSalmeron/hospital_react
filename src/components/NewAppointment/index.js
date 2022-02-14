@@ -74,9 +74,9 @@ export default function NewAppointment() {
                             <div className={style.doctor}>
                                 <h3>Select a doctor:</h3>
                                 <Field as="select" name="doctor" error={errors}>
-                                    <option value="default">Select a doctor  </option>
+                                    <option value="default" style={{ background: 'white' }}>Select a doctor  </option>
                                     {doctors.map(doctor => {
-                                        return <option id={doctor.id} value={doctor.id}>{doctor.name} - {doctor.speciality} </option>
+                                        return <option id={doctor.id} value={doctor.id} style={{ background: 'white' }}>{doctor.name} - {doctor.speciality} </option>
                                     })}
                                 </Field>
                                 <ErrorMessage className="form-error" name='doctor' component='small' />
