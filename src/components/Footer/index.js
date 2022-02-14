@@ -1,7 +1,8 @@
 import React from 'react';
 import style from './footer.module.css';
 import { Link } from 'react-router-dom';
-import logo from './logo.png'
+import logo from './logo.png';
+
 
 
 export default function Footer() {
@@ -25,7 +26,7 @@ export default function Footer() {
                         </Link>
                     </li>
                     <li>
-                        <Link to={"/contactUs"}>
+                        <Link to={"/contactUs/"}>
                             Contact Us
                         </Link>
                     </li>

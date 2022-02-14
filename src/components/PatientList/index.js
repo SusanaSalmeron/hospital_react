@@ -5,6 +5,7 @@ import KeywordContext from '../../context/KeywordContext';
 import Logout from '../Logout';
 import Patient from '../Patient';
 import SearchBar from '../SearchBar';
+import ScrollToTopButton from '../ScrollToTopButton'
 import logo from '../../Images/logo.png'
 import style from './patientList.module.css';
 
@@ -61,6 +62,7 @@ export default function PatientList() {
                     }
                     )}
             </div>
+            <ScrollToTopButton />
         </>
     )
 }
