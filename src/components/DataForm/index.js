@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import validationFormForModification from '../../middleware/validationFormForModification';
-import validationFormForRegister from '../../middleware/validationFormForRegister'
-import { Link } from 'react-router-dom'
+import validationFormForRegister from '../../middleware/validationFormForRegister';
+import { Link } from 'react-router-dom';
 import { ErrorMessage, Formik, Field, Form } from 'formik';
 import Select from 'react-select';
 import { getPostalZipsForSelect, getRegionsForSelect } from '../../services/registerService';
-import style from './dataForm.module.css'
+import style from './dataForm.module.css';
 
 
 export default function DataForm({ userData, isRegistering, submit }) {
     const [regions, setRegions] = useState([])
-
 
     const initialValues = {
         name: userData?.name ?? "",
@@ -25,12 +24,22 @@ export default function DataForm({ userData, isRegistering, submit }) {
         company: userData?.company ?? ""
     }
 
+    const customStyles = (theme) => ({
+        ...theme,
+        colors: {
+            ...theme.colors,
+            primary25: 'rgb(239, 232, 242)',
+            primary: '#a188b3',
+        },
+    })
+
     useEffect(() => {
         getRegionsForSelect()
             .then(response => {
                 setRegions(response)
             })
     }, [])
+
 
     return (
         <Formik
@@ -103,6 +112,7 @@ export default function DataForm({ userData, isRegistering, submit }) {
                                 setFieldValue("postalZips", zcs)
                                 setFieldValue("postalZip", "")
                             }}
+                            theme={customStyles}
                             name="region"
                             placeholder="Select your region"
                             id="region"
@@ -115,10 +125,13 @@ export default function DataForm({ userData, isRegistering, submit }) {
                                     null
                             }
                         </Select>
+
                         <Select
                             value={values.postalZip}
                             options={values.postalZips}
+                            style={customStyles}
                             onChange={async e => handleChange({ target: { name: "postalZip", value: e } })}
+                            theme={customStyles}
                             name="postalZip"
                             error={errors}
                             placeholder="Select your postalZip"
@@ -182,8 +195,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             <p>Already have an account? <Link to={('/login')}>
                                 <span>Log in</span></Link></p>
                         </div> : null}
-
-
                     </Form>
             }
         </Formik>

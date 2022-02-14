@@ -49,7 +49,6 @@ export default function RecordForm() {
         }
     };
 
-
     const submitRecord =
         (values, { setFieldError }) => {
             let { record } = values
