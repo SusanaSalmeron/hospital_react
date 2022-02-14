@@ -1,14 +1,31 @@
 .showAppoint{
-    display: inline-block;
-    width: 50%;
+    width: 70%;
+    margin: 0 auto;
 }
 
-.showAppoint p{
+.reactivate {
+    display:inline-block;
     font-size: 1.8em;
     font-weight: 800;
+    width: 90%;
+    text-align: left;
+}
+
+.showAppoint .finished{
+    color:red;
+    display:inline-block;
+    font-size: 1.8em;
+    font-weight: 800;
+    width: 90%;
+    text-align: left;
 }
 
 .showAppoint span{
-   font-weight: 400;
+   font-weight: 400; 
 }
+
+.complete{
+    color:red;
+}
+
 
