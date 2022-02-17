@@ -1,24 +1,53 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import jwt from 'jsonwebtoken'
 import DoctorPictureList from '../DoctorPictureList';
 import ScrollToTopButton from '../ScrollToTopButton';
+import { checkValidToken } from '../../middleware/checktoken';
+import checkRole from '../../middleware/checkRole';
+import Logout from '../Logout'
 import style from './home.module.css';
 import logo from '../../Images/logo.png';
 import picture1 from '../../Images/picture1.jpg';
-import picture2 from '../../Images/picture2.jpg'
-import picture3 from '../../Images/picture3.jpg'
-import picture4 from '../../Images/picture4.jpg'
-import picture5 from '../../Images/picture5.jpg'
+import picture2 from '../../Images/picture2.jpg';
+import picture3 from '../../Images/picture3.jpg';
+import picture4 from '../../Images/picture4.jpg';
+import picture5 from '../../Images/picture5.jpg';
+import PatientButton from '../PatientButton';
+import AppointmentsButton from '../AppointmentsButton';
+import SignUpButton from '../SignUpButton';
+import LoginButton from '../LoginButton'
 
 
 export default function Home() {
-    const navigate = useNavigate()
-    const handleLogin = () => {
-        navigate('/login')
-    }
+    const [loggedIn, setLoggedIn] = useState(false)
+    const [userId, setUserId] = useState(null)
 
-    const handleSignUp = () => {
-        navigate('/register')
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        if (token) {
+            const decodedToken = jwt.decode(token)
+            setUserId(decodedToken.id)
+            setLoggedIn(true)
+        }
+    }, [loggedIn])
+
+
+    function button() {
+        if (checkValidToken()) {
+            if (checkRole()) {
+                return <PatientButton
+                    id={userId}
+                />
+            }
+            else {
+                return <AppointmentsButton
+                    id={userId} />
+            }
+        } else {
+            return <SignUpButton
+                isLogged={loggedIn}
+            />
+        }
     }
 
     return (
@@ -30,12 +59,10 @@ export default function Home() {
                     </figure>
                 </div>
                 <div className={style.button}>
-                    <button onClick={handleLogin} type="button">
-                        LOGIN
-                    </button>
-                    <button onClick={handleSignUp} type="button">
-                        SIGN UP
-                    </button>
+                    {
+                        checkValidToken() ? <Logout setLoggedIn={setLoggedIn} /> : <LoginButton />
+                    }
+                    {button()}
                 </div>
             </div>
             <div className={style.gallery}>
