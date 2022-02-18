@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getAllPatientsBy } from '../../services/patientService';
 import KeywordContext from '../../context/KeywordContext';
-import Logout from '../Logout';
+import LogoutButton from '../LogoutButton';
 import Patient from '../Patient';
 import SearchBar from '../SearchBar';
 import ScrollToTopButton from '../ScrollToTopButton'
@@ -43,7 +43,7 @@ export default function PatientList() {
                     </figure>
                     <h4>Welcome <span>{name}!</span></h4>
                     <button type="text" onClick={handleAppoint} className={style.appointments}>Appointments</button>
-                    <Logout />
+                    <LogoutButton setLoggedIn={0} />
                 </div>
             </div>
             <h1 className={style.title}

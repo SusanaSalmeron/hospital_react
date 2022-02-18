@@ -4,7 +4,7 @@ import DoctorPictureList from '../DoctorPictureList';
 import ScrollToTopButton from '../ScrollToTopButton';
 import { checkValidToken } from '../../middleware/checktoken';
 import checkRole from '../../middleware/checkRole';
-import Logout from '../Logout'
+import LogoutButton from '../LogoutButton'
 import style from './home.module.css';
 import logo from '../../Images/logo.png';
 import picture1 from '../../Images/picture1.jpg';
@@ -35,18 +35,13 @@ export default function Home() {
     function button() {
         if (checkValidToken()) {
             if (checkRole()) {
-                return <PatientButton
-                    id={userId}
-                />
+                return <PatientButton id={userId} />
             }
             else {
-                return <AppointmentsButton
-                    id={userId} />
+                return <AppointmentsButton id={userId} />
             }
         } else {
-            return <SignUpButton
-                isLogged={loggedIn}
-            />
+            return <SignUpButton isLogged={loggedIn} />
         }
     }
 
@@ -60,7 +55,7 @@ export default function Home() {
                 </div>
                 <div className={style.button}>
                     {
-                        checkValidToken() ? <Logout setLoggedIn={setLoggedIn} /> : <LoginButton />
+                        checkValidToken() ? <LogoutButton setLoggedIn={setLoggedIn} /> : <LoginButton />
                     }
                     {button()}
                 </div>
