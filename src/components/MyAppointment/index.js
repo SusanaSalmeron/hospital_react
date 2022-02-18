@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NewAppointment from '../NewAppointment';
 import AppointmentList from '../AppointmentList';
-import Logout from '../Logout';
+import LogoutButton from '../LogoutButton';
 import ModifyDataButton from '../ModifyDataButton';
 import style from './myAppointment.module.css'
 import { getUser } from '../../services/appointmentService';
@@ -34,7 +34,7 @@ export default function MyAppointment() {
                     </figure>
                     <h2>Welcome, <span>{user.name}</span> </h2>
                     <ModifyDataButton />
-                    <Logout />
+                    <LogoutButton />
                 </div>
             </div>
             <UpdateAppointmentProvider>
