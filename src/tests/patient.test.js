@@ -13,12 +13,16 @@ jest.mock('react-router-dom', () => ({
 
 describe('Patient', () => {
     const patientMockData = {
-        'nombre': "a",
-        'apellido': "b",
-        'id': "c",
-        'ssNumber': "AA",
-        'edad': 2,
-        'diagnostico': "culebreo"
+        'name': "Peter",
+        'address': "Calle Fuencarral 9",
+        'postalZip': { value: "28004", label: "28004" },
+        'region': { value: "28", label: "Madrid" },
+        'country': "Spain",
+        'id': "6",
+        'email': "sfhgñlkdsnfgl@gmail.com",
+        'phone': "34998654321",
+        'ssNumber': "A453465786",
+        'diagnostics': "covid-19"
 
     }
     test('renders ok', () => {

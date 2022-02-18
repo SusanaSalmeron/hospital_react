@@ -15,14 +15,17 @@ export default function Patient({ data, id }) {
     return (
         <div className={style.patient}>
             <h3 className={style.name}>{data.name}</h3>
-            <p className={style.address}>Address: {data.address} {data.postalZip} {data.region} {data.country}</p>
-            <p className={style.email}>Email: {data.email}</p>
-            <p className={style.phone}>Phone Number: {data.phone}</p>
-            <p className={style.diagnostics}>Diagnostics: {data.diagnostics}</p>
+            <p className={style.address}><span>Address:</span> {data.address}</p>
+            <p className={style.address}>{data.postalZip.label} {data.region.label} {data.country} </p>
+            <p className={style.email}><span>Email:</span> {data.email}</p>
+            <p className={style.phone}><span>Phone Number:</span> {data.phone}</p>
+            <p className={style.diagnostics}><span>Diagnostics:</span> {data.diagnostics}</p>
             {checkRole() ? <p className={style.record}>
-                <button type="button" onClick={submitRecord}>Clinical Record
+                <button
+                    type="button"
+                    onClick={submitRecord}>
+                    Clinical Record
                 </button>
-
             </p> : null
             }
         </div>

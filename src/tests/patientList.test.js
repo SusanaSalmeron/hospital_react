@@ -49,8 +49,8 @@ describe('PatientList', () => {
                         {
                             name: "Ana Garcia",
                             address: "Calle MArcelina",
-                            postalZip: "28029",
-                            region: "Madrid",
+                            postalZip: { value: "28029", label: "28029" },
+                            region: { value: "28", label: "Madrid" },
                             country: "Spain",
                             email: "Ana@gmail.com",
                             phone: "+34664179177",
@@ -59,8 +59,8 @@ describe('PatientList', () => {
                         {
                             name: "Pepe Sanchez",
                             address: "Calle Fuencarral",
-                            postalZip: "28004",
-                            region: "Madrid",
+                            postalZip: { value: "28004", label: "28004" },
+                            region: { value: "28", label: "Madrid" },
                             country: "Spain",
                             email: "pepe@gmail.com",
                             phone: "+34664179176",
@@ -71,15 +71,14 @@ describe('PatientList', () => {
             });
 
         await act(async () => {
-            render(<KeywordProvider>
-                <PatientList />
-            </KeywordProvider>);
+            render(
+                <KeywordProvider>
+                    <PatientList />
+                </KeywordProvider>);
         });
 
 
-        await waitFor(() => {
-            expect(screen.getByText('Diagnostics: covid-19')).toBeInTheDocument()
-        })
+        expect(await screen.findByText('covid-19')).toBeInTheDocument()
 
     })
 })
