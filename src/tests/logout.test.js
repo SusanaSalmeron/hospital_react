@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Logout from '../components/Logout';
+import LogoutButton from '../components/LogoutButton';
 import { MemoryRouter } from 'react-router-dom';
 
 const mockedNavigate = jest.fn();
@@ -27,7 +27,7 @@ describe('Logout', () => {
 
         const { getByRole } = render(
             <MemoryRouter>
-                <Logout setLoggedIn={mockedSetLoggedIn} />
+                <LogoutButton setLoggedIn={mockedSetLoggedIn} />
             </MemoryRouter>
         )
         expect(screen.getByText("LOGOUT")).toBeInTheDocument();
