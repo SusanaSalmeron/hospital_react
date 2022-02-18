@@ -16,7 +16,7 @@ jest.mock('react-router-dom', () => ({
 describe('Logout', () => {
     test('renders ok', () => {
         render(
-            <Logout setLoggedIn={mockedSetLoggedIn} />
+            <LogoutButton setLoggedIn={mockedSetLoggedIn} />
         );
         expect(screen.queryByRole('button')).toBeInTheDocument()
         expect(mockedSetLoggedIn).not.toHaveBeenCalled()
