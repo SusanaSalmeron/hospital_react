@@ -4,7 +4,7 @@
     background-color: rgb(239, 232, 242);
     border: 2px solid transparent;
     width: 31%;
-    height: 23em;
+    height: 26em;
     margin: 0 auto;
     margin-bottom: 2em;
     border-radius: 20px;
@@ -22,9 +22,13 @@
     text-align: center;
 }
 
-.address, .phone, .diagnostics, .email {
+.address, .phone, .diagnostics, .email  {
     margin-bottom: 2em;
     padding-left: 1em;
+}
+.address span, .phone span, .diagnostics span, .email span {
+    
+    font-weight: 800;
 }
 
 .record button {
