@@ -12,7 +12,7 @@ export default function Error403() {
             <div className={style.button}>
                 <button>
                     <Link to={'/home'}>
-                        Home
+                        HOME
                     </Link>
                 </button>
             </div>

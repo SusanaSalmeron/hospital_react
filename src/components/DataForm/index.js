@@ -77,6 +77,7 @@ export default function DataForm({ userData, isRegistering, submit }) {
                                     type="password"
                                     name="password"
                                     placeholder="Password"
+                                    value={userData.password}
                                 />
                                 <ErrorMessage
                                     className="form-error"
@@ -159,6 +160,7 @@ export default function DataForm({ userData, isRegistering, submit }) {
                                     id="dob"
                                     name="dob"
                                     placeholder="Date of Birth"
+                                    value={userData.dob}
                                 />
                                 <ErrorMessage
                                     className="form-error"

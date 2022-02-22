@@ -5,19 +5,43 @@
 .forbidden h1{
     text-align: center;
     margin-top:5em;
+
 }
 
 .button{
-    width: 5em;
-    margin: 0 auto;
+    display:flex;
 }
 
 .button button{
-    width: 6em;
+    background: rgb(130,145,16, 100);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    cursor: pointer;
+    font-family: "JetBrains Mono",monospace;
     height: 3em;
+    margin: 0 auto;
+    padding: 1em 1em;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    font-size: 1.2em;
+}
+
+.button button:focus {
+  box-shadow: #a188b3 0 0 0 1.5px inset, rgba(148, 123, 236, 0.4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #a188b3 0 -3px 0 inset;
+}
+
+.button button:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #a188b3 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.button button:active {
+    box-shadow: #6086af 0 3px 7px inset;
+    transform: translateY(2px);
 }
 
 .button a{
-    font-size: 1.5em;
+    color: #000;
     text-decoration: none;
 }

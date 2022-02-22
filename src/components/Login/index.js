@@ -12,8 +12,8 @@ import Swal from 'sweetalert2'
 export default function Login() {
     const navigate = useNavigate()
     const [error, setError] = useState()
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value)

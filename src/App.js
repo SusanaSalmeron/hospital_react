@@ -41,6 +41,7 @@ function App() {
             <Route path="/:id/appointListForDoctors" element={<AppointListForDoctors />} />
             <Route path="/error403" element={<Error403 />} />
             <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/*" element={<Navigate to="/home" />} />
             <Route path="/legalNotice" element={<LegalNotice />} />
             <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
             <Route path="/contactUs" element={<ContactUs />} />

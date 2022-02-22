@@ -30,7 +30,7 @@ export default function AppointListForDoctors() {
             <div className={style.showAppoint}>
                 <div className={style.container}>
                     <h2>- Next Appointments - </h2>
-                    {appointments.length !== 0 ? appointments.map(appointment => <AppointmentForDoctors data={appointment} />) : <p className={style.noApp}>No appointments</p>}
+                    {appointments.length !== 0 ? appointments.map(appointment => <AppointmentForDoctors key={appointment.id} data={appointment} />) : <p className={style.noApp}>No appointments</p>}
                 </div>
             </div>
         </>
