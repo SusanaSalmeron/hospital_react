@@ -34,12 +34,13 @@ export default function ClinicalRecord() {
 
                 <div className={style.clinical_Data}>
                     {recordByPatient.records ? recordByPatient.records.map(record => {
-                        return <>
+
+                        return <div key={record.recordId} id={record.recordId}>
                             <h4>Date: {record.date}</h4>
                             <p>Diagnostic: {record.diagnostics}</p>
                             <p>Description: {record.description}</p>
                             {/* <hr /> */}
-                        </>
+                        </div>
                     }) : null}
                 </div>
                 <button>

@@ -28,7 +28,7 @@ export default function AppointmentList() {
         <div className={style.showAppoint}>
             <h2>-You can choose or cancel your appointments-</h2>
             <h3>Next Appointments:</h3>
-            {appointments.length !== 0 ? appointments.map(appointment => <Appointment data={appointment} notifyCallback={changeState} />) : <p className={style.noApp}>No appointments</p>}
+            {appointments.length !== 0 ? appointments.map(appointment => <Appointment key={appointment.id} id={appointment.id} data={appointment} notifyCallback={changeState} />) : <p className={style.noApp}>No appointments</p>}
         </div>
     )
 }

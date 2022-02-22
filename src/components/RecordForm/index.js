@@ -117,7 +117,7 @@ export default function RecordForm() {
                                     as="textarea"
                                     rows="15"
                                 />
-                                <button disabled={!isValid || !dirty || isSubmitting}>Send</button>
+                                <button disabled={!isValid || !dirty || isSubmitting} type="submit">Send</button>
                                 <button>
                                     <Link to={`/${id}/record`}>
                                         Return

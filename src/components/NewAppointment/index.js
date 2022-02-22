@@ -52,6 +52,7 @@ export default function NewAppointment() {
                 const a = appointmentRefresh
                 setAppointmentRefresh(!a)
                 resetForm()
+
             })
             .catch(() => {
                 setFieldError("calendar", 'The date can not been empty')
@@ -76,14 +77,14 @@ export default function NewAppointment() {
                                 <Field as="select" name="doctor" error={errors}>
                                     <option value="default" style={{ background: 'white' }}>Select a doctor  </option>
                                     {doctors.map(doctor => {
-                                        return <option id={doctor.id} value={doctor.id} style={{ background: 'white' }}>{doctor.name} - {doctor.speciality} </option>
+                                        return <option key={doctor.id} id={doctor.id} value={doctor.id} style={{ background: 'white' }}>{doctor.name} - {doctor.speciality} </option>
                                     })}
                                 </Field>
                                 <ErrorMessage className="form-error" name='doctor' component='small' />
                                 <button
                                     className={style.btn}
                                     disabled={!isValid || !dirty || isSubmitting}
-                                    type="submit"
+                                    type="text"
                                 >
                                     Send
                                 </button>
