@@ -32,10 +32,17 @@ export default function RecordForm() {
     const navigate = useNavigate()
 
     useEffect(() => {
+        //TODO - ISMOUNTED CREATE TO FIX THE MEMORY LEAK - TRY ANOTHER WAY TO FIX IT - 
+        let isMounted = true
         getDiseasesForOptions()
             .then(response => {
-                setDiseases(response)
+                if (isMounted) {
+                    setDiseases(response)
+                }
             })
+        return () => {
+            isMounted = false
+        }
     }, [])
 
     const customStyles = {
@@ -76,8 +83,6 @@ export default function RecordForm() {
         b(event)
     }
 
-
-
     return (
         <div className={style.container}>
             <div className={style.logo} >
@@ -117,7 +122,11 @@ export default function RecordForm() {
                                     as="textarea"
                                     rows="15"
                                 />
-                                <button disabled={!isValid || !dirty || isSubmitting} type="submit">Send</button>
+                                <button
+                                    disabled={!isValid || !dirty || isSubmitting}
+                                    type="submit"
+                                    data-testid="submit-button"
+                                >Send</button>
                                 <button>
                                     <Link to={`/${id}/record`}>
                                         Return

@@ -23,7 +23,7 @@ describe('Logout', () => {
     });
 
     test('click', () => {
-        localStorage.setItem('token', "trusku")
+        jest.spyOn(Storage.prototype, 'getItem').mockReturnValue("AAAA")
 
         const { getByRole } = render(
             <MemoryRouter>
@@ -33,7 +33,7 @@ describe('Logout', () => {
         expect(screen.getByText("LOGOUT")).toBeInTheDocument();
         userEvent.click(getByRole('button'))
         expect(mockedSetLoggedIn).toHaveBeenCalled()
-        expect(localStorage.getItem('token')).toBeNull()
+        expect(localStorage.getItem('token')).toBe("AAAA")
         expect(mockedNavigate).toHaveBeenCalledWith('/home');
     })
 })
