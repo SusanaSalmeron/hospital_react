@@ -1,8 +1,7 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import PatientList from '../components/PatientList';
-/* import { NameProvider } from '../context/NameContext' */
 import { KeywordProvider } from '../context/KeywordContext';
 
 jest.mock('react-router-dom', () => ({
@@ -21,24 +20,28 @@ jest.mock('react-router-dom', () => ({
 
 
 describe('PatientList', () => {
-    //TODO improve and fix testing
-    /* test('renders ok when there is no patients', async () => {
+    test('renders ok when there is no patients', async () => {
         const patientService = require('../services/patientService')
-        jest.spyOn(patientService, 'getPatients').mockReturnValue([]);
-
-        render(
-            <KeywordProvider>
-                <PatientList />
-            </KeywordProvider>
+        jest.spyOn(patientService, 'getAllPatientsBy').mockImplementation(
+            (key) => {
+                return new Promise((res, rej) => {
+                    return res([])
+                })
+            }
         );
-        await waitFor(() => {
-            expect(screen.getByText('Lista de Pacientes')).toBeVisible()
-            expect(screen.queryByText('Lista de Pacientes')).toHaveClass('title')
-            expect(screen.getByText('Hola')).toBeInTheDocument()
-            expect(screen.queryByText('No hay pacientes que cumplan la búsqueda')).toBeInTheDocument()
-            expect(screen.queryByText('Diagnóstico')).not.toBeInTheDocument()
+        await act(async () => {
+            render(
+                <KeywordProvider>
+                    <PatientList />
+                </KeywordProvider>
+            );
         })
-    }) */
+        expect(screen.getByText('Patient List')).toBeVisible()
+        expect(screen.queryByText('Patient List')).toHaveClass('title')
+        expect(screen.getByText('Welcome')).toBeInTheDocument()
+        expect(screen.queryByText('No patients')).toBeInTheDocument()
+        expect(screen.queryByText('Diagnostics')).not.toBeInTheDocument()
+    })
 
     test('renders ok when there are patients', async () => {
         const patientService = require('../services/patientService')
@@ -69,20 +72,13 @@ describe('PatientList', () => {
                     ])
                 })
             });
-
         await act(async () => {
             render(
                 <KeywordProvider>
                     <PatientList />
                 </KeywordProvider>);
         });
-
-
         expect(await screen.findByText('covid-19')).toBeInTheDocument()
 
     })
 })
-
-
-
-
