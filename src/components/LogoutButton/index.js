@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import style from './logout.module.css';
+import NavigateButton from '../NavigateButton';
 
 export default function LogoutButton({ setLoggedIn }) {
     const navigate = useNavigate()
@@ -19,13 +19,14 @@ export default function LogoutButton({ setLoggedIn }) {
             showConfirmButton: false,
             timer: 1500
         })
-
     }
 
     return (
-        <button className={style.logout}
+        <NavigateButton
             onClick={handleLogout}
-        >LOGOUT
-        </button>
+            label={"LOGOUT"}
+            name="Logout"
+        />
+
     )
 }

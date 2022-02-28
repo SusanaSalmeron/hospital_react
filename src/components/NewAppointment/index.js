@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { addNewAppointment } from '../../services/appointmentService';
 import MonthCalendar from '../Calendar';
+import SubmitButton from '../SubmitButton';
 import { getDoctorsForOptions } from '../../services/catalogService';
 import style from './newAppointment.module.css';
 import UpdateAppointmentContext from '../../context/UpdateAppointmentsContext';
@@ -81,13 +82,12 @@ export default function NewAppointment() {
                                     })}
                                 </Field>
                                 <ErrorMessage className="form-error" name='doctor' component='small' />
-                                <button
-                                    className={style.btn}
+                                <SubmitButton
                                     disabled={!isValid || !dirty || isSubmitting}
-                                    type="text"
-                                >
-                                    Send
-                                </button>
+                                    name={'send'}
+                                    label='SEND'
+                                    className={style.button}
+                                />
                             </div>
                         </Form>
                 }

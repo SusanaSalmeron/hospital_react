@@ -39,6 +39,7 @@
     padding: 0 1em;
     text-decoration: none;
     transition: box-shadow .15s,transform .15s;
+    font-size: 1.2em;
 }
 
 .container button:focus {

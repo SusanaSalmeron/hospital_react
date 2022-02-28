@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import style from './clinicalRecord.module.css';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getPatientRecord } from '../../services/patientService';
+import NavigateButton from '../NavigateButton';
 
 
 
@@ -24,7 +25,6 @@ export default function ClinicalRecord() {
         <div className={style.form}>
             <div className={style.container}>
                 <h1>Clinical Record</h1>
-                {/* <hr /> */}
                 <div className={style.basic_Data}>
                     <p>{recordByPatient.name}</p>
                     <p>Address: {recordByPatient.address}</p>
@@ -39,20 +39,20 @@ export default function ClinicalRecord() {
                             <h4>Date: {record.date}</h4>
                             <p>Diagnostic: {record.diagnostics}</p>
                             <p>Description: {record.description}</p>
-                            {/* <hr /> */}
+
                         </div>
                     }) : null}
                 </div>
-                <button>
-                    <Link to={`/${id}/addrecord`}>
-                        Add
-                    </Link>
-                </button>
-                <button>
-                    <Link to={`/${id}/search`}>
-                        Return
-                    </Link>
-                </button>
+                <NavigateButton
+                    route={`/${id}/addrecord`}
+                    label={"ADD"}
+                    name={'add'}
+                />
+                <NavigateButton
+                    route={`/${id}/search`}
+                    label={"RETURN"}
+                    name={'return'}
+                />
             </div>
         </div>
     )

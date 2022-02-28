@@ -12,10 +12,7 @@ import picture2 from '../../Images/picture2.jpg';
 import picture3 from '../../Images/picture3.jpg';
 import picture4 from '../../Images/picture4.jpg';
 import picture5 from '../../Images/picture5.jpg';
-import PatientButton from '../PatientButton';
-import AppointmentsButton from '../AppointmentsButton';
-import SignUpButton from '../SignUpButton';
-import LoginButton from '../LoginButton'
+import NavigateButton from '../NavigateButton'
 
 
 export default function Home() {
@@ -31,17 +28,31 @@ export default function Home() {
         }
     }, [loggedIn])
 
-
     function button() {
         if (checkValidToken()) {
             if (checkRole()) {
-                return <PatientButton id={userId} />
+                return <NavigateButton
+                    id={userId}
+                    route={`/${userId}}/search`}
+                    label='PATIENTS'
+                    name={'patients'}
+                />
             }
             else {
-                return <AppointmentsButton id={userId} />
+                return <NavigateButton
+                    id={userId}
+                    route={`/${userId}/appointment`}
+                    label={'MY APPOINTMENTS'}
+                    name={'appointments'}
+                />
             }
         } else {
-            return <SignUpButton isLogged={loggedIn} />
+            return <NavigateButton
+                isLogged={loggedIn}
+                label={'SIGN UP'}
+                route={'/register'}
+                name={'signup'}
+            />
         }
     }
 
@@ -55,7 +66,14 @@ export default function Home() {
                 </div>
                 <div className={style.button}>
                     {
-                        checkValidToken() ? <LogoutButton setLoggedIn={setLoggedIn} /> : <LoginButton />
+                        checkValidToken() ? <LogoutButton
+                            setLoggedIn={setLoggedIn}
+                        /> :
+                            <NavigateButton
+                                route={'/login'}
+                                label="LOGIN"
+                                name={'login'}
+                            />
                     }
                     {button()}
                 </div>

@@ -5,6 +5,7 @@ import {
     useNavigate
 } from 'react-router-dom';
 import login from '../../services/loginService';
+import SubmitButton from '../SubmitButton';
 import areYouAWorker from '../../middleware/checkWorker';
 import Swal from 'sweetalert2'
 
@@ -64,7 +65,12 @@ export default function Login() {
                     onChange={handlePasswordChange}
                     value={password}
                 />
-                <button disabled={!email || !password}>Login</button>
+                <SubmitButton
+                    disabled={!email || !password}
+                    name={'submitForm'}
+                    label='LOGIN'
+                />
+
                 <div className={style.signup}>
                     <p>Not a member? <Link to={('/register')}><span>Sign up now</span></Link></p>
                 </div>

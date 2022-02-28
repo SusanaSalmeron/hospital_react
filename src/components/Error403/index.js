@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import NavigateButton from '../NavigateButton';
 import style from './error403.module.css'
 
 
@@ -10,11 +10,10 @@ export default function Error403() {
                 <h1>403 FORBIDDEN - YOU ARE NOT AUTHORIZED TO ACCESS THIS PAGE </h1>
             </div>
             <div className={style.button}>
-                <button>
-                    <Link to={'/home'}>
-                        HOME
-                    </Link>
-                </button>
+                <NavigateButton
+                    route={'/home'}
+                    label={"HOME"}
+                />
             </div>
         </div>
     )

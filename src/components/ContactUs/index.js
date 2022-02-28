@@ -2,6 +2,7 @@ import React from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { sendForm } from '../../services/contactUsService';
+import SubmitButton from '../SubmitButton'
 import validationFormForContactUs from '../../middleware/validationFormForContactUs';
 import ReturnButton from '../ReturnButton'
 import Swal from 'sweetalert2'
@@ -91,7 +92,11 @@ export default function ContactUs() {
                                     rows="20"
                                     placeholder="Message"
                                 />
-                                <button disabled={!isValid || !dirty || isSubmitting} type="submit">Send</button>
+                                <SubmitButton
+                                    disabled={!isValid || !dirty || isSubmitting}
+                                    label='SEND'
+                                    name={'send'}
+                                />
                             </Form>
                     }
                 </Formik>

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { ErrorMessage, Formik, Field, Form } from 'formik';
 import Select from 'react-select';
 import { addNewDiagnostic } from '../../services/patientService';
 import { getDiseasesForOptions } from '../../services/catalogService'
+import NavigateButton from '../NavigateButton';
+import SubmitButton from '../SubmitButton';
 import logo from '../../Images/logo.png'
 import Swal from 'sweetalert2'
 import style from './recordForm.module.css';
@@ -122,16 +124,17 @@ export default function RecordForm() {
                                     as="textarea"
                                     rows="15"
                                 />
-                                <button
+                                <SubmitButton
                                     disabled={!isValid || !dirty || isSubmitting}
-                                    type="submit"
+                                    label='SEND'
+                                    name={'send'}
                                     data-testid="submit-button"
-                                >Send</button>
-                                <button>
-                                    <Link to={`/${id}/record`}>
-                                        Return
-                                    </Link>
-                                </button>
+                                />
+                                <NavigateButton
+                                    route={`/${id}/record`}
+                                    name={'return'}
+                                    label="RETURN"
+                                />
                             </Form>
                     }
                 </Formik>

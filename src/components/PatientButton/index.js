@@ -1,21 +1,16 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import NavigateButton from '../NavigateButton';
 
 
 export default function PatientButton({ id }) {
-    const navigate = useNavigate()
-    const handleButtonPatient = () => {
-        navigate(`/${id}/search`)
-    }
-
-
     return (
-        <button
+        <NavigateButton
             id={id}
             name="patients"
-            onClick={handleButtonPatient}
-            type="button" >
-            PATIENTS
-        </button>
+            type="button"
+            route={`/${id}/search`}
+            label='PATIENTS'
+        />
+
     )
 }

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import KeywordContext from '../../context/KeywordContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import style from './searchBar.module.css';
 
 
