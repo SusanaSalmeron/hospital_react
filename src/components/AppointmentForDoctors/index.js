@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import style from './appointmentForDoctors.module.css'
+import style from './appointmentForDoctors.module.css';
+import SubmitButton from '../SubmitButton'
 
 
 
@@ -22,8 +23,13 @@ export default function AppointmentForDoctors({ data }) {
 
             {
                 changeButton ?
-                    <button className={style.complete} onClick={handleFinished} >Unatteded</button> :
-                    <button onClick={handleFinished} >Attend</button>}
+                    <SubmitButton
+                        className={style.complete}
+                        onClick={handleFinished}
+                        label="Pending" /> :
+                    <SubmitButton
+                        onClick={handleFinished}
+                        label="Done" />}
         </div>
     )
 }

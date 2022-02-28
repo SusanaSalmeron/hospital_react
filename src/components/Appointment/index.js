@@ -2,7 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import style from './appointment.module.css';
 import { deleteAppointment } from '../../services/appointmentService';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import SubmitButton from '../SubmitButton';
 
 export default function Appointment({ data, notifyCallback }) {
     const { id } = useParams();
@@ -32,7 +33,13 @@ export default function Appointment({ data, notifyCallback }) {
     return (
         <div className={style.showAppoint}>
             <p>Date: <span>{data.pickedDate}</span>  Doctor: <span >{data.doctor}</span></p>
-            <button id={data.id} className={style.cancel} onClick={cancelAppointment} >Cancel</button>
+            <SubmitButton
+                id={data.id}
+                name={'cancel'}
+                className={style.cancel}
+                label='CANCEL'
+                onClick={cancelAppointment}
+            />
         </div>
 
     )

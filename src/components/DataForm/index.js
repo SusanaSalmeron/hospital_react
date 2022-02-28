@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { ErrorMessage, Formik, Field, Form } from 'formik';
 import Select from 'react-select';
 import { getPostalZipsForSelect, getRegionsForSelect } from '../../services/registerService';
+import SubmitButton from '../SubmitButton';
 import style from './dataForm.module.css';
 
 
@@ -186,12 +187,12 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             className="form-error"
                             name='company'
                             component="small" />
-                        <button
+                        <SubmitButton
                             disabled={!isValid || !dirty || isSubmitting}
-                            type="submit"
-                        >
-                            Send
-                        </button>
+                            label='SEND'
+                            name={'send'}
+                        />
+
                         {status && status.email ? <p className={style.error}> {status.email} </p> : null}
                         {isRegistering ? <div className={style.login}>
                             <p>Already have an account? <Link to={('/login')}>

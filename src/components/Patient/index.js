@@ -1,14 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from './patient.module.css';
-import checkRole from '../../middleware/checkRole'
+import checkRole from '../../middleware/checkRole';
+import NavigateButton from '../NavigateButton'
 
 
 export default function Patient({ data, id }) {
     const navigate = useNavigate()
 
     const submitRecord = (e) => {
-        e.preventDefault()
         navigate(`/${id}/record`)
     }
 
@@ -21,11 +21,12 @@ export default function Patient({ data, id }) {
             <p className={style.phone}><span>Phone Number:</span> {data.phone}</p>
             <p className={style.diagnostics}><span>Diagnostics:</span> {data.diagnostics}</p>
             {checkRole() ? <p className={style.record}>
-                <button
-                    type="button"
-                    onClick={submitRecord}>
-                    Clinical Record
-                </button>
+                <NavigateButton
+                    onClick={submitRecord}
+                    name={'clinical'}
+                    label='Clinical Record'
+                    className={style.record}
+                />
             </p> : null
             }
         </div>
