@@ -34,12 +34,11 @@ describe('Record Form', () => {
                 <RecordForm />
             </Router>
         )
-        expect(screen.getByText('Send')).toBeInTheDocument()
+        expect(screen.getByText('SEND')).toBeInTheDocument()
         expect(screen.getByRole("textbox")).toBeInTheDocument()
         expect(screen.getByRole("img")).toHaveAccessibleName('logo')
         expect(screen.getAllByRole("combobox")).toHaveLength(1)
         expect(screen.getAllByRole("button")).toHaveLength(2)
-        expect(screen.getByRole('link')).toHaveAccessibleName('Return')
     })
     test('goes back when Return button is clicked', () => {
         render(
@@ -47,7 +46,7 @@ describe('Record Form', () => {
                 <RecordForm />
             </Router>
         )
-        userEvent.click(screen.getByTestId('submit-button'))
+        userEvent.click(screen.getByText('SEND'))
         /*  expect(mockedNavigate).toHaveBeenCalled() */
 
     })

@@ -128,7 +128,6 @@ export default function RecordForm() {
                                     disabled={!isValid || !dirty || isSubmitting}
                                     label='SEND'
                                     name={'send'}
-                                    data-testid="submit-button"
                                 />
                                 <NavigateButton
                                     route={`/${id}/record`}
