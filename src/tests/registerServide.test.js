@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getPostalZipsForSelect } from '../services/registerService'
+import { getPostalZipsForSelect } from '../services/catalogService'
 
 jest.mock('axios');
 

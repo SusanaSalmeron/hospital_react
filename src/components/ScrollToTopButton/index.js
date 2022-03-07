@@ -10,7 +10,10 @@ const scrollToTop = () => {
 export default function ScrollToTopButton() {
     return (
         <div className={style.top}>
-            <button onClick={scrollToTop}>Go to top</button>
+            <button
+                onClick={scrollToTop}>
+                Go to top
+            </button>
         </div>
     )
 }

@@ -26,7 +26,7 @@ export default function Footer() {
                         </Link>
                     </li>
                     <li>
-                        <Link to={"/contactUs/"}>
+                        <Link to={"/contactUs/"} className={style.contact}>
                             Contact Us
                         </Link>
                     </li>

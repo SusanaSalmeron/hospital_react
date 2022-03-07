@@ -4,7 +4,7 @@ import validationFormForRegister from '../../middleware/validationFormForRegiste
 import { Link } from 'react-router-dom';
 import { ErrorMessage, Formik, Field, Form } from 'formik';
 import Select from 'react-select';
-import { getPostalZipsForSelect, getRegionsForSelect } from '../../services/registerService';
+import { getRegionsForSelect, getPostalZipsForSelect } from '../../services/catalogService'
 import SubmitButton from '../SubmitButton';
 import style from './dataForm.module.css';
 
@@ -51,7 +51,7 @@ export default function DataForm({ userData, isRegistering, submit }) {
         >
             {
                 ({ isSubmitting, dirty, isValid, handleChange, errors, status, values, setFieldValue }) =>
-                    <Form className={style.form}>
+                    <Form className={style.form} data-testid="form">
                         <Field
                             id="name"
                             name="name"
@@ -127,7 +127,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                                     null
                             }
                         </Select>
-
                         <Select
                             value={values.postalZip}
                             options={values.postalZips}
@@ -192,7 +191,6 @@ export default function DataForm({ userData, isRegistering, submit }) {
                             label='SEND'
                             name={'send'}
                         />
-
                         {status && status.email ? <p className={style.error}> {status.email} </p> : null}
                         {isRegistering ? <div className={style.login}>
                             <p>Already have an account? <Link to={('/login')}>
