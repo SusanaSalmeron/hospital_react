@@ -15,7 +15,6 @@ export default function Login() {
 
     const defaultOnSubmit = async (evt) => {
         evt.preventDefault()
-        console.log(evt)
         const { target: { email: { value: email }, password: { value: password } } } = evt
         const loginResult = await login(email, password)
         if (!loginResult.error) {

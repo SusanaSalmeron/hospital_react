@@ -152,6 +152,5 @@ export async function modifyPatientData(id, name, email, address, postalZip, reg
             console.log('Error', err.message)
         }
     }
-
     return result
 }

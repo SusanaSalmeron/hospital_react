@@ -12,6 +12,11 @@ export default function MyAccount() {
     }
 
     return (
-        <button className={style.modifyButton} onClick={handleAccount}>Modify your data</button>
+        <button
+            className={style.modifyButton}
+            onClick={handleAccount}
+        >
+            Modify your data
+        </button>
     )
 }
