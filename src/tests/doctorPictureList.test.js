@@ -8,7 +8,6 @@ describe(('DoctorPictureList'), () => {
         const catalogService = require('../services/catalogService')
         jest.spyOn(catalogService, 'getDoctorsForOptions').mockImplementation(
             () => {
-                console.log('from test')
                 return new Promise((res, rej) => {
                     return res([{
                         id: 1,

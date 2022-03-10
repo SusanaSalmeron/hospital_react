@@ -17,7 +17,6 @@ describe('AppointmentForDoctors', () => {
         )
         expect(screen.getByText('James Smith')).toBeInTheDocument()
         expect(screen.getByText('15/03/2022')).toBeInTheDocument()
-        screen.debug()
         expect(screen.getAllByRole('button')).toHaveLength(1)
         expect(screen.getByRole('button')).toHaveAccessibleName('Done')
     })
