@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 describe('Register', () => {
     test('renders ok', () => {
-        /* render(
+        render(
             <Router>
                 <Register />
             </Router>
@@ -18,6 +18,6 @@ describe('Register', () => {
         expect(screen.queryByText("Log in")).not.toBeNull()
         expect(screen.queryByText("Already have an account?")).toBeTruthy()
         expect(screen.queryByPlaceholderText('Password')).toBeInTheDocument()
-        expect(screen.queryByPlaceholderText('Date of Birth')).toBeInTheDocument() */
+        expect(screen.queryByPlaceholderText('Date of Birth')).toBeInTheDocument()
     })
 })
