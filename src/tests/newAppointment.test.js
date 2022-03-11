@@ -2,12 +2,12 @@ import React from 'react';
 import { render } from 'react-dom';
 import NewAppointment from '../components/NewAppointment';
 
-jest.mock('react-router-dom', () => ({
+/* jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     useParams: () => ({
         id: '4'
     }),
-}))
+})) */
 
 
 describe('New Appointment', () => {
