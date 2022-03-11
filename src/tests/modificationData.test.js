@@ -4,19 +4,19 @@ import { render, act, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom'
 /* import axios from 'axios'; */
 
-/* const mockedNavigate = jest.fn()
+const mockedNavigate = jest.fn()
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     useNavigate: () => mockedNavigate,
     useParams: () => ({
         id: "4"
     })
-})) */
-jest.mock('axios')
+}))
+/* jest.mock('axios') */
 
 describe('ModificationData', () => {
     test('renders ok', async () => {
-        /* const patientService = require('../services/patientService')
+        const patientService = require('../services/patientService')
         jest.spyOn(patientService, 'getPatient').mockImplementation(
             (key) => {
                 return new Promise((res, rej) => {
@@ -35,7 +35,7 @@ describe('ModificationData', () => {
                         diagnostics: "cold"
                     })
                 })
-            }) */
+            })
         /* axios.put('http://localhost:3001/v1/patients/4', {
             name: "Samantha Stuart",
             address: "Calle del Olvido, 3",
@@ -47,7 +47,7 @@ describe('ModificationData', () => {
             ssnumber: "123455",
             company: "Sanitas"
         }) */
-        /* const catalogService = require('../services/catalogService')
+        const catalogService = require('../services/catalogService')
         jest.spyOn(catalogService, 'getRegionsForSelect').mockImplementation(
             () => {
                 return new Promise((res, rej) => {
@@ -71,6 +71,6 @@ describe('ModificationData', () => {
         expect(screen.queryByText("Log in")).toBeNull()
         expect(screen.queryByText("Already have an account?")).toBeFalsy()
         expect(screen.queryByPlaceholderText('Password')).not.toBeInTheDocument()
-        expect(screen.queryByPlaceholderText('Date of Birth')).not.toBeInTheDocument() */
+        expect(screen.queryByPlaceholderText('Date of Birth')).not.toBeInTheDocument()
     })
 })
