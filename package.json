@@ -28,7 +28,7 @@
     "react-error-overlay": "6.0.9"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "5.16.2",
+    "@testing-library/jest-dom": "5.17.0",
     "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "13.5.0",
     "react-error-overlay": "6.0.9"
