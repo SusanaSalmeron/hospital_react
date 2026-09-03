@@ -10,7 +10,7 @@
     "buffer": "6.0.3",
     "crypto-js": "4.1.1",
     "dayjs": "1.10.7",
-    "formik": "2.2.9",
+    "formik": "2.4.9",
     "jsonwebtoken": "8.5.1",
     "react": "17.0.2",
     "react-calendar": "3.7.0",
